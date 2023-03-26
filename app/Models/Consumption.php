@@ -11,8 +11,8 @@ class Consumption extends Model
         'consumed_at', 'amount', 'food_id', 'user_id',
     ];
 
-    protected $dates = [
-        'consumed_at',
+    protected $casts = [
+        'consumed_at' => 'date',
     ];
 
     public function food()

@@ -10,8 +10,8 @@ class Weight extends Model
         'date', 'weight', 'user_id',
     ];
 
-    protected $dates = [
-        'date',
+    protected $casts = [
+        'date' => 'date',
     ];
 
     public function user()

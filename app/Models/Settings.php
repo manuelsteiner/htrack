@@ -11,8 +11,8 @@ class Settings extends Model
         'timezone', 'gender', 'age', 'height', 'calorie_target', 'goal_weight', 'user_id',
     ];
 
-    protected $dates = [
-        'birthday',
+    protected $casts = [
+        'birthday' => 'date',
     ];
 
     public function user()
