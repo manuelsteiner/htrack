@@ -1,0 +1,210 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@8.19.2
+2 info using node@v16.18.0
+3 timing npm:load:whichnode Completed in 0ms
+4 timing config:load:defaults Completed in 1ms
+5 timing config:load:file:/usr/local/lib/node_modules/npm/npmrc Completed in 0ms
+6 timing config:load:builtin Completed in 0ms
+7 timing config:load:cli Completed in 1ms
+8 timing config:load:env Completed in 0ms
+9 timing config:load:project Completed in 5ms
+10 timing config:load:file:/root/.npmrc Completed in 0ms
+11 timing config:load:user Completed in 0ms
+12 timing config:load:file:/usr/local/etc/npmrc Completed in 0ms
+13 timing config:load:global Completed in 0ms
+14 timing config:load:validate Completed in 0ms
+15 timing config:load:credentials Completed in 1ms
+16 timing config:load:setEnvs Completed in 0ms
+17 timing config:load Completed in 8ms
+18 timing npm:load:configload Completed in 8ms
+19 timing npm:load:mkdirpcache Completed in 1ms
+20 timing npm:load:mkdirplogs Completed in 0ms
+21 verbose title npm install larevel-mix@5
+22 verbose argv "install" "larevel-mix@5"
+23 timing npm:load:setTitle Completed in 1ms
+24 timing config:load:flatten Completed in 1ms
+25 timing npm:load:display Completed in 2ms
+26 verbose logfile logs-max:10 dir:/root/.npm/_logs
+27 verbose logfile /root/.npm/_logs/2023-03-25T20_48_10_867Z-debug-0.log
+28 timing npm:load:logFile Completed in 4ms
+29 timing npm:load:timers Completed in 0ms
+30 timing npm:load:configScope Completed in 0ms
+31 timing npm:load Completed in 17ms
+32 timing arborist:ctor Completed in 0ms
+33 silly logfile done cleaning log files
+34 timing arborist:ctor Completed in 0ms
+35 timing idealTree:init Completed in 873ms
+36 timing idealTree:userRequests Completed in 1ms
+37 silly idealTree buildDeps
+38 silly fetch manifest larevel-mix@5
+39 http fetch GET 404 https://registry.npmjs.org/larevel-mix 67ms (cache skip)
+40 http fetch GET 404 https://registry.npmjs.org/larevel-mix 25ms (cache skip)
+41 silly fetch manifest axios@^1.1.2
+42 http fetch GET 200 https://registry.npmjs.org/axios 11ms (cache hit)
+43 silly fetch manifest cross-env@^7.0
+44 http fetch GET 200 https://registry.npmjs.org/cross-env 5ms (cache hit)
+45 silly fetch manifest lodash@^4.17.19
+46 http fetch GET 200 https://registry.npmjs.org/lodash 4ms (cache hit)
+47 silly fetch manifest resolve-url-loader@^3.1.0
+48 http fetch GET 200 https://registry.npmjs.org/resolve-url-loader 4ms (cache hit)
+49 silly placeDep ROOT axios@1.3.4 REPLACE for:  want: ^1.1.2
+50 silly placeDep ROOT cross-env@7.0.3 REPLACE for:  want: ^7.0
+51 silly placeDep ROOT larevel-mix@ OK for:  want: 5
+52 silly placeDep ROOT lodash@4.17.21 REPLACE for:  want: ^4.17.19
+53 silly placeDep ROOT resolve-url-loader@3.1.5 REPLACE for:  want: ^3.1.0
+54 silly fetch manifest follow-redirects@^1.15.0
+55 silly fetch manifest form-data@^4.0.0
+56 silly fetch manifest proxy-from-env@^1.1.0
+57 silly fetch manifest cross-spawn@^7.0.1
+58 silly fetch manifest adjust-sourcemap-loader@3.0.0
+59 silly fetch manifest compose-function@3.0.3
+60 silly fetch manifest convert-source-map@1.7.0
+61 silly fetch manifest es6-iterator@2.0.3
+62 silly fetch manifest postcss@7.0.36
+63 silly fetch manifest source-map@0.6.1
+64 http fetch GET 200 https://registry.npmjs.org/proxy-from-env 19ms (cache hit)
+65 http fetch GET 200 https://registry.npmjs.org/convert-source-map 17ms (cache hit)
+66 http fetch GET 200 https://registry.npmjs.org/adjust-sourcemap-loader 19ms (cache hit)
+67 http fetch GET 200 https://registry.npmjs.org/form-data 21ms (cache hit)
+68 http fetch GET 200 https://registry.npmjs.org/cross-spawn 21ms (cache hit)
+69 http fetch GET 200 https://registry.npmjs.org/source-map 20ms (cache hit)
+70 http fetch GET 200 https://registry.npmjs.org/compose-function 21ms (cache hit)
+71 http fetch GET 200 https://registry.npmjs.org/follow-redirects 25ms (cache hit)
+72 http fetch GET 200 https://registry.npmjs.org/es6-iterator 23ms (cache hit)
+73 http fetch GET 200 https://registry.npmjs.org/postcss 24ms (cache hit)
+74 timing idealTree:#root Completed in 166ms
+75 silly placeDep ROOT follow-redirects@1.15.2 REPLACE for: axios@1.3.4 want: ^1.15.0
+76 silly placeDep ROOT form-data@4.0.0 OK for: axios@1.3.4 want: ^4.0.0
+77 silly placeDep ROOT proxy-from-env@1.1.0 OK for: axios@1.3.4 want: ^1.1.0
+78 silly fetch manifest asynckit@^0.4.0
+79 silly fetch manifest combined-stream@^1.0.8
+80 http fetch GET 200 https://registry.npmjs.org/combined-stream 5ms (cache hit)
+81 http fetch GET 200 https://registry.npmjs.org/asynckit 6ms (cache hit)
+82 timing idealTree:node_modules/axios Completed in 11ms
+83 silly placeDep node_modules/cross-env cross-spawn@7.0.3 OK for: cross-env@7.0.3 want: ^7.0.1
+84 silly fetch manifest path-key@^3.1.0
+85 silly fetch manifest shebang-command@^2.0.0
+86 silly fetch manifest which@^2.0.1
+87 http fetch GET 200 https://registry.npmjs.org/which 6ms (cache hit)
+88 http fetch GET 200 https://registry.npmjs.org/path-key 8ms (cache hit)
+89 http fetch GET 200 https://registry.npmjs.org/shebang-command 7ms (cache hit)
+90 timing idealTree:node_modules/cross-env Completed in 9ms
+91 timing idealTree:node_modules/follow-redirects Completed in 0ms
+92 silly placeDep ROOT asynckit@0.4.0 OK for: form-data@4.0.0 want: ^0.4.0
+93 silly placeDep ROOT combined-stream@1.0.8 OK for: form-data@4.0.0 want: ^1.0.8
+94 silly fetch manifest delayed-stream@~1.0.0
+95 http fetch GET 200 https://registry.npmjs.org/delayed-stream 6ms (cache hit)
+96 timing idealTree:node_modules/form-data Completed in 8ms
+97 timing idealTree:node_modules/asynckit Completed in 0ms
+98 silly placeDep ROOT delayed-stream@1.0.0 OK for: combined-stream@1.0.8 want: ~1.0.0
+99 timing idealTree:node_modules/combined-stream Completed in 1ms
+100 timing idealTree:node_modules/delayed-stream Completed in 0ms
+101 timing idealTree:node_modules/larevel-mix Completed in 0ms
+102 timing idealTree:node_modules/lodash Completed in 0ms
+103 timing idealTree:node_modules/proxy-from-env Completed in 0ms
+104 silly placeDep ROOT adjust-sourcemap-loader@3.0.0 OK for: resolve-url-loader@3.1.5 want: 3.0.0
+105 silly placeDep ROOT compose-function@3.0.3 OK for: resolve-url-loader@3.1.5 want: 3.0.3
+106 silly placeDep ROOT convert-source-map@1.7.0 REPLACE for: resolve-url-loader@3.1.5 want: 1.7.0
+107 silly placeDep ROOT es6-iterator@2.0.3 OK for: resolve-url-loader@3.1.5 want: 2.0.3
+108 silly placeDep ROOT postcss@7.0.36 REPLACE for: resolve-url-loader@3.1.5 want: 7.0.36
+109 silly placeDep node_modules/resolve-url-loader source-map@0.6.1 OK for: resolve-url-loader@3.1.5 want: 0.6.1
+110 silly fetch manifest loader-utils@^2.0.0
+111 silly fetch manifest regex-parser@^2.2.11
+112 silly fetch manifest arity-n@^1.0.4
+113 silly fetch manifest d@1
+114 silly fetch manifest es5-ext@^0.10.35
+115 silly fetch manifest es6-symbol@^3.1.1
+116 http fetch GET 200 https://registry.npmjs.org/es5-ext 11ms (cache hit)
+117 http fetch GET 200 https://registry.npmjs.org/arity-n 13ms (cache hit)
+118 http fetch GET 200 https://registry.npmjs.org/es6-symbol 13ms (cache hit)
+119 http fetch GET 200 https://registry.npmjs.org/d 14ms (cache hit)
+120 http fetch GET 200 https://registry.npmjs.org/loader-utils 15ms (cache hit)
+121 http fetch GET 200 https://registry.npmjs.org/regex-parser 15ms (cache hit)
+122 timing idealTree:node_modules/resolve-url-loader Completed in 25ms
+123 silly placeDep node_modules/adjust-sourcemap-loader loader-utils@2.0.4 OK for: adjust-sourcemap-loader@3.0.0 want: ^2.0.0
+124 silly placeDep ROOT regex-parser@2.2.11 OK for: adjust-sourcemap-loader@3.0.0 want: ^2.2.11
+125 silly fetch manifest emojis-list@^3.0.0
+126 silly fetch manifest json5@^2.1.2
+127 http fetch GET 200 https://registry.npmjs.org/json5 5ms (cache hit)
+128 http fetch GET 200 https://registry.npmjs.org/emojis-list 5ms (cache hit)
+129 timing idealTree:node_modules/adjust-sourcemap-loader Completed in 7ms
+130 silly placeDep ROOT arity-n@1.0.4 OK for: compose-function@3.0.3 want: ^1.0.4
+131 timing idealTree:node_modules/compose-function Completed in 1ms
+132 timing idealTree:node_modules/arity-n Completed in 0ms
+133 timing idealTree:node_modules/convert-source-map Completed in 0ms
+134 silly placeDep ROOT d@1.0.1 OK for: es6-iterator@2.0.3 want: 1
+135 silly placeDep ROOT es5-ext@0.10.62 OK for: es6-iterator@2.0.3 want: ^0.10.35
+136 silly placeDep ROOT es6-symbol@3.1.3 OK for: es6-iterator@2.0.3 want: ^3.1.1
+137 silly fetch manifest type@^1.0.1
+138 silly fetch manifest next-tick@^1.1.0
+139 silly fetch manifest ext@^1.1.2
+140 http fetch GET 200 https://registry.npmjs.org/ext 7ms (cache hit)
+141 http fetch GET 200 https://registry.npmjs.org/type 9ms (cache hit)
+142 http fetch GET 200 https://registry.npmjs.org/next-tick 9ms (cache hit)
+143 timing idealTree:node_modules/es6-iterator Completed in 13ms
+144 silly placeDep ROOT type@1.2.0 OK for: d@1.0.1 want: ^1.0.1
+145 timing idealTree:node_modules/d Completed in 1ms
+146 silly placeDep ROOT next-tick@1.1.0 OK for: es5-ext@0.10.62 want: ^1.1.0
+147 timing idealTree:node_modules/es5-ext Completed in 0ms
+148 silly placeDep ROOT ext@1.7.0 OK for: es6-symbol@3.1.3 want: ^1.1.2
+149 silly fetch manifest type@^2.7.2
+150 timing idealTree:node_modules/es6-symbol Completed in 0ms
+151 silly placeDep node_modules/ext type@2.7.2 OK for: ext@1.7.0 want: ^2.7.2
+152 timing idealTree:node_modules/ext Completed in 0ms
+153 timing idealTree:node_modules/next-tick Completed in 0ms
+154 timing idealTree:node_modules/postcss Completed in 0ms
+155 timing idealTree:node_modules/regex-parser Completed in 0ms
+156 timing idealTree:node_modules/type Completed in 0ms
+157 silly placeDep node_modules/adjust-sourcemap-loader emojis-list@3.0.0 OK for: loader-utils@2.0.4 want: ^3.0.0
+158 silly placeDep ROOT json5@2.2.3 REPLACE for: loader-utils@2.0.4 want: ^2.1.2
+159 timing idealTree:node_modules/adjust-sourcemap-loader/node_modules/loader-utils Completed in 2ms
+160 timing idealTree:node_modules/json5 Completed in 0ms
+161 timing idealTree:node_modules/adjust-sourcemap-loader/node_modules/emojis-list Completed in 0ms
+162 silly placeDep node_modules/cross-env path-key@3.1.1 OK for: cross-spawn@7.0.3 want: ^3.1.0
+163 silly placeDep node_modules/cross-env shebang-command@2.0.0 OK for: cross-spawn@7.0.3 want: ^2.0.0
+164 silly placeDep node_modules/cross-env which@2.0.2 OK for: cross-spawn@7.0.3 want: ^2.0.1
+165 silly fetch manifest shebang-regex@^3.0.0
+166 http fetch GET 200 https://registry.npmjs.org/shebang-regex 3ms (cache hit)
+167 timing idealTree:node_modules/cross-env/node_modules/cross-spawn Completed in 6ms
+168 timing idealTree:node_modules/cross-env/node_modules/path-key Completed in 0ms
+169 silly placeDep node_modules/cross-env shebang-regex@3.0.0 OK for: shebang-command@2.0.0 want: ^3.0.0
+170 timing idealTree:node_modules/cross-env/node_modules/shebang-command Completed in 0ms
+171 timing idealTree:node_modules/cross-env/node_modules/shebang-regex Completed in 0ms
+172 timing idealTree:node_modules/cross-env/node_modules/which Completed in 0ms
+173 timing idealTree:node_modules/ext/node_modules/type Completed in 0ms
+174 timing idealTree:node_modules/resolve-url-loader/node_modules/source-map Completed in 0ms
+175 timing idealTree:buildDeps Completed in 262ms
+176 timing idealTree:fixDepFlags Completed in 22ms
+177 timing idealTree Completed in 1161ms
+178 timing command:install Completed in 1164ms
+179 verbose stack HttpErrorGeneral: 404 Not Found - GET https://registry.npmjs.org/larevel-mix - Not found
+179 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/npm-registry-fetch/lib/check-response.js:95:15
+179 verbose stack     at processTicksAndRejections (node:internal/process/task_queues:96:5)
+179 verbose stack     at async RegistryFetcher.packument (/usr/local/lib/node_modules/npm/node_modules/pacote/lib/registry.js:92:19)
+179 verbose stack     at async RegistryFetcher.manifest (/usr/local/lib/node_modules/npm/node_modules/pacote/lib/registry.js:124:23)
+179 verbose stack     at async Arborist.[nodeFromEdge] (/usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1061:19)
+179 verbose stack     at async Arborist.[buildDepStep] (/usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:930:11)
+179 verbose stack     at async Arborist.buildIdealTree (/usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:211:7)
+179 verbose stack     at async Promise.all (index 1)
+179 verbose stack     at async Arborist.reify (/usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:153:5)
+179 verbose stack     at async Install.exec (/usr/local/lib/node_modules/npm/lib/commands/install.js:145:5)
+180 verbose statusCode 404
+181 verbose pkgid larevel-mix@5
+182 verbose cwd /root
+183 verbose Linux 5.15.49-linuxkit
+184 verbose node v16.18.0
+185 verbose npm  v8.19.2
+186 error code E404
+187 error 404 Not Found - GET https://registry.npmjs.org/larevel-mix - Not found
+188 error 404
+189 error 404  'larevel-mix@5' is not in this registry.
+190 error 404
+190 error 404 Note that you can also install from a
+191 error 404 tarball, folder, http url, or git url.
+192 verbose exit 1
+193 timing npm Completed in 1216ms
+194 verbose unfinished npm timer reify 1679777290916
+195 verbose unfinished npm timer reify:loadTrees 1679777290917
+196 verbose code 1
+197 error A complete log of this run can be found in:
+197 error     /root/.npm/_logs/2023-03-25T20_48_10_867Z-debug-0.log

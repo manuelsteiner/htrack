@@ -1,0 +1,1282 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@8.19.2
+2 info using node@v16.18.0
+3 timing npm:load:whichnode Completed in 0ms
+4 timing config:load:defaults Completed in 0ms
+5 timing config:load:file:/usr/local/lib/node_modules/npm/npmrc Completed in 1ms
+6 timing config:load:builtin Completed in 1ms
+7 timing config:load:cli Completed in 1ms
+8 timing config:load:env Completed in 0ms
+9 timing config:load:project Completed in 5ms
+10 timing config:load:file:/root/.npmrc Completed in 0ms
+11 timing config:load:user Completed in 0ms
+12 timing config:load:file:/usr/local/etc/npmrc Completed in 0ms
+13 timing config:load:global Completed in 0ms
+14 timing config:load:validate Completed in 0ms
+15 timing config:load:credentials Completed in 1ms
+16 timing config:load:setEnvs Completed in 0ms
+17 timing config:load Completed in 8ms
+18 timing npm:load:configload Completed in 9ms
+19 timing npm:load:mkdirpcache Completed in 1ms
+20 timing npm:load:mkdirplogs Completed in 0ms
+21 verbose title npm install vue-loader@^15.9.8
+22 verbose argv "install" "vue-loader@^15.9.8" "--save-dev" "--legacy-peer-deps"
+23 timing npm:load:setTitle Completed in 0ms
+24 timing config:load:flatten Completed in 1ms
+25 timing npm:load:display Completed in 2ms
+26 verbose logfile logs-max:10 dir:/root/.npm/_logs
+27 verbose logfile /root/.npm/_logs/2023-03-25T20_53_20_010Z-debug-0.log
+28 timing npm:load:logFile Completed in 7ms
+29 timing npm:load:timers Completed in 0ms
+30 timing npm:load:configScope Completed in 0ms
+31 timing npm:load Completed in 21ms
+32 timing arborist:ctor Completed in 0ms
+33 silly logfile start cleaning logs, removing 1 files
+34 silly logfile done cleaning log files
+35 timing idealTree:init Completed in 278ms
+36 timing idealTree:userRequests Completed in 2ms
+37 silly idealTree buildDeps
+38 silly fetch manifest vue-loader@^15.9.8
+39 timing arborist:ctor Completed in 0ms
+40 http fetch GET 200 https://registry.npmjs.org/vue-loader 309ms (cache revalidated)
+41 silly placeDep ROOT vue-loader@15.10.1 OK for:  want: ^15.9.8
+42 silly fetch manifest @vue/component-compiler-utils@^3.1.0
+43 silly fetch manifest vue-hot-reload-api@^2.3.0
+44 http fetch GET 200 https://registry.npmjs.org/vue-hot-reload-api 45ms (cache revalidated)
+45 http fetch GET 200 https://registry.npmjs.org/@vue%2fcomponent-compiler-utils 54ms (cache revalidated)
+46 timing idealTree:#root Completed in 373ms
+47 silly placeDep ROOT @vue/component-compiler-utils@3.3.0 OK for: vue-loader@15.10.1 want: ^3.1.0
+48 silly placeDep ROOT vue-hot-reload-api@2.3.4 OK for: vue-loader@15.10.1 want: ^2.3.0
+49 silly fetch manifest consolidate@^0.15.1
+50 silly fetch manifest lru-cache@^4.1.2
+51 silly fetch manifest merge-source-map@^1.1.0
+52 silly fetch manifest postcss@^7.0.36
+53 silly fetch manifest source-map@~0.6.1
+54 silly fetch manifest vue-template-es2015-compiler@^1.9.0
+55 silly fetch manifest prettier@^1.18.2 || ^2.0.0
+56 http fetch GET 200 https://registry.npmjs.org/lru-cache 20ms (cache hit)
+57 http fetch GET 200 https://registry.npmjs.org/source-map 36ms (cache revalidated)
+58 http fetch GET 200 https://registry.npmjs.org/merge-source-map 44ms (cache revalidated)
+59 http fetch GET 200 https://registry.npmjs.org/postcss 53ms (cache revalidated)
+60 http fetch GET 200 https://registry.npmjs.org/consolidate 62ms (cache revalidated)
+61 http fetch GET 200 https://registry.npmjs.org/prettier 62ms (cache revalidated)
+62 http fetch GET 200 https://registry.npmjs.org/vue-template-es2015-compiler 65ms (cache revalidated)
+63 timing idealTree:node_modules/vue-loader Completed in 73ms
+64 silly placeDep ROOT consolidate@0.15.1 OK for: @vue/component-compiler-utils@3.3.0 want: ^0.15.1
+65 silly placeDep node_modules/@vue/component-compiler-utils lru-cache@4.1.5 OK for: @vue/component-compiler-utils@3.3.0 want: ^4.1.2
+66 silly placeDep ROOT merge-source-map@1.1.0 OK for: @vue/component-compiler-utils@3.3.0 want: ^1.1.0
+67 silly placeDep node_modules/@vue/component-compiler-utils postcss@7.0.39 OK for: @vue/component-compiler-utils@3.3.0 want: ^7.0.36
+68 silly placeDep ROOT prettier@2.8.7 OK for: @vue/component-compiler-utils@3.3.0 want: ^1.18.2 || ^2.0.0
+69 silly placeDep node_modules/@vue/component-compiler-utils source-map@0.6.1 OK for: @vue/component-compiler-utils@3.3.0 want: ~0.6.1
+70 silly placeDep ROOT vue-template-es2015-compiler@1.9.1 OK for: @vue/component-compiler-utils@3.3.0 want: ^1.9.0
+71 silly fetch manifest bluebird@^3.1.1
+72 silly fetch manifest pseudomap@^1.0.2
+73 silly fetch manifest yallist@^2.1.2
+74 silly fetch manifest source-map@^0.6.1
+75 silly fetch manifest picocolors@^0.2.1
+76 http fetch GET 200 https://registry.npmjs.org/picocolors 18ms (cache hit)
+77 http fetch GET 200 https://registry.npmjs.org/yallist 18ms (cache hit)
+78 http fetch GET 200 https://registry.npmjs.org/pseudomap 41ms (cache revalidated)
+79 http fetch GET 200 https://registry.npmjs.org/bluebird 43ms (cache revalidated)
+80 timing idealTree:node_modules/@vue/component-compiler-utils Completed in 49ms
+81 silly placeDep ROOT bluebird@3.7.2 OK for: consolidate@0.15.1 want: ^3.1.1
+82 timing idealTree:node_modules/consolidate Completed in 2ms
+83 timing idealTree:node_modules/bluebird Completed in 0ms
+84 silly placeDep node_modules/merge-source-map source-map@0.6.1 OK for: merge-source-map@1.1.0 want: ^0.6.1
+85 timing idealTree:node_modules/merge-source-map Completed in 1ms
+86 timing idealTree:node_modules/prettier Completed in 0ms
+87 timing idealTree:node_modules/vue-hot-reload-api Completed in 0ms
+88 timing idealTree:node_modules/vue-template-es2015-compiler Completed in 0ms
+89 silly placeDep ROOT pseudomap@1.0.2 OK for: lru-cache@4.1.5 want: ^1.0.2
+90 silly placeDep node_modules/@vue/component-compiler-utils yallist@2.1.2 OK for: lru-cache@4.1.5 want: ^2.1.2
+91 timing idealTree:node_modules/@vue/component-compiler-utils/node_modules/lru-cache Completed in 1ms
+92 timing idealTree:node_modules/pseudomap Completed in 0ms
+93 silly placeDep node_modules/@vue/component-compiler-utils picocolors@0.2.1 OK for: postcss@7.0.39 want: ^0.2.1
+94 timing idealTree:node_modules/@vue/component-compiler-utils/node_modules/postcss Completed in 0ms
+95 timing idealTree:node_modules/@vue/component-compiler-utils/node_modules/picocolors Completed in 0ms
+96 timing idealTree:node_modules/@vue/component-compiler-utils/node_modules/source-map Completed in 0ms
+97 timing idealTree:node_modules/@vue/component-compiler-utils/node_modules/yallist Completed in 0ms
+98 timing idealTree:node_modules/merge-source-map/node_modules/source-map Completed in 0ms
+99 timing idealTree:buildDeps Completed in 503ms
+100 timing idealTree:fixDepFlags Completed in 7ms
+101 timing idealTree Completed in 796ms
+102 timing reify:loadTrees Completed in 796ms
+103 timing reify:diffTrees Completed in 19ms
+104 silly reify moves {}
+105 timing reify:retireShallow Completed in 0ms
+106 timing reify:createSparse Completed in 6ms
+107 silly reify mark deleted [ '/root/node_modules/@ampproject/remapping' ]
+108 silly reify mark deleted [ '/root/node_modules/@babel/code-frame' ]
+109 silly reify mark deleted [ '/root/node_modules/@babel/compat-data' ]
+110 silly reify mark deleted [ '/root/node_modules/@babel/core' ]
+111 silly reify mark deleted [
+111 silly reify   '/root/node_modules/@babel/core/node_modules/semver',
+111 silly reify   '/root/node_modules/@babel/core/node_modules/.bin/semver'
+111 silly reify ]
+112 silly reify mark deleted [ '/root/node_modules/@babel/generator' ]
+113 silly reify mark deleted [
+113 silly reify   '/root/node_modules/@babel/generator/node_modules/@jridgewell/gen-mapping'
+113 silly reify ]
+114 silly reify mark deleted [ '/root/node_modules/@babel/helper-annotate-as-pure' ]
+115 silly reify mark deleted [
+115 silly reify   '/root/node_modules/@babel/helper-builder-binary-assignment-operator-visitor'
+115 silly reify ]
+116 silly reify mark deleted [ '/root/node_modules/@babel/helper-compilation-targets' ]
+117 silly reify mark deleted [
+117 silly reify   '/root/node_modules/@babel/helper-compilation-targets/node_modules/semver',
+117 silly reify   '/root/node_modules/@babel/helper-compilation-targets/node_modules/.bin/semver'
+117 silly reify ]
+118 silly reify mark deleted [ '/root/node_modules/@babel/helper-create-class-features-plugin' ]
+119 silly reify mark deleted [ '/root/node_modules/@babel/helper-create-regexp-features-plugin' ]
+120 silly reify mark deleted [ '/root/node_modules/@babel/helper-define-polyfill-provider' ]
+121 silly reify mark deleted [
+121 silly reify   '/root/node_modules/@babel/helper-define-polyfill-provider/node_modules/semver',
+121 silly reify   '/root/node_modules/@babel/helper-define-polyfill-provider/node_modules/.bin/semver'
+121 silly reify ]
+122 silly reify mark deleted [ '/root/node_modules/@babel/helper-environment-visitor' ]
+123 silly reify mark deleted [ '/root/node_modules/@babel/helper-explode-assignable-expression' ]
+124 silly reify mark deleted [ '/root/node_modules/@babel/helper-function-name' ]
+125 silly reify mark deleted [ '/root/node_modules/@babel/helper-hoist-variables' ]
+126 silly reify mark deleted [ '/root/node_modules/@babel/helper-member-expression-to-functions' ]
+127 silly reify mark deleted [ '/root/node_modules/@babel/helper-module-imports' ]
+128 silly reify mark deleted [ '/root/node_modules/@babel/helper-module-transforms' ]
+129 silly reify mark deleted [ '/root/node_modules/@babel/helper-optimise-call-expression' ]
+130 silly reify mark deleted [ '/root/node_modules/@babel/helper-plugin-utils' ]
+131 silly reify mark deleted [ '/root/node_modules/@babel/helper-remap-async-to-generator' ]
+132 silly reify mark deleted [ '/root/node_modules/@babel/helper-replace-supers' ]
+133 silly reify mark deleted [ '/root/node_modules/@babel/helper-simple-access' ]
+134 silly reify mark deleted [
+134 silly reify   '/root/node_modules/@babel/helper-skip-transparent-expression-wrappers'
+134 silly reify ]
+135 silly reify mark deleted [ '/root/node_modules/@babel/helper-split-export-declaration' ]
+136 silly reify mark deleted [ '/root/node_modules/@babel/helper-string-parser' ]
+137 silly reify mark deleted [ '/root/node_modules/@babel/helper-validator-identifier' ]
+138 silly reify mark deleted [ '/root/node_modules/@babel/helper-validator-option' ]
+139 silly reify mark deleted [ '/root/node_modules/@babel/helper-wrap-function' ]
+140 silly reify mark deleted [ '/root/node_modules/@babel/helpers' ]
+141 silly reify mark deleted [ '/root/node_modules/@babel/highlight' ]
+142 silly reify mark deleted [ '/root/node_modules/@babel/highlight/node_modules/ansi-styles' ]
+143 silly reify mark deleted [ '/root/node_modules/@babel/highlight/node_modules/chalk' ]
+144 silly reify mark deleted [ '/root/node_modules/@babel/highlight/node_modules/color-convert' ]
+145 silly reify mark deleted [ '/root/node_modules/@babel/highlight/node_modules/color-name' ]
+146 silly reify mark deleted [ '/root/node_modules/@babel/highlight/node_modules/has-flag' ]
+147 silly reify mark deleted [ '/root/node_modules/@babel/highlight/node_modules/supports-color' ]
+148 silly reify mark deleted [
+148 silly reify   '/root/node_modules/@babel/parser',
+148 silly reify   '/root/node_modules/.bin/parser'
+148 silly reify ]
+149 silly reify mark deleted [
+149 silly reify   '/root/node_modules/@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression'
+149 silly reify ]
+150 silly reify mark deleted [
+150 silly reify   '/root/node_modules/@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining'
+150 silly reify ]
+151 silly reify mark deleted [
+151 silly reify   '/root/node_modules/@babel/plugin-proposal-async-generator-functions'
+151 silly reify ]
+152 silly reify mark deleted [ '/root/node_modules/@babel/plugin-proposal-class-properties' ]
+153 silly reify mark deleted [ '/root/node_modules/@babel/plugin-proposal-class-static-block' ]
+154 silly reify mark deleted [ '/root/node_modules/@babel/plugin-proposal-dynamic-import' ]
+155 silly reify mark deleted [ '/root/node_modules/@babel/plugin-proposal-export-namespace-from' ]
+156 silly reify mark deleted [ '/root/node_modules/@babel/plugin-proposal-json-strings' ]
+157 silly reify mark deleted [
+157 silly reify   '/root/node_modules/@babel/plugin-proposal-logical-assignment-operators'
+157 silly reify ]
+158 silly reify mark deleted [
+158 silly reify   '/root/node_modules/@babel/plugin-proposal-nullish-coalescing-operator'
+158 silly reify ]
+159 silly reify mark deleted [ '/root/node_modules/@babel/plugin-proposal-numeric-separator' ]
+160 silly reify mark deleted [ '/root/node_modules/@babel/plugin-proposal-object-rest-spread' ]
+161 silly reify mark deleted [ '/root/node_modules/@babel/plugin-proposal-optional-catch-binding' ]
+162 silly reify mark deleted [ '/root/node_modules/@babel/plugin-proposal-optional-chaining' ]
+163 silly reify mark deleted [ '/root/node_modules/@babel/plugin-proposal-private-methods' ]
+164 silly reify mark deleted [
+164 silly reify   '/root/node_modules/@babel/plugin-proposal-private-property-in-object'
+164 silly reify ]
+165 silly reify mark deleted [ '/root/node_modules/@babel/plugin-proposal-unicode-property-regex' ]
+166 silly reify mark deleted [ '/root/node_modules/@babel/plugin-syntax-async-generators' ]
+167 silly reify mark deleted [ '/root/node_modules/@babel/plugin-syntax-class-properties' ]
+168 silly reify mark deleted [ '/root/node_modules/@babel/plugin-syntax-class-static-block' ]
+169 silly reify mark deleted [ '/root/node_modules/@babel/plugin-syntax-dynamic-import' ]
+170 silly reify mark deleted [ '/root/node_modules/@babel/plugin-syntax-export-namespace-from' ]
+171 silly reify mark deleted [ '/root/node_modules/@babel/plugin-syntax-import-assertions' ]
+172 silly reify mark deleted [ '/root/node_modules/@babel/plugin-syntax-json-strings' ]
+173 silly reify mark deleted [
+173 silly reify   '/root/node_modules/@babel/plugin-syntax-logical-assignment-operators'
+173 silly reify ]
+174 silly reify mark deleted [
+174 silly reify   '/root/node_modules/@babel/plugin-syntax-nullish-coalescing-operator'
+174 silly reify ]
+175 silly reify mark deleted [ '/root/node_modules/@babel/plugin-syntax-numeric-separator' ]
+176 silly reify mark deleted [ '/root/node_modules/@babel/plugin-syntax-object-rest-spread' ]
+177 silly reify mark deleted [ '/root/node_modules/@babel/plugin-syntax-optional-catch-binding' ]
+178 silly reify mark deleted [ '/root/node_modules/@babel/plugin-syntax-optional-chaining' ]
+179 silly reify mark deleted [
+179 silly reify   '/root/node_modules/@babel/plugin-syntax-private-property-in-object'
+179 silly reify ]
+180 silly reify mark deleted [ '/root/node_modules/@babel/plugin-syntax-top-level-await' ]
+181 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-arrow-functions' ]
+182 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-async-to-generator' ]
+183 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-block-scoped-functions' ]
+184 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-block-scoping' ]
+185 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-classes' ]
+186 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-computed-properties' ]
+187 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-destructuring' ]
+188 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-dotall-regex' ]
+189 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-duplicate-keys' ]
+190 silly reify mark deleted [
+190 silly reify   '/root/node_modules/@babel/plugin-transform-exponentiation-operator'
+190 silly reify ]
+191 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-for-of' ]
+192 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-function-name' ]
+193 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-literals' ]
+194 silly reify mark deleted [
+194 silly reify   '/root/node_modules/@babel/plugin-transform-member-expression-literals'
+194 silly reify ]
+195 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-modules-amd' ]
+196 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-modules-commonjs' ]
+197 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-modules-systemjs' ]
+198 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-modules-umd' ]
+199 silly reify mark deleted [
+199 silly reify   '/root/node_modules/@babel/plugin-transform-named-capturing-groups-regex'
+199 silly reify ]
+200 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-new-target' ]
+201 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-object-super' ]
+202 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-parameters' ]
+203 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-property-literals' ]
+204 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-regenerator' ]
+205 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-reserved-words' ]
+206 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-runtime' ]
+207 silly reify mark deleted [
+207 silly reify   '/root/node_modules/@babel/plugin-transform-runtime/node_modules/semver',
+207 silly reify   '/root/node_modules/@babel/plugin-transform-runtime/node_modules/.bin/semver'
+207 silly reify ]
+208 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-shorthand-properties' ]
+209 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-spread' ]
+210 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-sticky-regex' ]
+211 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-template-literals' ]
+212 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-typeof-symbol' ]
+213 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-unicode-escapes' ]
+214 silly reify mark deleted [ '/root/node_modules/@babel/plugin-transform-unicode-regex' ]
+215 silly reify mark deleted [ '/root/node_modules/@babel/preset-env' ]
+216 silly reify mark deleted [
+216 silly reify   '/root/node_modules/@babel/preset-env/node_modules/semver',
+216 silly reify   '/root/node_modules/@babel/preset-env/node_modules/.bin/semver'
+216 silly reify ]
+217 silly reify mark deleted [ '/root/node_modules/@babel/preset-modules' ]
+218 silly reify mark deleted [ '/root/node_modules/@babel/regjsgen' ]
+219 silly reify mark deleted [ '/root/node_modules/@babel/runtime' ]
+220 silly reify mark deleted [ '/root/node_modules/@babel/template' ]
+221 silly reify mark deleted [ '/root/node_modules/@babel/traverse' ]
+222 silly reify mark deleted [ '/root/node_modules/@babel/types' ]
+223 silly reify mark deleted [ '/root/node_modules/@colors/colors' ]
+224 silly reify mark deleted [ '/root/node_modules/@discoveryjs/json-ext' ]
+225 silly reify mark deleted [ '/root/node_modules/@jridgewell/gen-mapping' ]
+226 silly reify mark deleted [ '/root/node_modules/@jridgewell/resolve-uri' ]
+227 silly reify mark deleted [ '/root/node_modules/@jridgewell/set-array' ]
+228 silly reify mark deleted [ '/root/node_modules/@jridgewell/source-map' ]
+229 silly reify mark deleted [
+229 silly reify   '/root/node_modules/@jridgewell/source-map/node_modules/@jridgewell/gen-mapping'
+229 silly reify ]
+230 silly reify mark deleted [ '/root/node_modules/@jridgewell/sourcemap-codec' ]
+231 silly reify mark deleted [ '/root/node_modules/@jridgewell/trace-mapping' ]
+232 silly reify mark deleted [ '/root/node_modules/@leichtgewicht/ip-codec' ]
+233 silly reify mark deleted [ '/root/node_modules/@nodelib/fs.scandir' ]
+234 silly reify mark deleted [ '/root/node_modules/@nodelib/fs.stat' ]
+235 silly reify mark deleted [ '/root/node_modules/@nodelib/fs.walk' ]
+236 silly reify mark deleted [ '/root/node_modules/@trysound/sax' ]
+237 silly reify mark deleted [ '/root/node_modules/@types/babel__core' ]
+238 silly reify mark deleted [ '/root/node_modules/@types/babel__generator' ]
+239 silly reify mark deleted [ '/root/node_modules/@types/babel__template' ]
+240 silly reify mark deleted [ '/root/node_modules/@types/babel__traverse' ]
+241 silly reify mark deleted [ '/root/node_modules/@types/body-parser' ]
+242 silly reify mark deleted [ '/root/node_modules/@types/bonjour' ]
+243 silly reify mark deleted [ '/root/node_modules/@types/clean-css' ]
+244 silly reify mark deleted [ '/root/node_modules/@types/clean-css/node_modules/source-map' ]
+245 silly reify mark deleted [ '/root/node_modules/@types/connect' ]
+246 silly reify mark deleted [ '/root/node_modules/@types/connect-history-api-fallback' ]
+247 silly reify mark deleted [ '/root/node_modules/@types/eslint' ]
+248 silly reify mark deleted [ '/root/node_modules/@types/eslint-scope' ]
+249 silly reify mark deleted [ '/root/node_modules/@types/estree' ]
+250 silly reify mark deleted [ '/root/node_modules/@types/express' ]
+251 silly reify mark deleted [ '/root/node_modules/@types/express-serve-static-core' ]
+252 silly reify mark deleted [ '/root/node_modules/@types/glob' ]
+253 silly reify mark deleted [ '/root/node_modules/@types/http-proxy' ]
+254 silly reify mark deleted [ '/root/node_modules/@types/imagemin' ]
+255 silly reify mark deleted [ '/root/node_modules/@types/imagemin-gifsicle' ]
+256 silly reify mark deleted [ '/root/node_modules/@types/imagemin-mozjpeg' ]
+257 silly reify mark deleted [ '/root/node_modules/@types/imagemin-optipng' ]
+258 silly reify mark deleted [ '/root/node_modules/@types/imagemin-svgo' ]
+259 silly reify mark deleted [ '/root/node_modules/@types/json-schema' ]
+260 silly reify mark deleted [ '/root/node_modules/@types/mime' ]
+261 silly reify mark deleted [ '/root/node_modules/@types/minimatch' ]
+262 silly reify mark deleted [ '/root/node_modules/@types/node' ]
+263 silly reify mark deleted [ '/root/node_modules/@types/parse-json' ]
+264 silly reify mark deleted [ '/root/node_modules/@types/qs' ]
+265 silly reify mark deleted [ '/root/node_modules/@types/range-parser' ]
+266 silly reify mark deleted [ '/root/node_modules/@types/retry' ]
+267 silly reify mark deleted [ '/root/node_modules/@types/serve-index' ]
+268 silly reify mark deleted [ '/root/node_modules/@types/serve-static' ]
+269 silly reify mark deleted [ '/root/node_modules/@types/sockjs' ]
+270 silly reify mark deleted [ '/root/node_modules/@types/svgo' ]
+271 silly reify mark deleted [ '/root/node_modules/@types/ws' ]
+272 silly reify mark deleted [ '/root/node_modules/@webassemblyjs/ast' ]
+273 silly reify mark deleted [ '/root/node_modules/@webassemblyjs/floating-point-hex-parser' ]
+274 silly reify mark deleted [ '/root/node_modules/@webassemblyjs/helper-api-error' ]
+275 silly reify mark deleted [ '/root/node_modules/@webassemblyjs/helper-buffer' ]
+276 silly reify mark deleted [ '/root/node_modules/@webassemblyjs/helper-numbers' ]
+277 silly reify mark deleted [ '/root/node_modules/@webassemblyjs/helper-wasm-bytecode' ]
+278 silly reify mark deleted [ '/root/node_modules/@webassemblyjs/helper-wasm-section' ]
+279 silly reify mark deleted [ '/root/node_modules/@webassemblyjs/ieee754' ]
+280 silly reify mark deleted [ '/root/node_modules/@webassemblyjs/leb128' ]
+281 silly reify mark deleted [ '/root/node_modules/@webassemblyjs/utf8' ]
+282 silly reify mark deleted [ '/root/node_modules/@webassemblyjs/wasm-edit' ]
+283 silly reify mark deleted [ '/root/node_modules/@webassemblyjs/wasm-gen' ]
+284 silly reify mark deleted [ '/root/node_modules/@webassemblyjs/wasm-opt' ]
+285 silly reify mark deleted [ '/root/node_modules/@webassemblyjs/wasm-parser' ]
+286 silly reify mark deleted [ '/root/node_modules/@webassemblyjs/wast-printer' ]
+287 silly reify mark deleted [ '/root/node_modules/@webpack-cli/configtest' ]
+288 silly reify mark deleted [ '/root/node_modules/@webpack-cli/info' ]
+289 silly reify mark deleted [ '/root/node_modules/@webpack-cli/serve' ]
+290 silly reify mark deleted [ '/root/node_modules/@xtuc/ieee754' ]
+291 silly reify mark deleted [ '/root/node_modules/@xtuc/long' ]
+292 silly reify mark deleted [ '/root/node_modules/accepts' ]
+293 silly reify mark deleted [ '/root/node_modules/acorn', '/root/node_modules/.bin/acorn' ]
+294 silly reify mark deleted [ '/root/node_modules/acorn-import-assertions' ]
+295 silly reify mark deleted [ '/root/node_modules/adjust-sourcemap-loader' ]
+296 silly reify mark deleted [
+296 silly reify   '/root/node_modules/adjust-sourcemap-loader/node_modules/emojis-list'
+296 silly reify ]
+297 silly reify mark deleted [
+297 silly reify   '/root/node_modules/adjust-sourcemap-loader/node_modules/loader-utils'
+297 silly reify ]
+298 silly reify mark deleted [ '/root/node_modules/ajv' ]
+299 silly reify mark deleted [ '/root/node_modules/ajv-formats' ]
+300 silly reify mark deleted [ '/root/node_modules/ajv-formats/node_modules/ajv' ]
+301 silly reify mark deleted [ '/root/node_modules/ajv-formats/node_modules/json-schema-traverse' ]
+302 silly reify mark deleted [ '/root/node_modules/ajv-keywords' ]
+303 silly reify mark deleted [
+303 silly reify   '/root/node_modules/ansi-html-community',
+303 silly reify   '/root/node_modules/.bin/ansi-html'
+303 silly reify ]
+304 silly reify mark deleted [ '/root/node_modules/ansi-regex' ]
+305 silly reify mark deleted [ '/root/node_modules/ansi-styles' ]
+306 silly reify mark deleted [ '/root/node_modules/anymatch' ]
+307 silly reify mark deleted [ '/root/node_modules/anymatch/node_modules/normalize-path' ]
+308 silly reify mark deleted [ '/root/node_modules/arity-n' ]
+309 silly reify mark deleted [ '/root/node_modules/arr-diff' ]
+310 silly reify mark deleted [ '/root/node_modules/arr-flatten' ]
+311 silly reify mark deleted [ '/root/node_modules/arr-union' ]
+312 silly reify mark deleted [ '/root/node_modules/array-flatten' ]
+313 silly reify mark deleted [ '/root/node_modules/array-union' ]
+314 silly reify mark deleted [ '/root/node_modules/array-unique' ]
+315 silly reify mark deleted [ '/root/node_modules/asn1.js' ]
+316 silly reify mark deleted [ '/root/node_modules/assert' ]
+317 silly reify mark deleted [ '/root/node_modules/assert/node_modules/inherits' ]
+318 silly reify mark deleted [ '/root/node_modules/assert/node_modules/util' ]
+319 silly reify mark deleted [ '/root/node_modules/assign-symbols' ]
+320 silly reify mark deleted [ '/root/node_modules/async-each' ]
+321 silly reify mark deleted [ '/root/node_modules/asynckit' ]
+322 silly reify mark deleted [ '/root/node_modules/atob', '/root/node_modules/.bin/atob' ]
+323 silly reify mark deleted [
+323 silly reify   '/root/node_modules/autoprefixer',
+323 silly reify   '/root/node_modules/.bin/autoprefixer'
+323 silly reify ]
+324 silly reify mark deleted [ '/root/node_modules/axios' ]
+325 silly reify mark deleted [ '/root/node_modules/babel-loader' ]
+326 silly reify mark deleted [ '/root/node_modules/babel-loader/node_modules/emojis-list' ]
+327 silly reify mark deleted [ '/root/node_modules/babel-loader/node_modules/find-cache-dir' ]
+328 silly reify mark deleted [ '/root/node_modules/babel-loader/node_modules/find-up' ]
+329 silly reify mark deleted [ '/root/node_modules/babel-loader/node_modules/loader-utils' ]
+330 silly reify mark deleted [ '/root/node_modules/babel-loader/node_modules/locate-path' ]
+331 silly reify mark deleted [ '/root/node_modules/babel-loader/node_modules/make-dir' ]
+332 silly reify mark deleted [ '/root/node_modules/babel-loader/node_modules/p-locate' ]
+333 silly reify mark deleted [ '/root/node_modules/babel-loader/node_modules/path-exists' ]
+334 silly reify mark deleted [ '/root/node_modules/babel-loader/node_modules/pkg-dir' ]
+335 silly reify mark deleted [
+335 silly reify   '/root/node_modules/babel-loader/node_modules/semver',
+335 silly reify   '/root/node_modules/babel-loader/node_modules/.bin/semver'
+335 silly reify ]
+336 silly reify mark deleted [ '/root/node_modules/babel-plugin-polyfill-corejs2' ]
+337 silly reify mark deleted [
+337 silly reify   '/root/node_modules/babel-plugin-polyfill-corejs2/node_modules/semver',
+337 silly reify   '/root/node_modules/babel-plugin-polyfill-corejs2/node_modules/.bin/semver'
+337 silly reify ]
+338 silly reify mark deleted [ '/root/node_modules/babel-plugin-polyfill-corejs3' ]
+339 silly reify mark deleted [ '/root/node_modules/babel-plugin-polyfill-regenerator' ]
+340 silly reify mark deleted [ '/root/node_modules/balanced-match' ]
+341 silly reify mark deleted [ '/root/node_modules/base' ]
+342 silly reify mark deleted [ '/root/node_modules/base/node_modules/define-property' ]
+343 silly reify mark deleted [ '/root/node_modules/base/node_modules/is-accessor-descriptor' ]
+344 silly reify mark deleted [ '/root/node_modules/base/node_modules/is-data-descriptor' ]
+345 silly reify mark deleted [ '/root/node_modules/base/node_modules/is-descriptor' ]
+346 silly reify mark deleted [ '/root/node_modules/base64-js' ]
+347 silly reify mark deleted [ '/root/node_modules/batch' ]
+348 silly reify mark deleted [ '/root/node_modules/big.js' ]
+349 silly reify mark deleted [ '/root/node_modules/binary-extensions' ]
+350 silly reify mark deleted [ '/root/node_modules/bindings' ]
+351 silly reify mark deleted [ '/root/node_modules/bn.js' ]
+352 silly reify mark deleted [ '/root/node_modules/body-parser' ]
+353 silly reify mark deleted [ '/root/node_modules/body-parser/node_modules/bytes' ]
+354 silly reify mark deleted [ '/root/node_modules/body-parser/node_modules/debug' ]
+355 silly reify mark deleted [ '/root/node_modules/bonjour-service' ]
+356 silly reify mark deleted [ '/root/node_modules/boolbase' ]
+357 silly reify mark deleted [ '/root/node_modules/bootstrap' ]
+358 silly reify mark deleted [ '/root/node_modules/brace-expansion' ]
+359 silly reify mark deleted [ '/root/node_modules/braces' ]
+360 silly reify mark deleted [ '/root/node_modules/braces/node_modules/extend-shallow' ]
+361 silly reify mark deleted [ '/root/node_modules/braces/node_modules/is-extendable' ]
+362 silly reify mark deleted [ '/root/node_modules/brorand' ]
+363 silly reify mark deleted [ '/root/node_modules/browserify-aes' ]
+364 silly reify mark deleted [ '/root/node_modules/browserify-cipher' ]
+365 silly reify mark deleted [ '/root/node_modules/browserify-des' ]
+366 silly reify mark deleted [ '/root/node_modules/browserify-rsa' ]
+367 silly reify mark deleted [ '/root/node_modules/browserify-sign' ]
+368 silly reify mark deleted [ '/root/node_modules/browserify-zlib' ]
+369 silly reify mark deleted [
+369 silly reify   '/root/node_modules/browserslist',
+369 silly reify   '/root/node_modules/.bin/browserslist'
+369 silly reify ]
+370 silly reify mark deleted [ '/root/node_modules/buffer' ]
+371 silly reify mark deleted [ '/root/node_modules/buffer-from' ]
+372 silly reify mark deleted [ '/root/node_modules/buffer-xor' ]
+373 silly reify mark deleted [ '/root/node_modules/builtin-status-codes' ]
+374 silly reify mark deleted [ '/root/node_modules/bytes' ]
+375 silly reify mark deleted [ '/root/node_modules/cache-base' ]
+376 silly reify mark deleted [ '/root/node_modules/call-bind' ]
+377 silly reify mark deleted [ '/root/node_modules/callsites' ]
+378 silly reify mark deleted [ '/root/node_modules/camel-case' ]
+379 silly reify mark deleted [ '/root/node_modules/camel-case/node_modules/tslib' ]
+380 silly reify mark deleted [ '/root/node_modules/camelcase' ]
+381 silly reify mark deleted [ '/root/node_modules/caniuse-api' ]
+382 silly reify mark deleted [ '/root/node_modules/caniuse-lite' ]
+383 silly reify mark deleted [ '/root/node_modules/chalk' ]
+384 silly reify mark deleted [ '/root/node_modules/charenc' ]
+385 silly reify mark deleted [ '/root/node_modules/chokidar' ]
+386 silly reify mark deleted [ '/root/node_modules/chokidar/node_modules/fsevents' ]
+387 silly reify mark deleted [ '/root/node_modules/chrome-trace-event' ]
+388 silly reify mark deleted [ '/root/node_modules/cipher-base' ]
+389 silly reify mark deleted [ '/root/node_modules/class-utils' ]
+390 silly reify mark deleted [ '/root/node_modules/class-utils/node_modules/define-property' ]
+391 silly reify mark deleted [ '/root/node_modules/clean-css' ]
+392 silly reify mark deleted [ '/root/node_modules/clean-css/node_modules/source-map' ]
+393 silly reify mark deleted [ '/root/node_modules/cli-table3' ]
+394 silly reify mark deleted [ '/root/node_modules/cliui' ]
+395 silly reify mark deleted [ '/root/node_modules/collect.js' ]
+396 silly reify mark deleted [ '/root/node_modules/collection-visit' ]
+397 silly reify mark deleted [ '/root/node_modules/color-convert' ]
+398 silly reify mark deleted [ '/root/node_modules/color-name' ]
+399 silly reify mark deleted [ '/root/node_modules/colord' ]
+400 silly reify mark deleted [ '/root/node_modules/colorette' ]
+401 silly reify mark deleted [ '/root/node_modules/combined-stream' ]
+402 silly reify mark deleted [ '/root/node_modules/commander' ]
+403 silly reify mark deleted [ '/root/node_modules/commondir' ]
+404 silly reify mark deleted [ '/root/node_modules/component-emitter' ]
+405 silly reify mark deleted [ '/root/node_modules/compose-function' ]
+406 silly reify mark deleted [ '/root/node_modules/compressible' ]
+407 silly reify mark deleted [ '/root/node_modules/compression' ]
+408 silly reify mark deleted [ '/root/node_modules/compression/node_modules/debug' ]
+409 silly reify mark deleted [ '/root/node_modules/concat', '/root/node_modules/.bin/concat' ]
+410 silly reify mark deleted [ '/root/node_modules/concat-map' ]
+411 silly reify mark deleted [ '/root/node_modules/concat/node_modules/commander' ]
+412 silly reify mark deleted [ '/root/node_modules/connect-history-api-fallback' ]
+413 silly reify mark deleted [ '/root/node_modules/consola' ]
+414 silly reify mark deleted [ '/root/node_modules/console-browserify' ]
+415 silly reify mark deleted [ '/root/node_modules/constants-browserify' ]
+416 silly reify mark deleted [ '/root/node_modules/content-disposition' ]
+417 silly reify mark deleted [ '/root/node_modules/content-disposition/node_modules/safe-buffer' ]
+418 silly reify mark deleted [ '/root/node_modules/content-type' ]
+419 silly reify mark deleted [ '/root/node_modules/convert-source-map' ]
+420 silly reify mark deleted [ '/root/node_modules/cookie' ]
+421 silly reify mark deleted [ '/root/node_modules/cookie-signature' ]
+422 silly reify mark deleted [ '/root/node_modules/copy-descriptor' ]
+423 silly reify mark deleted [ '/root/node_modules/core-js-compat' ]
+424 silly reify mark deleted [ '/root/node_modules/core-util-is' ]
+425 silly reify mark deleted [ '/root/node_modules/cosmiconfig' ]
+426 silly reify mark deleted [ '/root/node_modules/create-ecdh' ]
+427 silly reify mark deleted [ '/root/node_modules/create-hash' ]
+428 silly reify mark deleted [ '/root/node_modules/create-hmac' ]
+429 silly reify mark deleted [
+429 silly reify   '/root/node_modules/cross-env',
+429 silly reify   '/root/node_modules/.bin/cross-env',
+429 silly reify   '/root/node_modules/.bin/cross-env-shell'
+429 silly reify ]
+430 silly reify mark deleted [ '/root/node_modules/cross-spawn' ]
+431 silly reify mark deleted [ '/root/node_modules/crypt' ]
+432 silly reify mark deleted [ '/root/node_modules/crypto-browserify' ]
+433 silly reify mark deleted [ '/root/node_modules/css' ]
+434 silly reify mark deleted [ '/root/node_modules/css-declaration-sorter' ]
+435 silly reify mark deleted [ '/root/node_modules/css-loader' ]
+436 silly reify mark deleted [ '/root/node_modules/css-loader/node_modules/emojis-list' ]
+437 silly reify mark deleted [ '/root/node_modules/css-loader/node_modules/loader-utils' ]
+438 silly reify mark deleted [ '/root/node_modules/css-loader/node_modules/lru-cache' ]
+439 silly reify mark deleted [ '/root/node_modules/css-loader/node_modules/schema-utils' ]
+440 silly reify mark deleted [
+440 silly reify   '/root/node_modules/css-loader/node_modules/semver',
+440 silly reify   '/root/node_modules/css-loader/node_modules/.bin/semver'
+440 silly reify ]
+441 silly reify mark deleted [ '/root/node_modules/css-loader/node_modules/yallist' ]
+442 silly reify mark deleted [ '/root/node_modules/css-select' ]
+443 silly reify mark deleted [ '/root/node_modules/css-select/node_modules/domhandler' ]
+444 silly reify mark deleted [ '/root/node_modules/css-tree' ]
+445 silly reify mark deleted [ '/root/node_modules/css-tree/node_modules/source-map' ]
+446 silly reify mark deleted [ '/root/node_modules/css-what' ]
+447 silly reify mark deleted [ '/root/node_modules/css/node_modules/source-map' ]
+448 silly reify mark deleted [ '/root/node_modules/cssesc', '/root/node_modules/.bin/cssesc' ]
+449 silly reify mark deleted [ '/root/node_modules/cssnano' ]
+450 silly reify mark deleted [ '/root/node_modules/cssnano-preset-default' ]
+451 silly reify mark deleted [ '/root/node_modules/cssnano-utils' ]
+452 silly reify mark deleted [ '/root/node_modules/csso' ]
+453 silly reify mark deleted [ '/root/node_modules/d' ]
+454 silly reify mark deleted [ '/root/node_modules/date-now' ]
+455 silly reify mark deleted [ '/root/node_modules/de-indent' ]
+456 silly reify mark deleted [ '/root/node_modules/debug' ]
+457 silly reify mark deleted [ '/root/node_modules/debug/node_modules/ms' ]
+458 silly reify mark deleted [ '/root/node_modules/decode-uri-component' ]
+459 silly reify mark deleted [ '/root/node_modules/default-gateway' ]
+460 silly reify mark deleted [ '/root/node_modules/define-lazy-prop' ]
+461 silly reify mark deleted [ '/root/node_modules/define-property' ]
+462 silly reify mark deleted [
+462 silly reify   '/root/node_modules/define-property/node_modules/is-accessor-descriptor'
+462 silly reify ]
+463 silly reify mark deleted [
+463 silly reify   '/root/node_modules/define-property/node_modules/is-data-descriptor'
+463 silly reify ]
+464 silly reify mark deleted [ '/root/node_modules/define-property/node_modules/is-descriptor' ]
+465 silly reify mark deleted [ '/root/node_modules/delayed-stream' ]
+466 silly reify mark deleted [ '/root/node_modules/depd' ]
+467 silly reify mark deleted [ '/root/node_modules/des.js' ]
+468 silly reify mark deleted [ '/root/node_modules/destroy' ]
+469 silly reify mark deleted [ '/root/node_modules/detect-node' ]
+470 silly reify mark deleted [ '/root/node_modules/diffie-hellman' ]
+471 silly reify mark deleted [ '/root/node_modules/dir-glob' ]
+472 silly reify mark deleted [ '/root/node_modules/dns-equal' ]
+473 silly reify mark deleted [ '/root/node_modules/dns-packet' ]
+474 silly reify mark deleted [ '/root/node_modules/dom-serializer' ]
+475 silly reify mark deleted [ '/root/node_modules/dom-serializer/node_modules/domhandler' ]
+476 silly reify mark deleted [ '/root/node_modules/domain-browser' ]
+477 silly reify mark deleted [ '/root/node_modules/domelementtype' ]
+478 silly reify mark deleted [ '/root/node_modules/domhandler' ]
+479 silly reify mark deleted [ '/root/node_modules/domutils' ]
+480 silly reify mark deleted [ '/root/node_modules/domutils/node_modules/domhandler' ]
+481 silly reify mark deleted [ '/root/node_modules/dot-case' ]
+482 silly reify mark deleted [ '/root/node_modules/dot-case/node_modules/tslib' ]
+483 silly reify mark deleted [ '/root/node_modules/dotenv' ]
+484 silly reify mark deleted [ '/root/node_modules/dotenv-expand' ]
+485 silly reify mark deleted [ '/root/node_modules/ee-first' ]
+486 silly reify mark deleted [ '/root/node_modules/electron-to-chromium' ]
+487 silly reify mark deleted [ '/root/node_modules/elliptic' ]
+488 silly reify mark deleted [ '/root/node_modules/emoji-regex' ]
+489 silly reify mark deleted [ '/root/node_modules/emojis-list' ]
+490 silly reify mark deleted [ '/root/node_modules/encodeurl' ]
+491 silly reify mark deleted [ '/root/node_modules/enhanced-resolve' ]
+492 silly reify mark deleted [ '/root/node_modules/entities' ]
+493 silly reify mark deleted [ '/root/node_modules/envinfo', '/root/node_modules/.bin/envinfo' ]
+494 silly reify mark deleted [ '/root/node_modules/error-ex' ]
+495 silly reify mark deleted [ '/root/node_modules/es-module-lexer' ]
+496 silly reify mark deleted [ '/root/node_modules/es5-ext' ]
+497 silly reify mark deleted [ '/root/node_modules/es6-iterator' ]
+498 silly reify mark deleted [ '/root/node_modules/es6-symbol' ]
+499 silly reify mark deleted [ '/root/node_modules/escalade' ]
+500 silly reify mark deleted [ '/root/node_modules/escape-html' ]
+501 silly reify mark deleted [ '/root/node_modules/escape-string-regexp' ]
+502 silly reify mark deleted [ '/root/node_modules/eslint-scope' ]
+503 silly reify mark deleted [ '/root/node_modules/esrecurse' ]
+504 silly reify mark deleted [ '/root/node_modules/esrecurse/node_modules/estraverse' ]
+505 silly reify mark deleted [ '/root/node_modules/estraverse' ]
+506 silly reify mark deleted [ '/root/node_modules/esutils' ]
+507 silly reify mark deleted [ '/root/node_modules/etag' ]
+508 silly reify mark deleted [ '/root/node_modules/eventemitter3' ]
+509 silly reify mark deleted [ '/root/node_modules/events' ]
+510 silly reify mark deleted [ '/root/node_modules/evp_bytestokey' ]
+511 silly reify mark deleted [ '/root/node_modules/execa' ]
+512 silly reify mark deleted [ '/root/node_modules/expand-brackets' ]
+513 silly reify mark deleted [ '/root/node_modules/expand-brackets/node_modules/debug' ]
+514 silly reify mark deleted [ '/root/node_modules/expand-brackets/node_modules/define-property' ]
+515 silly reify mark deleted [ '/root/node_modules/expand-brackets/node_modules/extend-shallow' ]
+516 silly reify mark deleted [ '/root/node_modules/expand-brackets/node_modules/is-extendable' ]
+517 silly reify mark deleted [ '/root/node_modules/express' ]
+518 silly reify mark deleted [ '/root/node_modules/express/node_modules/array-flatten' ]
+519 silly reify mark deleted [ '/root/node_modules/express/node_modules/debug' ]
+520 silly reify mark deleted [ '/root/node_modules/express/node_modules/safe-buffer' ]
+521 silly reify mark deleted [ '/root/node_modules/ext' ]
+522 silly reify mark deleted [ '/root/node_modules/ext/node_modules/type' ]
+523 silly reify mark deleted [ '/root/node_modules/extend-shallow' ]
+524 silly reify mark deleted [ '/root/node_modules/extglob' ]
+525 silly reify mark deleted [ '/root/node_modules/extglob/node_modules/define-property' ]
+526 silly reify mark deleted [ '/root/node_modules/extglob/node_modules/extend-shallow' ]
+527 silly reify mark deleted [ '/root/node_modules/extglob/node_modules/is-accessor-descriptor' ]
+528 silly reify mark deleted [ '/root/node_modules/extglob/node_modules/is-data-descriptor' ]
+529 silly reify mark deleted [ '/root/node_modules/extglob/node_modules/is-descriptor' ]
+530 silly reify mark deleted [ '/root/node_modules/extglob/node_modules/is-extendable' ]
+531 silly reify mark deleted [ '/root/node_modules/fast-deep-equal' ]
+532 silly reify mark deleted [ '/root/node_modules/fast-glob' ]
+533 silly reify mark deleted [ '/root/node_modules/fast-glob/node_modules/braces' ]
+534 silly reify mark deleted [ '/root/node_modules/fast-glob/node_modules/fill-range' ]
+535 silly reify mark deleted [ '/root/node_modules/fast-glob/node_modules/glob-parent' ]
+536 silly reify mark deleted [ '/root/node_modules/fast-glob/node_modules/is-number' ]
+537 silly reify mark deleted [ '/root/node_modules/fast-glob/node_modules/micromatch' ]
+538 silly reify mark deleted [ '/root/node_modules/fast-glob/node_modules/to-regex-range' ]
+539 silly reify mark deleted [ '/root/node_modules/fast-json-stable-stringify' ]
+540 silly reify mark deleted [ '/root/node_modules/fastest-levenshtein' ]
+541 silly reify mark deleted [ '/root/node_modules/fastq' ]
+542 silly reify mark deleted [ '/root/node_modules/faye-websocket' ]
+543 silly reify mark deleted [ '/root/node_modules/file-loader' ]
+544 silly reify mark deleted [ '/root/node_modules/file-loader/node_modules/emojis-list' ]
+545 silly reify mark deleted [ '/root/node_modules/file-loader/node_modules/loader-utils' ]
+546 silly reify mark deleted [ '/root/node_modules/file-loader/node_modules/schema-utils' ]
+547 silly reify mark deleted [ '/root/node_modules/file-type' ]
+548 silly reify mark deleted [ '/root/node_modules/file-uri-to-path' ]
+549 silly reify mark deleted [ '/root/node_modules/fill-range' ]
+550 silly reify mark deleted [ '/root/node_modules/fill-range/node_modules/extend-shallow' ]
+551 silly reify mark deleted [ '/root/node_modules/fill-range/node_modules/is-extendable' ]
+552 silly reify mark deleted [ '/root/node_modules/finalhandler' ]
+553 silly reify mark deleted [ '/root/node_modules/finalhandler/node_modules/debug' ]
+554 silly reify mark deleted [ '/root/node_modules/follow-redirects' ]
+555 silly reify mark deleted [ '/root/node_modules/for-in' ]
+556 silly reify mark deleted [ '/root/node_modules/form-data' ]
+557 silly reify mark deleted [ '/root/node_modules/forwarded' ]
+558 silly reify mark deleted [ '/root/node_modules/fraction.js' ]
+559 silly reify mark deleted [ '/root/node_modules/fragment-cache' ]
+560 silly reify mark deleted [ '/root/node_modules/fresh' ]
+561 silly reify mark deleted [ '/root/node_modules/fs-extra' ]
+562 silly reify mark deleted [ '/root/node_modules/fs-monkey' ]
+563 silly reify mark deleted [ '/root/node_modules/fs.realpath' ]
+564 silly reify mark deleted [ '/root/node_modules/fsevents' ]
+565 silly reify mark deleted [ '/root/node_modules/function-bind' ]
+566 silly reify mark deleted [ '/root/node_modules/gensync' ]
+567 silly reify mark deleted [ '/root/node_modules/get-caller-file' ]
+568 silly reify mark deleted [ '/root/node_modules/get-intrinsic' ]
+569 silly reify mark deleted [ '/root/node_modules/get-stream' ]
+570 silly reify mark deleted [ '/root/node_modules/get-value' ]
+571 silly reify mark deleted [ '/root/node_modules/glob' ]
+572 silly reify mark deleted [ '/root/node_modules/glob-parent' ]
+573 silly reify mark deleted [ '/root/node_modules/glob-parent/node_modules/is-glob' ]
+574 silly reify mark deleted [ '/root/node_modules/glob-to-regexp' ]
+575 silly reify mark deleted [ '/root/node_modules/globals' ]
+576 silly reify mark deleted [ '/root/node_modules/globby' ]
+577 silly reify mark deleted [ '/root/node_modules/graceful-fs' ]
+578 silly reify mark deleted [ '/root/node_modules/growly' ]
+579 silly reify mark deleted [ '/root/node_modules/handle-thing' ]
+580 silly reify mark deleted [ '/root/node_modules/has' ]
+581 silly reify mark deleted [ '/root/node_modules/has-flag' ]
+582 silly reify mark deleted [ '/root/node_modules/has-symbols' ]
+583 silly reify mark deleted [ '/root/node_modules/has-value' ]
+584 silly reify mark deleted [ '/root/node_modules/has-values' ]
+585 silly reify mark deleted [ '/root/node_modules/has-values/node_modules/kind-of' ]
+586 silly reify mark deleted [ '/root/node_modules/hash-base' ]
+587 silly reify mark deleted [ '/root/node_modules/hash-sum' ]
+588 silly reify mark deleted [ '/root/node_modules/hash.js' ]
+589 silly reify mark deleted [ '/root/node_modules/he', '/root/node_modules/.bin/he' ]
+590 silly reify mark deleted [ '/root/node_modules/hmac-drbg' ]
+591 silly reify mark deleted [ '/root/node_modules/hpack.js' ]
+592 silly reify mark deleted [ '/root/node_modules/html-entities' ]
+593 silly reify mark deleted [ '/root/node_modules/html-loader' ]
+594 silly reify mark deleted [ '/root/node_modules/html-loader/node_modules/emojis-list' ]
+595 silly reify mark deleted [ '/root/node_modules/html-loader/node_modules/loader-utils' ]
+596 silly reify mark deleted [ '/root/node_modules/html-loader/node_modules/schema-utils' ]
+597 silly reify mark deleted [
+597 silly reify   '/root/node_modules/html-minifier-terser',
+597 silly reify   '/root/node_modules/.bin/html-minifier-terser'
+597 silly reify ]
+598 silly reify mark deleted [ '/root/node_modules/html-minifier-terser/node_modules/clean-css' ]
+599 silly reify mark deleted [ '/root/node_modules/html-minifier-terser/node_modules/commander' ]
+600 silly reify mark deleted [ '/root/node_modules/html-minifier-terser/node_modules/source-map' ]
+601 silly reify mark deleted [
+601 silly reify   '/root/node_modules/html-minifier-terser/node_modules/terser',
+601 silly reify   '/root/node_modules/html-minifier-terser/node_modules/.bin/terser'
+601 silly reify ]
+602 silly reify mark deleted [
+602 silly reify   '/root/node_modules/html-minifier-terser/node_modules/terser/node_modules/commander'
+602 silly reify ]
+603 silly reify mark deleted [ '/root/node_modules/htmlparser2' ]
+604 silly reify mark deleted [ '/root/node_modules/http-deceiver' ]
+605 silly reify mark deleted [ '/root/node_modules/http-errors' ]
+606 silly reify mark deleted [ '/root/node_modules/http-parser-js' ]
+607 silly reify mark deleted [ '/root/node_modules/http-proxy' ]
+608 silly reify mark deleted [ '/root/node_modules/http-proxy-middleware' ]
+609 silly reify mark deleted [ '/root/node_modules/http-proxy-middleware/node_modules/braces' ]
+610 silly reify mark deleted [ '/root/node_modules/http-proxy-middleware/node_modules/fill-range' ]
+611 silly reify mark deleted [ '/root/node_modules/http-proxy-middleware/node_modules/is-number' ]
+612 silly reify mark deleted [ '/root/node_modules/http-proxy-middleware/node_modules/micromatch' ]
+613 silly reify mark deleted [
+613 silly reify   '/root/node_modules/http-proxy-middleware/node_modules/to-regex-range'
+613 silly reify ]
+614 silly reify mark deleted [ '/root/node_modules/https-browserify' ]
+615 silly reify mark deleted [ '/root/node_modules/human-signals' ]
+616 silly reify mark deleted [ '/root/node_modules/iconv-lite' ]
+617 silly reify mark deleted [ '/root/node_modules/icss-utils' ]
+618 silly reify mark deleted [ '/root/node_modules/ieee754' ]
+619 silly reify mark deleted [ '/root/node_modules/ignore' ]
+620 silly reify mark deleted [ '/root/node_modules/imagemin' ]
+621 silly reify mark deleted [ '/root/node_modules/imagemin/node_modules/make-dir' ]
+622 silly reify mark deleted [
+622 silly reify   '/root/node_modules/imagemin/node_modules/semver',
+622 silly reify   '/root/node_modules/imagemin/node_modules/.bin/semver'
+622 silly reify ]
+623 silly reify mark deleted [ '/root/node_modules/img-loader' ]
+624 silly reify mark deleted [ '/root/node_modules/import-fresh' ]
+625 silly reify mark deleted [ '/root/node_modules/import-fresh/node_modules/resolve-from' ]
+626 silly reify mark deleted [
+626 silly reify   '/root/node_modules/import-local',
+626 silly reify   '/root/node_modules/.bin/import-local-fixture'
+626 silly reify ]
+627 silly reify mark deleted [ '/root/node_modules/import-local/node_modules/find-up' ]
+628 silly reify mark deleted [ '/root/node_modules/import-local/node_modules/locate-path' ]
+629 silly reify mark deleted [ '/root/node_modules/import-local/node_modules/p-locate' ]
+630 silly reify mark deleted [ '/root/node_modules/import-local/node_modules/path-exists' ]
+631 silly reify mark deleted [ '/root/node_modules/import-local/node_modules/pkg-dir' ]
+632 silly reify mark deleted [ '/root/node_modules/inflight' ]
+633 silly reify mark deleted [ '/root/node_modules/inherits' ]
+634 silly reify mark deleted [ '/root/node_modules/interpret' ]
+635 silly reify mark deleted [ '/root/node_modules/ipaddr.js' ]
+636 silly reify mark deleted [ '/root/node_modules/is-accessor-descriptor' ]
+637 silly reify mark deleted [ '/root/node_modules/is-accessor-descriptor/node_modules/kind-of' ]
+638 silly reify mark deleted [ '/root/node_modules/is-arrayish' ]
+639 silly reify mark deleted [ '/root/node_modules/is-binary-path' ]
+640 silly reify mark deleted [ '/root/node_modules/is-buffer' ]
+641 silly reify mark deleted [ '/root/node_modules/is-core-module' ]
+642 silly reify mark deleted [ '/root/node_modules/is-data-descriptor' ]
+643 silly reify mark deleted [ '/root/node_modules/is-data-descriptor/node_modules/kind-of' ]
+644 silly reify mark deleted [ '/root/node_modules/is-descriptor' ]
+645 silly reify mark deleted [ '/root/node_modules/is-descriptor/node_modules/kind-of' ]
+646 silly reify mark deleted [ '/root/node_modules/is-docker', '/root/node_modules/.bin/is-docker' ]
+647 silly reify mark deleted [ '/root/node_modules/is-extendable' ]
+648 silly reify mark deleted [ '/root/node_modules/is-extglob' ]
+649 silly reify mark deleted [ '/root/node_modules/is-fullwidth-code-point' ]
+650 silly reify mark deleted [ '/root/node_modules/is-glob' ]
+651 silly reify mark deleted [ '/root/node_modules/is-number' ]
+652 silly reify mark deleted [ '/root/node_modules/is-number/node_modules/kind-of' ]
+653 silly reify mark deleted [ '/root/node_modules/is-plain-obj' ]
+654 silly reify mark deleted [ '/root/node_modules/is-plain-object' ]
+655 silly reify mark deleted [ '/root/node_modules/is-stream' ]
+656 silly reify mark deleted [ '/root/node_modules/is-windows' ]
+657 silly reify mark deleted [ '/root/node_modules/isarray' ]
+658 silly reify mark deleted [ '/root/node_modules/isexe' ]
+659 silly reify mark deleted [ '/root/node_modules/isobject' ]
+660 silly reify mark deleted [ '/root/node_modules/jest-worker' ]
+661 silly reify mark deleted [ '/root/node_modules/jest-worker/node_modules/supports-color' ]
+662 silly reify mark deleted [ '/root/node_modules/jquery' ]
+663 silly reify mark deleted [ '/root/node_modules/js-tokens' ]
+664 silly reify mark deleted [ '/root/node_modules/jsesc', '/root/node_modules/.bin/jsesc' ]
+665 silly reify mark deleted [ '/root/node_modules/json-parse-even-better-errors' ]
+666 silly reify mark deleted [ '/root/node_modules/json-schema-traverse' ]
+667 silly reify mark deleted [ '/root/node_modules/json5', '/root/node_modules/.bin/json5' ]
+668 silly reify mark deleted [ '/root/node_modules/jsonfile' ]
+669 silly reify mark deleted [ '/root/node_modules/junk' ]
+670 silly reify mark deleted [ '/root/node_modules/kind-of' ]
+671 silly reify mark deleted [ '/root/node_modules/klona' ]
+672 silly reify mark deleted [
+672 silly reify   '/root/node_modules/laravel-mix',
+672 silly reify   '/root/node_modules/.bin/laravel-mix',
+672 silly reify   '/root/node_modules/.bin/mix'
+672 silly reify ]
+673 silly reify mark deleted [ '/root/node_modules/laravel-mix/node_modules/anymatch' ]
+674 silly reify mark deleted [ '/root/node_modules/laravel-mix/node_modules/binary-extensions' ]
+675 silly reify mark deleted [ '/root/node_modules/laravel-mix/node_modules/braces' ]
+676 silly reify mark deleted [ '/root/node_modules/laravel-mix/node_modules/chokidar' ]
+677 silly reify mark deleted [ '/root/node_modules/laravel-mix/node_modules/fill-range' ]
+678 silly reify mark deleted [ '/root/node_modules/laravel-mix/node_modules/glob-parent' ]
+679 silly reify mark deleted [ '/root/node_modules/laravel-mix/node_modules/is-binary-path' ]
+680 silly reify mark deleted [ '/root/node_modules/laravel-mix/node_modules/is-number' ]
+681 silly reify mark deleted [ '/root/node_modules/laravel-mix/node_modules/json-schema-traverse' ]
+682 silly reify mark deleted [ '/root/node_modules/laravel-mix/node_modules/lru-cache' ]
+683 silly reify mark deleted [ '/root/node_modules/laravel-mix/node_modules/postcss-loader' ]
+684 silly reify mark deleted [ '/root/node_modules/laravel-mix/node_modules/readdirp' ]
+685 silly reify mark deleted [
+685 silly reify   '/root/node_modules/laravel-mix/node_modules/rimraf',
+685 silly reify   '/root/node_modules/laravel-mix/node_modules/.bin/rimraf'
+685 silly reify ]
+686 silly reify mark deleted [
+686 silly reify   '/root/node_modules/laravel-mix/node_modules/semver',
+686 silly reify   '/root/node_modules/laravel-mix/node_modules/.bin/semver'
+686 silly reify ]
+687 silly reify mark deleted [ '/root/node_modules/laravel-mix/node_modules/to-regex-range' ]
+688 silly reify mark deleted [
+688 silly reify   '/root/node_modules/laravel-mix/node_modules/webpack-dev-server',
+688 silly reify   '/root/node_modules/laravel-mix/node_modules/.bin/webpack-dev-server'
+688 silly reify ]
+689 silly reify mark deleted [
+689 silly reify   '/root/node_modules/laravel-mix/node_modules/webpack-dev-server/node_modules/ajv'
+689 silly reify ]
+690 silly reify mark deleted [
+690 silly reify   '/root/node_modules/laravel-mix/node_modules/webpack-dev-server/node_modules/ajv-keywords'
+690 silly reify ]
+691 silly reify mark deleted [
+691 silly reify   '/root/node_modules/laravel-mix/node_modules/webpack-dev-server/node_modules/schema-utils'
+691 silly reify ]
+692 silly reify mark deleted [ '/root/node_modules/laravel-mix/node_modules/yallist' ]
+693 silly reify mark deleted [ '/root/node_modules/launch-editor' ]
+694 silly reify mark deleted [ '/root/node_modules/lilconfig' ]
+695 silly reify mark deleted [ '/root/node_modules/lines-and-columns' ]
+696 silly reify mark deleted [ '/root/node_modules/loader-runner' ]
+697 silly reify mark deleted [ '/root/node_modules/loader-utils' ]
+698 silly reify mark deleted [
+698 silly reify   '/root/node_modules/loader-utils/node_modules/json5',
+698 silly reify   '/root/node_modules/loader-utils/node_modules/.bin/json5'
+698 silly reify ]
+699 silly reify mark deleted [ '/root/node_modules/lodash' ]
+700 silly reify mark deleted [ '/root/node_modules/lodash.debounce' ]
+701 silly reify mark deleted [ '/root/node_modules/lodash.memoize' ]
+702 silly reify mark deleted [ '/root/node_modules/lodash.uniq' ]
+703 silly reify mark deleted [ '/root/node_modules/lower-case' ]
+704 silly reify mark deleted [ '/root/node_modules/lower-case/node_modules/tslib' ]
+705 silly reify mark deleted [ '/root/node_modules/lru-cache' ]
+706 silly reify mark deleted [ '/root/node_modules/map-cache' ]
+707 silly reify mark deleted [ '/root/node_modules/map-visit' ]
+708 silly reify mark deleted [ '/root/node_modules/md5' ]
+709 silly reify mark deleted [ '/root/node_modules/md5.js' ]
+710 silly reify mark deleted [ '/root/node_modules/mdn-data' ]
+711 silly reify mark deleted [ '/root/node_modules/media-typer' ]
+712 silly reify mark deleted [ '/root/node_modules/memfs' ]
+713 silly reify mark deleted [ '/root/node_modules/merge-descriptors' ]
+714 silly reify mark deleted [ '/root/node_modules/merge-stream' ]
+715 silly reify mark deleted [ '/root/node_modules/merge2' ]
+716 silly reify mark deleted [ '/root/node_modules/methods' ]
+717 silly reify mark deleted [ '/root/node_modules/micromatch' ]
+718 silly reify mark deleted [
+718 silly reify   '/root/node_modules/miller-rabin',
+718 silly reify   '/root/node_modules/.bin/miller-rabin'
+718 silly reify ]
+719 silly reify mark deleted [ '/root/node_modules/mime', '/root/node_modules/.bin/mime' ]
+720 silly reify mark deleted [ '/root/node_modules/mime-db' ]
+721 silly reify mark deleted [ '/root/node_modules/mime-types' ]
+722 silly reify mark deleted [ '/root/node_modules/mimic-fn' ]
+723 silly reify mark deleted [ '/root/node_modules/mini-css-extract-plugin' ]
+724 silly reify mark deleted [
+724 silly reify   '/root/node_modules/mini-css-extract-plugin/node_modules/emojis-list'
+724 silly reify ]
+725 silly reify mark deleted [
+725 silly reify   '/root/node_modules/mini-css-extract-plugin/node_modules/loader-utils'
+725 silly reify ]
+726 silly reify mark deleted [
+726 silly reify   '/root/node_modules/mini-css-extract-plugin/node_modules/schema-utils'
+726 silly reify ]
+727 silly reify mark deleted [ '/root/node_modules/minimalistic-assert' ]
+728 silly reify mark deleted [ '/root/node_modules/minimalistic-crypto-utils' ]
+729 silly reify mark deleted [ '/root/node_modules/minimatch' ]
+730 silly reify mark deleted [ '/root/node_modules/minimist' ]
+731 silly reify mark deleted [ '/root/node_modules/mixin-deep' ]
+732 silly reify mark deleted [ '/root/node_modules/ms' ]
+733 silly reify mark deleted [
+733 silly reify   '/root/node_modules/multicast-dns',
+733 silly reify   '/root/node_modules/.bin/multicast-dns'
+733 silly reify ]
+734 silly reify mark deleted [ '/root/node_modules/nan' ]
+735 silly reify mark deleted [ '/root/node_modules/nanoid', '/root/node_modules/.bin/nanoid' ]
+736 silly reify mark deleted [ '/root/node_modules/nanomatch' ]
+737 silly reify mark deleted [ '/root/node_modules/negotiator' ]
+738 silly reify mark deleted [ '/root/node_modules/neo-async' ]
+739 silly reify mark deleted [ '/root/node_modules/next-tick' ]
+740 silly reify mark deleted [ '/root/node_modules/no-case' ]
+741 silly reify mark deleted [ '/root/node_modules/no-case/node_modules/tslib' ]
+742 silly reify mark deleted [ '/root/node_modules/node-forge' ]
+743 silly reify mark deleted [ '/root/node_modules/node-libs-browser' ]
+744 silly reify mark deleted [ '/root/node_modules/node-libs-browser/node_modules/punycode' ]
+745 silly reify mark deleted [ '/root/node_modules/node-notifier' ]
+746 silly reify mark deleted [ '/root/node_modules/node-notifier/node_modules/is-wsl' ]
+747 silly reify mark deleted [ '/root/node_modules/node-notifier/node_modules/lru-cache' ]
+748 silly reify mark deleted [
+748 silly reify   '/root/node_modules/node-notifier/node_modules/semver',
+748 silly reify   '/root/node_modules/node-notifier/node_modules/.bin/semver'
+748 silly reify ]
+749 silly reify mark deleted [ '/root/node_modules/node-notifier/node_modules/yallist' ]
+750 silly reify mark deleted [ '/root/node_modules/node-releases' ]
+751 silly reify mark deleted [ '/root/node_modules/normalize-path' ]
+752 silly reify mark deleted [ '/root/node_modules/normalize-range' ]
+753 silly reify mark deleted [ '/root/node_modules/normalize-url' ]
+754 silly reify mark deleted [ '/root/node_modules/npm-run-path' ]
+755 silly reify mark deleted [ '/root/node_modules/nth-check' ]
+756 silly reify mark deleted [ '/root/node_modules/object-assign' ]
+757 silly reify mark deleted [ '/root/node_modules/object-copy' ]
+758 silly reify mark deleted [ '/root/node_modules/object-copy/node_modules/define-property' ]
+759 silly reify mark deleted [ '/root/node_modules/object-copy/node_modules/kind-of' ]
+760 silly reify mark deleted [ '/root/node_modules/object-inspect' ]
+761 silly reify mark deleted [ '/root/node_modules/object-visit' ]
+762 silly reify mark deleted [ '/root/node_modules/object.pick' ]
+763 silly reify mark deleted [ '/root/node_modules/obuf' ]
+764 silly reify mark deleted [ '/root/node_modules/on-finished' ]
+765 silly reify mark deleted [ '/root/node_modules/on-headers' ]
+766 silly reify mark deleted [ '/root/node_modules/once' ]
+767 silly reify mark deleted [ '/root/node_modules/onetime' ]
+768 silly reify mark deleted [ '/root/node_modules/open' ]
+769 silly reify mark deleted [ '/root/node_modules/open/node_modules/is-wsl' ]
+770 silly reify mark deleted [ '/root/node_modules/os-browserify' ]
+771 silly reify mark deleted [ '/root/node_modules/p-limit' ]
+772 silly reify mark deleted [ '/root/node_modules/p-pipe' ]
+773 silly reify mark deleted [ '/root/node_modules/p-retry' ]
+774 silly reify mark deleted [ '/root/node_modules/p-try' ]
+775 silly reify mark deleted [ '/root/node_modules/pako' ]
+776 silly reify mark deleted [ '/root/node_modules/param-case' ]
+777 silly reify mark deleted [ '/root/node_modules/param-case/node_modules/tslib' ]
+778 silly reify mark deleted [ '/root/node_modules/parent-module' ]
+779 silly reify mark deleted [ '/root/node_modules/parse-asn1' ]
+780 silly reify mark deleted [ '/root/node_modules/parse-json' ]
+781 silly reify mark deleted [ '/root/node_modules/parseurl' ]
+782 silly reify mark deleted [ '/root/node_modules/pascal-case' ]
+783 silly reify mark deleted [ '/root/node_modules/pascal-case/node_modules/tslib' ]
+784 silly reify mark deleted [ '/root/node_modules/pascalcase' ]
+785 silly reify mark deleted [ '/root/node_modules/path-browserify' ]
+786 silly reify mark deleted [ '/root/node_modules/path-dirname' ]
+787 silly reify mark deleted [ '/root/node_modules/path-is-absolute' ]
+788 silly reify mark deleted [ '/root/node_modules/path-key' ]
+789 silly reify mark deleted [ '/root/node_modules/path-parse' ]
+790 silly reify mark deleted [ '/root/node_modules/path-to-regexp' ]
+791 silly reify mark deleted [ '/root/node_modules/path-type' ]
+792 silly reify mark deleted [ '/root/node_modules/pbkdf2' ]
+793 silly reify mark deleted [ '/root/node_modules/picocolors' ]
+794 silly reify mark deleted [ '/root/node_modules/picomatch' ]
+795 silly reify mark deleted [ '/root/node_modules/popper.js' ]
+796 silly reify mark deleted [ '/root/node_modules/posix-character-classes' ]
+797 silly reify mark deleted [ '/root/node_modules/postcss' ]
+798 silly reify mark deleted [ '/root/node_modules/postcss-calc' ]
+799 silly reify mark deleted [ '/root/node_modules/postcss-colormin' ]
+800 silly reify mark deleted [ '/root/node_modules/postcss-convert-values' ]
+801 silly reify mark deleted [ '/root/node_modules/postcss-discard-comments' ]
+802 silly reify mark deleted [ '/root/node_modules/postcss-discard-duplicates' ]
+803 silly reify mark deleted [ '/root/node_modules/postcss-discard-empty' ]
+804 silly reify mark deleted [ '/root/node_modules/postcss-discard-overridden' ]
+805 silly reify mark deleted [ '/root/node_modules/postcss-load-config' ]
+806 silly reify mark deleted [ '/root/node_modules/postcss-merge-longhand' ]
+807 silly reify mark deleted [ '/root/node_modules/postcss-merge-rules' ]
+808 silly reify mark deleted [ '/root/node_modules/postcss-minify-font-values' ]
+809 silly reify mark deleted [ '/root/node_modules/postcss-minify-gradients' ]
+810 silly reify mark deleted [ '/root/node_modules/postcss-minify-params' ]
+811 silly reify mark deleted [ '/root/node_modules/postcss-minify-selectors' ]
+812 silly reify mark deleted [ '/root/node_modules/postcss-modules-extract-imports' ]
+813 silly reify mark deleted [ '/root/node_modules/postcss-modules-local-by-default' ]
+814 silly reify mark deleted [ '/root/node_modules/postcss-modules-scope' ]
+815 silly reify mark deleted [ '/root/node_modules/postcss-modules-values' ]
+816 silly reify mark deleted [ '/root/node_modules/postcss-normalize-charset' ]
+817 silly reify mark deleted [ '/root/node_modules/postcss-normalize-display-values' ]
+818 silly reify mark deleted [ '/root/node_modules/postcss-normalize-positions' ]
+819 silly reify mark deleted [ '/root/node_modules/postcss-normalize-repeat-style' ]
+820 silly reify mark deleted [ '/root/node_modules/postcss-normalize-string' ]
+821 silly reify mark deleted [ '/root/node_modules/postcss-normalize-timing-functions' ]
+822 silly reify mark deleted [ '/root/node_modules/postcss-normalize-unicode' ]
+823 silly reify mark deleted [ '/root/node_modules/postcss-normalize-url' ]
+824 silly reify mark deleted [ '/root/node_modules/postcss-normalize-whitespace' ]
+825 silly reify mark deleted [ '/root/node_modules/postcss-ordered-values' ]
+826 silly reify mark deleted [ '/root/node_modules/postcss-reduce-initial' ]
+827 silly reify mark deleted [ '/root/node_modules/postcss-reduce-transforms' ]
+828 silly reify mark deleted [ '/root/node_modules/postcss-selector-parser' ]
+829 silly reify mark deleted [ '/root/node_modules/postcss-svgo' ]
+830 silly reify mark deleted [ '/root/node_modules/postcss-unique-selectors' ]
+831 silly reify mark deleted [ '/root/node_modules/postcss-value-parser' ]
+832 silly reify mark deleted [ '/root/node_modules/pretty-time' ]
+833 silly reify mark deleted [ '/root/node_modules/process' ]
+834 silly reify mark deleted [ '/root/node_modules/process-nextick-args' ]
+835 silly reify mark deleted [ '/root/node_modules/proxy-addr' ]
+836 silly reify mark deleted [ '/root/node_modules/proxy-addr/node_modules/ipaddr.js' ]
+837 silly reify mark deleted [ '/root/node_modules/proxy-from-env' ]
+838 silly reify mark deleted [ '/root/node_modules/public-encrypt' ]
+839 silly reify mark deleted [ '/root/node_modules/punycode' ]
+840 silly reify mark deleted [ '/root/node_modules/qs' ]
+841 silly reify mark deleted [ '/root/node_modules/querystring' ]
+842 silly reify mark deleted [ '/root/node_modules/querystring-es3' ]
+843 silly reify mark deleted [ '/root/node_modules/queue-microtask' ]
+844 silly reify mark deleted [ '/root/node_modules/randombytes' ]
+845 silly reify mark deleted [ '/root/node_modules/randomfill' ]
+846 silly reify mark deleted [ '/root/node_modules/range-parser' ]
+847 silly reify mark deleted [ '/root/node_modules/raw-body' ]
+848 silly reify mark deleted [ '/root/node_modules/raw-body/node_modules/bytes' ]
+849 silly reify mark deleted [ '/root/node_modules/readable-stream' ]
+850 silly reify mark deleted [ '/root/node_modules/readdirp' ]
+851 silly reify mark deleted [ '/root/node_modules/rechoir' ]
+852 silly reify mark deleted [ '/root/node_modules/regenerate' ]
+853 silly reify mark deleted [ '/root/node_modules/regenerate-unicode-properties' ]
+854 silly reify mark deleted [ '/root/node_modules/regenerator-runtime' ]
+855 silly reify mark deleted [ '/root/node_modules/regenerator-transform' ]
+856 silly reify mark deleted [ '/root/node_modules/regex-not' ]
+857 silly reify mark deleted [ '/root/node_modules/regex-parser' ]
+858 silly reify mark deleted [ '/root/node_modules/regexpu-core' ]
+859 silly reify mark deleted [
+859 silly reify   '/root/node_modules/regjsparser',
+859 silly reify   '/root/node_modules/.bin/regjsparser'
+859 silly reify ]
+860 silly reify mark deleted [
+860 silly reify   '/root/node_modules/regjsparser/node_modules/jsesc',
+860 silly reify   '/root/node_modules/regjsparser/node_modules/.bin/jsesc'
+860 silly reify ]
+861 silly reify mark deleted [ '/root/node_modules/relateurl' ]
+862 silly reify mark deleted [ '/root/node_modules/remove-trailing-separator' ]
+863 silly reify mark deleted [ '/root/node_modules/repeat-element' ]
+864 silly reify mark deleted [ '/root/node_modules/repeat-string' ]
+865 silly reify mark deleted [ '/root/node_modules/replace-ext' ]
+866 silly reify mark deleted [ '/root/node_modules/require-directory' ]
+867 silly reify mark deleted [ '/root/node_modules/require-from-string' ]
+868 silly reify mark deleted [ '/root/node_modules/requires-port' ]
+869 silly reify mark deleted [ '/root/node_modules/resolve', '/root/node_modules/.bin/resolve' ]
+870 silly reify mark deleted [ '/root/node_modules/resolve-cwd' ]
+871 silly reify mark deleted [ '/root/node_modules/resolve-from' ]
+872 silly reify mark deleted [ '/root/node_modules/resolve-url' ]
+873 silly reify mark deleted [ '/root/node_modules/resolve-url-loader' ]
+874 silly reify mark deleted [ '/root/node_modules/resolve-url-loader/node_modules/ansi-styles' ]
+875 silly reify mark deleted [ '/root/node_modules/resolve-url-loader/node_modules/chalk' ]
+876 silly reify mark deleted [
+876 silly reify   '/root/node_modules/resolve-url-loader/node_modules/chalk/node_modules/supports-color'
+876 silly reify ]
+877 silly reify mark deleted [ '/root/node_modules/resolve-url-loader/node_modules/color-convert' ]
+878 silly reify mark deleted [ '/root/node_modules/resolve-url-loader/node_modules/color-name' ]
+879 silly reify mark deleted [
+879 silly reify   '/root/node_modules/resolve-url-loader/node_modules/convert-source-map'
+879 silly reify ]
+880 silly reify mark deleted [ '/root/node_modules/resolve-url-loader/node_modules/has-flag' ]
+881 silly reify mark deleted [ '/root/node_modules/resolve-url-loader/node_modules/postcss' ]
+882 silly reify mark deleted [ '/root/node_modules/resolve-url-loader/node_modules/source-map' ]
+883 silly reify mark deleted [ '/root/node_modules/resolve-url-loader/node_modules/supports-color' ]
+884 silly reify mark deleted [ '/root/node_modules/ret' ]
+885 silly reify mark deleted [ '/root/node_modules/retry' ]
+886 silly reify mark deleted [ '/root/node_modules/reusify' ]
+887 silly reify mark deleted [ '/root/node_modules/rework' ]
+888 silly reify mark deleted [ '/root/node_modules/rework-visit' ]
+889 silly reify mark deleted [ '/root/node_modules/rework/node_modules/convert-source-map' ]
+890 silly reify mark deleted [ '/root/node_modules/ripemd160' ]
+891 silly reify mark deleted [ '/root/node_modules/run-parallel' ]
+892 silly reify mark deleted [ '/root/node_modules/safe-buffer' ]
+893 silly reify mark deleted [ '/root/node_modules/safe-regex' ]
+894 silly reify mark deleted [ '/root/node_modules/safer-buffer' ]
+895 silly reify mark deleted [ '/root/node_modules/sass', '/root/node_modules/.bin/sass' ]
+896 silly reify mark deleted [ '/root/node_modules/sass-loader' ]
+897 silly reify mark deleted [ '/root/node_modules/schema-utils' ]
+898 silly reify mark deleted [ '/root/node_modules/select-hose' ]
+899 silly reify mark deleted [ '/root/node_modules/selfsigned' ]
+900 silly reify mark deleted [ '/root/node_modules/send' ]
+901 silly reify mark deleted [ '/root/node_modules/send/node_modules/debug' ]
+902 silly reify mark deleted [ '/root/node_modules/send/node_modules/debug/node_modules/ms' ]
+903 silly reify mark deleted [ '/root/node_modules/send/node_modules/ms' ]
+904 silly reify mark deleted [ '/root/node_modules/serialize-javascript' ]
+905 silly reify mark deleted [ '/root/node_modules/serve-index' ]
+906 silly reify mark deleted [ '/root/node_modules/serve-index/node_modules/debug' ]
+907 silly reify mark deleted [ '/root/node_modules/serve-index/node_modules/depd' ]
+908 silly reify mark deleted [ '/root/node_modules/serve-index/node_modules/http-errors' ]
+909 silly reify mark deleted [ '/root/node_modules/serve-index/node_modules/inherits' ]
+910 silly reify mark deleted [ '/root/node_modules/serve-index/node_modules/setprototypeof' ]
+911 silly reify mark deleted [ '/root/node_modules/serve-index/node_modules/statuses' ]
+912 silly reify mark deleted [ '/root/node_modules/serve-static' ]
+913 silly reify mark deleted [ '/root/node_modules/set-value' ]
+914 silly reify mark deleted [ '/root/node_modules/set-value/node_modules/extend-shallow' ]
+915 silly reify mark deleted [ '/root/node_modules/set-value/node_modules/is-extendable' ]
+916 silly reify mark deleted [ '/root/node_modules/setimmediate' ]
+917 silly reify mark deleted [ '/root/node_modules/setprototypeof' ]
+918 silly reify mark deleted [ '/root/node_modules/sha.js', '/root/node_modules/.bin/sha.js' ]
+919 silly reify mark deleted [ '/root/node_modules/shebang-command' ]
+920 silly reify mark deleted [ '/root/node_modules/shebang-regex' ]
+921 silly reify mark deleted [ '/root/node_modules/shell-quote' ]
+922 silly reify mark deleted [ '/root/node_modules/shellwords' ]
+923 silly reify mark deleted [ '/root/node_modules/side-channel' ]
+924 silly reify mark deleted [ '/root/node_modules/signal-exit' ]
+925 silly reify mark deleted [ '/root/node_modules/slash' ]
+926 silly reify mark deleted [ '/root/node_modules/snapdragon' ]
+927 silly reify mark deleted [ '/root/node_modules/snapdragon-node' ]
+928 silly reify mark deleted [ '/root/node_modules/snapdragon-node/node_modules/define-property' ]
+929 silly reify mark deleted [
+929 silly reify   '/root/node_modules/snapdragon-node/node_modules/is-accessor-descriptor'
+929 silly reify ]
+930 silly reify mark deleted [
+930 silly reify   '/root/node_modules/snapdragon-node/node_modules/is-data-descriptor'
+930 silly reify ]
+931 silly reify mark deleted [ '/root/node_modules/snapdragon-node/node_modules/is-descriptor' ]
+932 silly reify mark deleted [ '/root/node_modules/snapdragon-util' ]
+933 silly reify mark deleted [ '/root/node_modules/snapdragon-util/node_modules/kind-of' ]
+934 silly reify mark deleted [ '/root/node_modules/snapdragon/node_modules/debug' ]
+935 silly reify mark deleted [ '/root/node_modules/snapdragon/node_modules/define-property' ]
+936 silly reify mark deleted [ '/root/node_modules/snapdragon/node_modules/extend-shallow' ]
+937 silly reify mark deleted [ '/root/node_modules/snapdragon/node_modules/is-extendable' ]
+938 silly reify mark deleted [ '/root/node_modules/sockjs' ]
+939 silly reify mark deleted [ '/root/node_modules/source-list-map' ]
+940 silly reify mark deleted [ '/root/node_modules/source-map' ]
+941 silly reify mark deleted [ '/root/node_modules/source-map-js' ]
+942 silly reify mark deleted [ '/root/node_modules/source-map-resolve' ]
+943 silly reify mark deleted [ '/root/node_modules/source-map-support' ]
+944 silly reify mark deleted [ '/root/node_modules/source-map-support/node_modules/source-map' ]
+945 silly reify mark deleted [ '/root/node_modules/source-map-url' ]
+946 silly reify mark deleted [ '/root/node_modules/spdy' ]
+947 silly reify mark deleted [ '/root/node_modules/spdy-transport' ]
+948 silly reify mark deleted [ '/root/node_modules/spdy-transport/node_modules/readable-stream' ]
+949 silly reify mark deleted [ '/root/node_modules/split-string' ]
+950 silly reify mark deleted [ '/root/node_modules/stable' ]
+951 silly reify mark deleted [ '/root/node_modules/static-extend' ]
+952 silly reify mark deleted [ '/root/node_modules/static-extend/node_modules/define-property' ]
+953 silly reify mark deleted [ '/root/node_modules/statuses' ]
+954 silly reify mark deleted [ '/root/node_modules/std-env' ]
+955 silly reify mark deleted [ '/root/node_modules/stream-browserify' ]
+956 silly reify mark deleted [ '/root/node_modules/stream-http' ]
+957 silly reify mark deleted [ '/root/node_modules/string_decoder' ]
+958 silly reify mark deleted [ '/root/node_modules/string-width' ]
+959 silly reify mark deleted [ '/root/node_modules/strip-ansi' ]
+960 silly reify mark deleted [ '/root/node_modules/strip-final-newline' ]
+961 silly reify mark deleted [ '/root/node_modules/style-loader' ]
+962 silly reify mark deleted [ '/root/node_modules/style-loader/node_modules/emojis-list' ]
+963 silly reify mark deleted [ '/root/node_modules/style-loader/node_modules/loader-utils' ]
+964 silly reify mark deleted [ '/root/node_modules/style-loader/node_modules/schema-utils' ]
+965 silly reify mark deleted [ '/root/node_modules/stylehacks' ]
+966 silly reify mark deleted [ '/root/node_modules/supports-color' ]
+967 silly reify mark deleted [ '/root/node_modules/supports-preserve-symlinks-flag' ]
+968 silly reify mark deleted [ '/root/node_modules/svgo', '/root/node_modules/.bin/svgo' ]
+969 silly reify mark deleted [ '/root/node_modules/tapable' ]
+970 silly reify mark deleted [ '/root/node_modules/terser', '/root/node_modules/.bin/terser' ]
+971 silly reify mark deleted [ '/root/node_modules/terser-webpack-plugin' ]
+972 silly reify mark deleted [
+972 silly reify   '/root/node_modules/terser-webpack-plugin/node_modules/schema-utils'
+972 silly reify ]
+973 silly reify mark deleted [ '/root/node_modules/terser/node_modules/commander' ]
+974 silly reify mark deleted [ '/root/node_modules/thunky' ]
+975 silly reify mark deleted [ '/root/node_modules/timers-browserify' ]
+976 silly reify mark deleted [ '/root/node_modules/to-arraybuffer' ]
+977 silly reify mark deleted [ '/root/node_modules/to-fast-properties' ]
+978 silly reify mark deleted [ '/root/node_modules/to-object-path' ]
+979 silly reify mark deleted [ '/root/node_modules/to-object-path/node_modules/kind-of' ]
+980 silly reify mark deleted [ '/root/node_modules/to-regex' ]
+981 silly reify mark deleted [ '/root/node_modules/to-regex-range' ]
+982 silly reify mark deleted [ '/root/node_modules/toidentifier' ]
+983 silly reify mark deleted [ '/root/node_modules/tslib' ]
+984 silly reify mark deleted [ '/root/node_modules/tty-browserify' ]
+985 silly reify mark deleted [ '/root/node_modules/type' ]
+986 silly reify mark deleted [ '/root/node_modules/type-is' ]
+987 silly reify mark deleted [ '/root/node_modules/unicode-canonical-property-names-ecmascript' ]
+988 silly reify mark deleted [ '/root/node_modules/unicode-match-property-ecmascript' ]
+989 silly reify mark deleted [ '/root/node_modules/unicode-match-property-value-ecmascript' ]
+990 silly reify mark deleted [ '/root/node_modules/unicode-property-aliases-ecmascript' ]
+991 silly reify mark deleted [ '/root/node_modules/union-value' ]
+992 silly reify mark deleted [ '/root/node_modules/union-value/node_modules/is-extendable' ]
+993 silly reify mark deleted [ '/root/node_modules/universalify' ]
+994 silly reify mark deleted [ '/root/node_modules/unpipe' ]
+995 silly reify mark deleted [ '/root/node_modules/unset-value' ]
+996 silly reify mark deleted [ '/root/node_modules/unset-value/node_modules/has-value' ]
+997 silly reify mark deleted [
+997 silly reify   '/root/node_modules/unset-value/node_modules/has-value/node_modules/isobject'
+997 silly reify ]
+998 silly reify mark deleted [ '/root/node_modules/unset-value/node_modules/has-values' ]
+999 silly reify mark deleted [ '/root/node_modules/upath' ]
+1000 silly reify mark deleted [
+1000 silly reify   '/root/node_modules/update-browserslist-db',
+1000 silly reify   '/root/node_modules/.bin/browserslist-lint'
+1000 silly reify ]
+1001 silly reify mark deleted [ '/root/node_modules/uri-js' ]
+1002 silly reify mark deleted [ '/root/node_modules/urix' ]
+1003 silly reify mark deleted [ '/root/node_modules/url' ]
+1004 silly reify mark deleted [ '/root/node_modules/url/node_modules/punycode' ]
+1005 silly reify mark deleted [ '/root/node_modules/use' ]
+1006 silly reify mark deleted [ '/root/node_modules/util' ]
+1007 silly reify mark deleted [ '/root/node_modules/util-deprecate' ]
+1008 silly reify mark deleted [ '/root/node_modules/util/node_modules/inherits' ]
+1009 silly reify mark deleted [ '/root/node_modules/utils-merge' ]
+1010 silly reify mark deleted [ '/root/node_modules/uuid', '/root/node_modules/.bin/uuid' ]
+1011 silly reify mark deleted [ '/root/node_modules/vary' ]
+1012 silly reify mark deleted [ '/root/node_modules/vm-browserify' ]
+1013 silly reify mark deleted [ '/root/node_modules/vue' ]
+1014 silly reify mark deleted [ '/root/node_modules/vue-style-loader' ]
+1015 silly reify mark deleted [ '/root/node_modules/vue-template-compiler' ]
+1016 silly reify mark deleted [ '/root/node_modules/watchpack' ]
+1017 silly reify mark deleted [ '/root/node_modules/wbuf' ]
+1018 silly reify mark deleted [ '/root/node_modules/webpack', '/root/node_modules/.bin/webpack' ]
+1019 silly reify mark deleted [
+1019 silly reify   '/root/node_modules/webpack-cli',
+1019 silly reify   '/root/node_modules/.bin/webpack-cli'
+1019 silly reify ]
+1020 silly reify mark deleted [ '/root/node_modules/webpack-dev-middleware' ]
+1021 silly reify mark deleted [ '/root/node_modules/webpack-dev-middleware/node_modules/ajv' ]
+1022 silly reify mark deleted [
+1022 silly reify   '/root/node_modules/webpack-dev-middleware/node_modules/ajv-keywords'
+1022 silly reify ]
+1023 silly reify mark deleted [
+1023 silly reify   '/root/node_modules/webpack-dev-middleware/node_modules/json-schema-traverse'
+1023 silly reify ]
+1024 silly reify mark deleted [
+1024 silly reify   '/root/node_modules/webpack-dev-middleware/node_modules/schema-utils'
+1024 silly reify ]
+1025 silly reify mark deleted [ '/root/node_modules/webpack-merge' ]
+1026 silly reify mark deleted [ '/root/node_modules/webpack-merge/node_modules/clone-deep' ]
+1027 silly reify mark deleted [ '/root/node_modules/webpack-merge/node_modules/shallow-clone' ]
+1028 silly reify mark deleted [ '/root/node_modules/webpack-notifier' ]
+1029 silly reify mark deleted [ '/root/node_modules/webpack-sources' ]
+1030 silly reify mark deleted [ '/root/node_modules/webpack-sources/node_modules/source-map' ]
+1031 silly reify mark deleted [ '/root/node_modules/webpack/node_modules/schema-utils' ]
+1032 silly reify mark deleted [ '/root/node_modules/webpack/node_modules/webpack-sources' ]
+1033 silly reify mark deleted [ '/root/node_modules/webpackbar' ]
+1034 silly reify mark deleted [ '/root/node_modules/websocket-driver' ]
+1035 silly reify mark deleted [ '/root/node_modules/websocket-extensions' ]
+1036 silly reify mark deleted [ '/root/node_modules/which', '/root/node_modules/.bin/node-which' ]
+1037 silly reify mark deleted [ '/root/node_modules/wildcard' ]
+1038 silly reify mark deleted [ '/root/node_modules/wrap-ansi' ]
+1039 silly reify mark deleted [ '/root/node_modules/wrappy' ]
+1040 silly reify mark deleted [ '/root/node_modules/ws' ]
+1041 silly reify mark deleted [ '/root/node_modules/xtend' ]
+1042 silly reify mark deleted [ '/root/node_modules/yallist' ]
+1043 silly reify mark deleted [ '/root/node_modules/yaml' ]
+1044 silly reify mark deleted [ '/root/node_modules/yargs' ]
+1045 silly reify mark deleted [ '/root/node_modules/yargs-parser' ]
+1046 silly reify mark deleted [ '/root/node_modules/yargs/node_modules/y18n' ]
+1047 silly reify mark deleted [ '/root/node_modules/vue-loader' ]
+1048 silly reify mark deleted [ '/root/node_modules/@vue/component-compiler-utils' ]
+1049 silly reify mark deleted [ '/root/node_modules/vue-hot-reload-api' ]
+1050 silly reify mark deleted [ '/root/node_modules/consolidate' ]
+1051 silly reify mark deleted [
+1051 silly reify   '/root/node_modules/@vue/component-compiler-utils/node_modules/lru-cache'
+1051 silly reify ]
+1052 silly reify mark deleted [ '/root/node_modules/merge-source-map' ]
+1053 silly reify mark deleted [
+1053 silly reify   '/root/node_modules/@vue/component-compiler-utils/node_modules/postcss'
+1053 silly reify ]
+1054 silly reify mark deleted [ '/root/node_modules/prettier', '/root/node_modules/.bin/prettier' ]
+1055 silly reify mark deleted [
+1055 silly reify   '/root/node_modules/@vue/component-compiler-utils/node_modules/source-map'
+1055 silly reify ]
+1056 silly reify mark deleted [ '/root/node_modules/vue-template-es2015-compiler' ]
+1057 silly reify mark deleted [ '/root/node_modules/bluebird' ]
+1058 silly reify mark deleted [ '/root/node_modules/merge-source-map/node_modules/source-map' ]
+1059 silly reify mark deleted [ '/root/node_modules/pseudomap' ]
+1060 silly reify mark deleted [
+1060 silly reify   '/root/node_modules/@vue/component-compiler-utils/node_modules/yallist'
+1060 silly reify ]
+1061 silly reify mark deleted [
+1061 silly reify   '/root/node_modules/@vue/component-compiler-utils/node_modules/picocolors'
+1061 silly reify ]
+1062 timing reify:trashOmits Completed in 123ms
+1063 timing reify:loadBundles Completed in 0ms
+1064 silly audit bulk request {
+1064 silly audit   classnames: [ '2.2.6' ],
+1064 silly audit   'core-js': [ '3.2.0' ],
+1064 silly audit   'feather-icons': [ '4.24.0' ],
+1064 silly audit   'vue-select': [ '3.1.0' ]
+1064 silly audit }
+1065 timing reify:unpack Completed in 1ms
+1066 timing reify:unretire Completed in 0ms
+1067 timing build:queue Completed in 1ms
+1068 timing build:link Completed in 0ms
+1069 timing build:deps Completed in 1ms
+1070 timing build Completed in 1ms
+1071 timing reify:build Completed in 2ms
+1072 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 342ms
+1073 timing auditReport:getReport Completed in 344ms
+1074 silly audit report {}
+1075 timing auditReport:init Completed in 0ms
+1076 timing reify:audit Completed in 346ms
+1077 timing reify:trash Completed in 4942ms
+1078 timing reify:save Completed in 90ms
+1079 timing reify Completed in 6033ms
+1080 silly ADD
+1081 silly ADD
+1082 silly ADD
+1083 silly ADD
+1084 silly ADD
+1085 silly ADD node_modules/source-map
+1086 silly ADD
+1087 silly ADD
+1088 silly ADD
+1089 silly ADD node_modules/picocolors
+1090 silly ADD node_modules/yallist
+1091 silly ADD node_modules/source-map
+1092 silly ADD node_modules/postcss
+1093 silly ADD node_modules/lru-cache
+1094 silly ADD
+1095 silly ADD
+1096 silly ADD
+1097 silly ADD
+1098 silly ADD
+1099 silly ADD node_modules/fsevents
+1100 timing command:install Completed in 6043ms
+1101 verbose exit 0
+1102 timing npm Completed in 6103ms
+1103 info ok

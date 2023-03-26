@@ -1,0 +1,82 @@
+/* nunito-regular - latin */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Nunito Regular'), local('Nunito-Regular'),
+        url('../fonts/nunito-v12-latin-regular.woff2') format('woff2');
+}
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// vue-select
+@import "~vue-select/src/scss/vue-select.scss";
+
+[v-cloak] {display: none}
+
+.badge-card-list {
+  min-height: 4em;
+  min-width: 4em;
+  max-height: 4em;
+  max-width: 4em;
+}
+
+.v-select .vs__dropdown-toggle {
+  @extend .form-control;
+  display: flex;
+}
+
+.dropdown-toggle-vertical-points:after {
+  border: none;
+  content: '\2807';
+}
+
+.dropdown-toggle-vertical-points:hover, .dropdown-toggle-vertical-points:focus {
+  text-decoration: none;
+}
+
+button.dropdown-item-delete {
+  color: $danger !important;
+}
+
+button.dropdown-item-delete:hover {
+  color: $danger !important;
+}
+
+button.dropdown-item-delete:active {
+  color: #ffffff !important;
+  background-color: $danger !important;
+}
+
+.outline-none {
+  outline: none;
+}
+
+.feather-16{
+  width: 16px;
+  height: 16px;
+}
+
+.feather-20{
+  width: 20px;
+  height: 20px;
+}
+
+.feather-24{
+  width: 24px;
+  height: 24px;
+}
+
+.feather-28{
+  width: 28px;
+  height: 28px;
+}
+
+.feather-32{
+  width: 32px;
+  height: 32px;
+}

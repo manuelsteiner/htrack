@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  php-fpm:
+    build:
+      args:
+        user: htrack
+        uid: 1000
+      context: ./
+      dockerfile: docker/php-fpm/Dockerfile
+    image: php-fpm-laravel
+    container_name : htrack-php-fpm
+    hostname: php-fpm
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www:z
+    networks:
+      - htrack
+
+  nodejs:
+    image: node:16
+    container_name: htrack-nodejs
+    hostname: nodejs
+    restart: unless-stopped
+    tty: true
+    working_dir: /root
+    volumes:
+      - ./:/root:z
+    networks:
+      - htrack
+
+  nginx:
+    image: nginx:1.21.0-alpine
+    container_name: htrack-nginx
+    hostname: nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/config:/etc/nginx/conf.d:z
+    networks:
+      - htrack
+
+networks:
+  htrack:
+    driver: bridge
