@@ -37,6 +37,15 @@ Vue.component('v-select', vSelect);
 const app = new Vue({
     el: '#app',
 
+    mounted() {
+        // Initialize Bootstrap dropdowns after Vue mounts, since Vue takes
+        // over the DOM and Bootstrap's auto-init may not find the elements.
+        var dropdownTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="dropdown"]'));
+        dropdownTriggerList.map(function (el) {
+            return new window.bootstrap.Dropdown(el);
+        });
+    },
+
     data: {
         selected: {},
 

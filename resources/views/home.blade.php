@@ -33,26 +33,32 @@
 
     </div>
 
-    <div class="card-deck mt-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
 
-        <div class="card bg-success text-white">
-            <div class="card-body text-center valign-middle">
-                <h1>{{ $protein }}</h1>
-                <h5 class="m-0">protein</h5>
+        <div class="col">
+            <div class="card bg-success text-white h-100">
+                <div class="card-body text-center valign-middle">
+                    <h1>{{ $protein }}</h1>
+                    <h5 class="m-0">protein</h5>
+                </div>
             </div>
         </div>
 
-        <div class="card bg-info text-white">
-            <div class="card-body text-center valign-middle">
-                <h1>{{ $fat }}</h1>
-                <h5 class="m-0">fat</h5>
+        <div class="col">
+            <div class="card bg-info text-white h-100">
+                <div class="card-body text-center valign-middle">
+                    <h1>{{ $fat }}</h1>
+                    <h5 class="m-0">fat</h5>
+                </div>
             </div>
         </div>
 
-        <div class="card bg-danger text-white">
-            <div class="card-body text-center valign-middle">
-                <h1>{{ $carbohydrates }}</h1>
-                <h5 class="m-0">carbs</h5>
+        <div class="col">
+            <div class="card bg-danger text-white h-100">
+                <div class="card-body text-center valign-middle">
+                    <h1>{{ $carbohydrates }}</h1>
+                    <h5 class="m-0">carbs</h5>
+                </div>
             </div>
         </div>
 

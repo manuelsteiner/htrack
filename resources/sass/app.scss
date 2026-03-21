@@ -30,6 +30,12 @@
   display: flex;
 }
 
+.dropdown-toggle-vertical-points {
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+}
+
 .dropdown-toggle-vertical-points:after {
   border: none;
   content: '\2807';

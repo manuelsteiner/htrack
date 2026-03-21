@@ -7,7 +7,7 @@
         </div>
 
         <div class="d-md-none">
-            <a class="btn btn-primary" href="{{ route('foods.create') }}" role="button"><i class="feather-20 align-text-bottom mr-1" data-feather="plus"></i>Add a Food Item</a>
+            <a class="btn btn-primary" href="{{ route('foods.create') }}" role="button"><i class="feather-20 align-text-bottom me-1" data-feather="plus"></i>Add a Food Item</a>
         </div>
 
         <h1 class="mt-4">Food</h1>
@@ -23,28 +23,26 @@
 
                     <div class="input-group">
                         <input type="text" class="form-control" id="search" name="search" placeholder="Search Food (name)">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="submit"><i class="feather-20 align-text-bottom mr-1" data-feather="search"></i>Search Food</button>
-                        </div>
+                        <button class="btn btn-outline-secondary" type="submit"><i class="feather-20 align-text-bottom me-1" data-feather="search"></i>Search Food</button>
                     </div>
                 </form>
 
             </div>
 
-            <div class="col-md-auto mt-1 mt-md-0 ml-auto">
+            <div class="col-md-auto mt-1 mt-md-0 ms-auto">
                 <div class="dropdown">
-                    <button class="btn btn-outline-secondary btn-block dropdown-toggle" type="button" id="sortOrderDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="feather-20 align-text-bottom mr-1" data-feather="arrow-up"></i>
+                    <button class="btn btn-outline-secondary w-100 dropdown-toggle" type="button" id="sortOrderDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="feather-20 align-text-bottom me-1" data-feather="arrow-up"></i>
                         Sort By
                     </button>
-                    <div class="dropdown-menu dropdown-menu-right w-100" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-menu dropdown-menu-end w-100" aria-labelledby="dropdownMenuButton">
                         <form action="{{ route('foods.index') }}" method="get">
                             @if(request()->search)
                                 <input type="hidden" id="search" name="search" value="{{ request()->search }}">
                             @endif
 
-                            <button type="submit" name="sort" value="name-asc" class="dropdown-item btn-block"><i class="feather-20 align-text-bottom mr-1" data-feather="arrow-up"></i>Name</button>
-                            <button type="submit" name="sort" value="name-desc" class="dropdown-item btn-block"><i class="feather-20 align-text-bottom mr-1" data-feather="arrow-down"></i>Name</button>
+                            <button type="submit" name="sort" value="name-asc" class="dropdown-item"><i class="feather-20 align-text-bottom me-1" data-feather="arrow-up"></i>Name</button>
+                            <button type="submit" name="sort" value="name-desc" class="dropdown-item"><i class="feather-20 align-text-bottom me-1" data-feather="arrow-down"></i>Name</button>
                         </form>
                     </div>
                 </div>
@@ -65,10 +63,10 @@
 
         <p class="mt-3">
             Nutritional information denotes
-            <span class="badge badge-secondary">Calories</span>,
-            <span class="badge badge-success">Protein</span>,
-            <span class="badge badge-info">Fat</span>,
-            <span class="badge badge-danger">Carbohydrates</span>
+            <span class="badge text-bg-secondary">Calories</span>,
+            <span class="badge text-bg-success">Protein</span>,
+            <span class="badge text-bg-info">Fat</span>,
+            <span class="badge text-bg-danger">Carbohydrates</span>
             per 100g/ml of food.
         </p>
     </div>

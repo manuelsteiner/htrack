@@ -10,7 +10,7 @@
                 @csrf
                 @method('DELETE')
 
-                <button type="submit" class="btn btn-outline-danger"><i class="feather-20 align-text-bottom mr-1" data-feather="trash-2"></i>Delete Consumption</button>
+                <button type="submit" class="btn btn-outline-danger"><i class="feather-20 align-text-bottom me-1" data-feather="trash-2"></i>Delete Consumption</button>
             </form>
         </div>
     </div>

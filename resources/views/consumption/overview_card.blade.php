@@ -17,31 +17,31 @@
                     </p>
                 </div>
 
-                <div class="col-md-auto text-left text-md-right">
-                    <div class="badge badge-card-list badge-secondary align-middle d-inline-flex align-items-center justify-content-center">
+                <div class="col-md-auto text-start text-md-end">
+                    <div class="badge badge-card-list text-bg-secondary align-middle d-inline-flex align-items-center justify-content-center">
                         {{  $consumption->calories }}
                     </div>
-                    <div class="badge badge-card-list badge-success align-middle d-inline-flex align-items-center justify-content-center">
+                    <div class="badge badge-card-list text-bg-success align-middle d-inline-flex align-items-center justify-content-center">
                         {{  $consumption->protein_string }}
                     </div>
-                    <div class="badge badge-card-list badge-info align-middle d-inline-flex align-items-center justify-content-center">
+                    <div class="badge badge-card-list text-bg-info align-middle d-inline-flex align-items-center justify-content-center">
                         {{  $consumption->fat_string }}
                     </div>
-                    <div class="badge badge-card-list badge-danger align-middle d-inline-flex align-items-center justify-content-center">
+                    <div class="badge badge-card-list text-bg-danger align-middle d-inline-flex align-items-center justify-content-center">
                         {{  $consumption->carbohydrates_string }}
                     </div>
                 </div>
 
-                <div class="col-md-auto d-none d-md-block">
+                <div class="col-md-auto d-none d-md-block position-relative" style="z-index: 2;">
                     <div class="dropdown d-inline">
-                        <button class="btn btn-lg btn-link dropdown-toggle-vertical-points text-muted" type="button" id="foodOverviewDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                        <button class="btn btn-lg btn-link dropdown-toggle-vertical-points text-muted" type="button" id="foodOverviewDropdown" data-bs-toggle="dropdown" aria-expanded="false"></button>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="foodOverviewDropdown">
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="foodOverviewDropdown">
                             <form action="{{ route('consumptions.destroy', $consumption) }}" method="post">
                                 @csrf
                                 @method('DELETE')
 
-                                <button type="submit" class="dropdown-item dropdown-item-delete"><i class="feather-20 align-text-bottom mr-1" data-feather="trash-2"></i>Delete Consumption</button>
+                                <button type="submit" class="dropdown-item dropdown-item-delete"><i class="feather-20 align-text-bottom me-1" data-feather="trash-2"></i>Delete Consumption</button>
                             </form>
                         </div>
                     </div>
