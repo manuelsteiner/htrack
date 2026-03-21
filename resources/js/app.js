@@ -4,29 +4,13 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+import './bootstrap';
 
-const feather = require('feather-icons');
+import feather from 'feather-icons';
 
-feather.replace();
-
-import Vue from 'vue';
+import { createApp } from 'vue';
 import Notification from './components/Notification.vue';
 import vSelect from 'vue-select';
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-
-Vue.component('notification', Notification);
-Vue.component('v-select', vSelect);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -34,22 +18,12 @@ Vue.component('v-select', vSelect);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
-
-    mounted() {
-        // Initialize Bootstrap dropdowns after Vue mounts, since Vue takes
-        // over the DOM and Bootstrap's auto-init may not find the elements.
-        var dropdownTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="dropdown"]'));
-        dropdownTriggerList.map(function (el) {
-            return new window.bootstrap.Dropdown(el);
-        });
-    },
-
-    data: {
-        selected: {},
-
-        show_details: false
+const app = createApp({
+    data() {
+        return {
+            selected: {},
+            show_details: false
+        };
     },
 
     computed: {
@@ -87,12 +61,10 @@ const app = new Vue({
 
         selected_saturated_fat: function() {
             return this.selected.saturated_fat;
-
         },
 
         selected_protein: function() {
             return this.selected.protein;
-
         },
 
         selected_sodium: function() {
@@ -124,6 +96,18 @@ const app = new Vue({
         }
     },
 
+    mounted() {
+        // Replace feather icons after Vue has rendered the DOM
+        feather.replace();
+
+        // Initialize Bootstrap dropdowns after Vue mounts, since Vue takes
+        // over the DOM and Bootstrap's auto-init may not find the elements.
+        var dropdownTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="dropdown"]'));
+        dropdownTriggerList.map(function (el) {
+            return new window.bootstrap.Dropdown(el);
+        });
+    },
+
     methods: {
         onSelectionChange(value) {
             if(value) {
@@ -140,6 +124,11 @@ const app = new Vue({
         }
     }
 });
+
+app.component('notification', Notification);
+app.component('v-select', vSelect);
+
+app.mount('#app');
 
 (function() {
     'use strict';

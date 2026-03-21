@@ -8,7 +8,7 @@
 
     <div class="col-md-6 mb-3">
         <label for="food_name">Food name</label>
-        <v-select :options="{{ $foods }}" @input="onSelectionChange" class="@error('food_name') is-invalid @enderror" id="food_name" label="name" placeholder="Consumed food" select-on-tab taggable>
+        <v-select :options="{{ $foods }}" @option:selected="onSelectionChange" @option:deselected="onSelectionChange(null)" class="@error('food_name') is-invalid @enderror" id="food_name" label="name" placeholder="Consumed food" select-on-tab taggable>
             <template #search="{attributes, events}">
                 <input class="vs__search" :required="!selected_name"  v-bind="attributes"  v-on="events" />
             </template>

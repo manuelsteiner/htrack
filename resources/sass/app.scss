@@ -11,10 +11,10 @@
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap';
 
 // vue-select
-@import "~vue-select/src/scss/vue-select.scss";
+@import "vue-select/dist/vue-select.css";
 
 [v-cloak] {display: none}
 
@@ -23,6 +23,7 @@
   min-width: 4em;
   max-height: 4em;
   max-width: 4em;
+  margin: 0 0.15em;
 }
 
 .v-select .vs__dropdown-toggle {
