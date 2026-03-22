@@ -26,9 +26,39 @@
   margin: 0 0.15em;
 }
 
-.v-select .vs__dropdown-toggle {
-  @extend .form-control;
-  display: flex;
+.v-select {
+  --vs-border-color: var(--bs-border-color);
+  --vs-border-radius: var(--bs-border-radius);
+  --vs-font-size: #{$font-size-base};
+  --vs-line-height: #{$line-height-base};
+  --vs-search-input-placeholder-color: var(--bs-secondary-color);
+
+  .vs__dropdown-toggle {
+    padding: 0;
+    min-height: calc(#{$line-height-base * $font-size-base} + 0.75rem + calc(var(--bs-border-width) * 2));
+  }
+
+  .vs__selected {
+    margin: 0.375rem 0 0 0.75rem;
+    padding: 0;
+    line-height: #{$line-height-base};
+  }
+
+  .vs__search,
+  .vs__search:focus {
+    margin: 0.375rem 0 0.375rem 0.75rem;
+    padding: 0;
+    line-height: #{$line-height-base};
+  }
+
+  .vs__actions {
+    padding: 0 0.75rem 0 0.25rem;
+  }
+
+  &.vs--open .vs__dropdown-toggle {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, .25);
+  }
 }
 
 .dropdown-toggle-vertical-points {
