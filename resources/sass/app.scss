@@ -18,6 +18,10 @@
 
 [v-cloak] {display: none}
 
+body {
+  background-color: #f8fafc;
+}
+
 .badge-card-list {
   min-height: 4em;
   min-width: 4em;
@@ -36,6 +40,7 @@
   .vs__dropdown-toggle {
     padding: 0;
     min-height: calc(#{$line-height-base * $font-size-base} + 0.75rem + calc(var(--bs-border-width) * 2));
+    background-color: var(--bs-body-bg);
   }
 
   .vs__selected {
