@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consumption;
+use Carbon\CarbonPeriod;
 
 class HomeController extends Controller
 {
@@ -25,13 +26,59 @@ class HomeController extends Controller
     {
         $consumptions = Consumption::where('consumed_at', auth()->user()->settings->localised_date)->get();
 
-        $calories = $consumptions->sum('calories');
+        $calories = round($consumptions->sum('calories'));
         $calories_target = auth()->user()->settings->calorie_target;
         $calories_left = $calories_target - $calories;
         $carbohydrates = $consumptions->sum('carbohydrates').'g';
         $fat = $consumptions->sum('fat').'g';
         $protein = $consumptions->sum('protein').'g';
+        $sugar = $consumptions->sum('sugar').'g';
+        $fibre = $consumptions->sum('fibre').'g';
+        $saturated_fat = $consumptions->sum('saturated_fat').'g';
+        $sodium = round($consumptions->sum('sodium')).'mg';
 
-        return view('home', ['calories' => $calories, 'calories_left' => $calories_left, 'calories_target' => $calories_target, 'carbohydrates' => $carbohydrates, 'fat' => $fat, 'protein' => $protein]);
+        $today = auth()->user()->settings->localised_date;
+        $yesterday = $today->copy()->subDay();
+        $weekAgo = $yesterday->copy()->subDays(6);
+
+        $recentConsumptions = Consumption::where('user_id', auth()->id())
+            ->whereBetween('consumed_at', [$weekAgo, $yesterday])
+            ->get()
+            ->groupBy(fn ($c) => $c->consumed_at->format('Y-m-d'));
+
+        $calorie_targets = auth()->user()->settings->calorie_targets;
+
+        $days = collect(CarbonPeriod::create($weekAgo, $yesterday))->map(function ($date) use ($recentConsumptions, $calorie_targets) {
+            $key = $date->format('Y-m-d');
+            $dayConsumptions = $recentConsumptions->get($key, collect());
+            $dayTarget = $calorie_targets[strtolower($date->format('l'))] ?? 0;
+
+            return [
+                'date' => $date->format('D, d M'),
+                'calories' => round($dayConsumptions->sum('calories')),
+                'calories_target' => $dayTarget,
+                'protein' => round($dayConsumptions->sum('protein'), 1),
+                'fat' => round($dayConsumptions->sum('fat'), 1),
+                'carbs' => round($dayConsumptions->sum('carbohydrates'), 1),
+                'sugar' => round($dayConsumptions->sum('sugar'), 1),
+                'sat_fat' => round($dayConsumptions->sum('saturated_fat'), 1),
+                'fibre' => round($dayConsumptions->sum('fibre'), 1),
+                'sodium' => round($dayConsumptions->sum('sodium')),
+            ];
+        })->reverse()->values();
+
+        return view('home', [
+            'calories' => $calories,
+            'calories_left' => $calories_left,
+            'calories_target' => $calories_target,
+            'carbohydrates' => $carbohydrates,
+            'fat' => $fat,
+            'protein' => $protein,
+            'sugar' => $sugar,
+            'fibre' => $fibre,
+            'saturated_fat' => $saturated_fat,
+            'sodium' => $sodium,
+            'days' => $days,
+        ]);
     }
 }
