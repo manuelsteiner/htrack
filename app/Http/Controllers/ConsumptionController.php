@@ -149,6 +149,54 @@ class ConsumptionController extends Controller
     }
 
     /**
+     * Copy a single consumption to today.
+     */
+    public function copyToToday(Consumption $consumption)
+    {
+        $copy = Consumption::make([
+            'consumed_at' => now()->toDateString(),
+            'amount' => $consumption->amount,
+            'food_id' => $consumption->food_id,
+        ]);
+
+        auth()->user()->consumptions()->save($copy);
+
+        return redirect()->route('consumptions.index')->with('success', 'The consumption was copied to today.');
+    }
+
+    /**
+     * Copy all consumptions from a given date to today.
+     */
+    public function copyDate(Request $request)
+    {
+        $request->validate([
+            'date' => 'required|date|before:today',
+        ]);
+
+        $consumptions = Consumption::where('user_id', auth()->id())
+            ->whereDate('consumed_at', $request->date)
+            ->get();
+
+        if ($consumptions->isEmpty()) {
+            return redirect()->route('consumptions.index')->with('info', 'No consumptions found for the selected date.');
+        }
+
+        $today = now()->toDateString();
+
+        foreach ($consumptions as $consumption) {
+            $copy = Consumption::make([
+                'consumed_at' => $today,
+                'amount' => $consumption->amount,
+                'food_id' => $consumption->food_id,
+            ]);
+
+            auth()->user()->consumptions()->save($copy);
+        }
+
+        return redirect()->route('consumptions.index')->with('success', $consumptions->count() . ' consumption(s) copied to today.');
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Consumption  $consumption

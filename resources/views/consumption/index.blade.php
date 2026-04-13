@@ -10,6 +10,13 @@
             <a class="btn btn-primary" href="{{ route('consumptions.create') }}" role="button"><i class="feather-20 align-text-bottom me-1" data-feather="plus"></i>Add a Consumption</a>
         </div>
 
+        <h1 class="mt-4">Copy Date to Today</h1>
+        <form action="{{ route('consumptions.copyDate') }}" method="post" class="d-flex align-items-center gap-2 mb-4">
+            @csrf
+            <input type="date" class="form-control w-auto" id="date" name="date" max="{{ now()->subDay()->toDateString() }}" required>
+            <button class="btn btn-primary text-nowrap" type="submit"><i class="feather-20 align-text-bottom me-1" data-feather="copy"></i>Copy</button>
+        </form>
+
         <h1 class="mt-4">Consumptions</h1>
 
         <div class="row">

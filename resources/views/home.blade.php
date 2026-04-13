@@ -19,8 +19,8 @@
         <div class="col">
             <div class="card border-0 bg-body-secondary h-100">
                 <div class="card-body text-center valign-middle">
-                    <h1 class="{{ ($calories_left < 0) ? 'text-warning' : 'text-success' }}">{{ $calories_left }}</h1>
-                    <h5 class="m-0 text-body-secondary">calories left</h5>
+                    <h1 class="{{ ($calories_left < 0) ? 'text-warning' : 'text-success' }}">{{ abs($calories_left) }}</h1>
+                    <h5 class="m-0 text-body-secondary">calories {{ $calories_left < 0 ? 'over' : 'left' }}</h5>
                 </div>
             </div>
         </div>

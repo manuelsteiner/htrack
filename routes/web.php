@@ -30,6 +30,8 @@ Auth::routes([
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::resource('consumptions', ConsumptionController::class);
+Route::post('consumptions/{consumption}/copy-to-today', [ConsumptionController::class, 'copyToToday'])->name('consumptions.copyToToday');
+Route::post('consumptions/copy-date', [ConsumptionController::class, 'copyDate'])->name('consumptions.copyDate');
 Route::resource('foods', FoodController::class);
 Route::resource('settings', SettingsController::class);
 Route::resource('weights', WeightController::class);

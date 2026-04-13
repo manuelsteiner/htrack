@@ -32,11 +32,15 @@
                     </div>
                 </div>
 
-                <div class="col-md-auto d-none d-md-block position-relative" style="z-index: 2;">
+                <div class="col-md-auto d-none d-md-block">
                     <div class="dropdown d-inline">
                         <button class="btn btn-lg btn-link dropdown-toggle-vertical-points text-muted" type="button" id="foodOverviewDropdown" data-bs-toggle="dropdown" aria-expanded="false"></button>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="foodOverviewDropdown">
+                            <form action="{{ route('consumptions.copyToToday', $consumption) }}" method="post">
+                                @csrf
+                                <button type="submit" class="dropdown-item"><i class="feather-20 align-text-bottom me-1" data-feather="copy"></i>Copy to Today</button>
+                            </form>
                             <form action="{{ route('consumptions.destroy', $consumption) }}" method="post">
                                 @csrf
                                 @method('DELETE')

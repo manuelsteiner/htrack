@@ -23,7 +23,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-auto d-none d-md-block position-relative" style="z-index: 2;">
+                <div class="col-md-auto d-none d-md-block">
                     <div class="dropdown d-inline">
                         <button class="btn btn-lg btn-link dropdown-toggle-vertical-points text-muted" type="button" id="foodOverviewDropdown" data-bs-toggle="dropdown" aria-expanded="false"></button>
 
