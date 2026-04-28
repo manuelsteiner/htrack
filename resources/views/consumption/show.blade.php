@@ -5,7 +5,11 @@
         <h1>Consumption: {{ $consumption->food->name }}</h1>
         <h5>{{ $consumption->amount_string }} on {{ $consumption->consumed_at_string }}</h5>
 
-        <div class="mt-2">
+        <div class="mt-2 d-flex gap-2">
+            <form action="{{ route('consumptions.copyToToday', $consumption) }}" method="post">
+                @csrf
+                <button type="submit" class="btn btn-outline-primary"><i class="feather-20 align-text-bottom me-1" data-feather="copy"></i>Copy to Today</button>
+            </form>
             <form action="{{ route('consumptions.destroy', $consumption) }}" method="post">
                 @csrf
                 @method('DELETE')
