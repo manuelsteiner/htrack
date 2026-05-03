@@ -87,7 +87,7 @@ class ListConsumptionsTool extends Tool
             'sodium' => $c->sodium,
         ])->all();
 
-        $summary = sprintf(
+        $header = sprintf(
             'Showing %d of %d consumptions (page %d of %d).',
             count($rows),
             $paginator->total(),
@@ -95,7 +95,10 @@ class ListConsumptionsTool extends Tool
             max(1, $paginator->lastPage()),
         );
 
-        return Response::make(Response::text($summary))->withStructuredContent([
+        $lines = array_map(fn (array $row) => $this->formatLine($row), $rows);
+        $text = $rows === [] ? $header : $header."\n".implode("\n", $lines);
+
+        return Response::make(Response::text($text))->withStructuredContent([
             'consumptions' => $rows,
             'pagination' => [
                 'page' => $paginator->currentPage(),
@@ -105,6 +108,31 @@ class ListConsumptionsTool extends Tool
                 'has_more_pages' => $paginator->hasMorePages(),
             ],
         ]);
+    }
+
+    private function formatLine(array $row): string
+    {
+        return sprintf(
+            '#%d %s — %s g/ml of "%s" (food #%s) — %s kcal, %sg carbs, %sg fat, %sg protein.',
+            $row['id'],
+            $row['consumed_at'] ?? 'unknown date',
+            $this->fmt($row['amount']),
+            $row['food']['name'] ?? 'unknown food',
+            $row['food']['id'] ?? '?',
+            $this->fmt($row['calories']),
+            $this->fmt($row['carbohydrates']),
+            $this->fmt($row['fat']),
+            $this->fmt($row['protein']),
+        );
+    }
+
+    private function fmt($value): string
+    {
+        if ($value === null) {
+            return 'NA';
+        }
+
+        return rtrim(rtrim(number_format((float) $value, 1, '.', ''), '0'), '.');
     }
 
     public function schema(JsonSchema $schema): array

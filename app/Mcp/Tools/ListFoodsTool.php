@@ -55,15 +55,18 @@ class ListFoodsTool extends Tool
             'sodium' => $food->sodium,
         ])->all();
 
-        $summary = sprintf(
-            'Showing %d of %d foods (page %d of %d).',
+        $header = sprintf(
+            'Showing %d of %d foods (page %d of %d). Values per 100g/ml.',
             count($foods),
             $paginator->total(),
             $paginator->currentPage(),
             max(1, $paginator->lastPage()),
         );
 
-        return Response::make(Response::text($summary))->withStructuredContent([
+        $lines = array_map(fn (array $food) => $this->formatLine($food), $foods);
+        $text = $foods === [] ? $header : $header."\n".implode("\n", $lines);
+
+        return Response::make(Response::text($text))->withStructuredContent([
             'foods' => $foods,
             'pagination' => [
                 'page' => $paginator->currentPage(),
@@ -73,6 +76,31 @@ class ListFoodsTool extends Tool
                 'has_more_pages' => $paginator->hasMorePages(),
             ],
         ]);
+    }
+
+    private function formatLine(array $food): string
+    {
+        $serving = $food['serving_size'] !== null ? sprintf(' (serving %s)', $food['serving_size']) : '';
+
+        return sprintf(
+            '#%d %s%s — %s kcal, %sg carbs, %sg fat, %sg protein.',
+            $food['id'],
+            $food['name'],
+            $serving,
+            $this->fmt($food['calories']),
+            $this->fmt($food['carbohydrates']),
+            $this->fmt($food['fat']),
+            $this->fmt($food['protein']),
+        );
+    }
+
+    private function fmt($value): string
+    {
+        if ($value === null) {
+            return 'NA';
+        }
+
+        return rtrim(rtrim(number_format((float) $value, 1, '.', ''), '0'), '.');
     }
 
     public function schema(JsonSchema $schema): array
