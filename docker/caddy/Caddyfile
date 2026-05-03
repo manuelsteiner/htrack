@@ -1,0 +1,16 @@
+# Replace `:80` with your domain (e.g. `htrack.example.com`) to enable
+# Caddy's automatic HTTPS via Let's Encrypt. When using a domain, also
+# uncomment the 443 port mappings in docker-compose.caddy.yml.
+:80 {
+	root * /var/www/public
+
+	encode gzip zstd
+
+	php_fastcgi php-fpm:9000
+
+	file_server
+
+	log {
+		output stdout
+	}
+}

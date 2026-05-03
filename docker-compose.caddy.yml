@@ -1,0 +1,55 @@
+services:
+  php-fpm:
+    build:
+      args:
+        user: htrack
+        uid: 1000
+      context: ./
+      dockerfile: docker/php-fpm/Dockerfile
+    image: php-fpm-laravel
+    container_name: htrack-php-fpm
+    hostname: php-fpm
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www:z
+    networks:
+      - htrack
+
+  nodejs:
+    image: node:16
+    container_name: htrack-nodejs
+    hostname: nodejs
+    restart: unless-stopped
+    tty: true
+    working_dir: /root
+    volumes:
+      - ./:/root:z
+    networks:
+      - htrack
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: htrack-caddy
+    hostname: caddy
+    restart: unless-stopped
+    ports:
+      - 8000:80
+      # Uncomment to enable automatic HTTPS once a domain is configured in the Caddyfile.
+      # - 443:443
+      # - 443:443/udp
+    volumes:
+      - ./:/var/www
+      - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile:z
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - htrack
+
+networks:
+  htrack:
+    driver: bridge
+
+volumes:
+  caddy_data:
+  caddy_config:
