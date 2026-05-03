@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiTokenController;
 use App\Http\Controllers\ConsumptionController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
@@ -35,3 +36,9 @@ Route::post('consumptions/copy-date', [ConsumptionController::class, 'copyDate']
 Route::resource('foods', FoodController::class);
 Route::resource('settings', SettingsController::class);
 Route::resource('weights', WeightController::class);
+
+Route::middleware('auth')->group(function () {
+    Route::post('api-tokens', [ApiTokenController::class, 'store'])->name('api-tokens.store');
+    Route::post('api-tokens/{id}/refresh', [ApiTokenController::class, 'refresh'])->name('api-tokens.refresh');
+    Route::delete('api-tokens/{id}', [ApiTokenController::class, 'destroy'])->name('api-tokens.destroy');
+});

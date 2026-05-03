@@ -118,5 +118,87 @@
         <button type="submit" class="btn btn-primary mt-4">Save Settings</button>
     </form>
 
+    <hr class="my-5">
+
+    <h2>API Tokens</h2>
+    <p class="text-muted">
+        Personal access tokens authenticate API and MCP requests. Treat them like passwords —
+        store them somewhere safe and never share them.
+    </p>
+
+    @if($plainTextToken)
+        <div class="alert alert-success" role="alert">
+            <strong>New token created.</strong> Copy it now — it will not be shown again.
+            <div class="input-group mt-2">
+                <input type="text" readonly class="form-control font-monospace" value="{{ $plainTextToken }}" onclick="this.select()">
+                <button class="btn btn-outline-secondary" type="button"
+                        onclick="navigator.clipboard.writeText('{{ $plainTextToken }}')">
+                    Copy
+                </button>
+            </div>
+        </div>
+    @endif
+
+    <form method="POST" action="{{ route('api-tokens.store') }}" class="mb-4">
+        @csrf
+        <div class="row g-2 align-items-end">
+            <div class="col-md-6">
+                <label for="token_name" class="form-label">Token name</label>
+                <input type="text"
+                       class="form-control @error('name') is-invalid @enderror"
+                       id="token_name"
+                       name="name"
+                       placeholder="e.g. Claude Desktop, MCP Client"
+                       value="{{ old('name') }}"
+                       required>
+                @error('name')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col-md-auto">
+                <button type="submit" class="btn btn-primary">Create Token</button>
+            </div>
+        </div>
+    </form>
+
+    @if($tokens->isEmpty())
+        <p class="text-muted">No API tokens yet.</p>
+    @else
+        <div class="table-responsive">
+            <table class="table table-sm align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Created</th>
+                        <th scope="col">Last used</th>
+                        <th scope="col" class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($tokens as $token)
+                        <tr>
+                            <td>{{ $token->name }}</td>
+                            <td>{{ $token->created_at?->format('Y-m-d H:i') }}</td>
+                            <td>{{ $token->last_used_at?->diffForHumans() ?? 'Never' }}</td>
+                            <td class="text-end">
+                                <form method="POST" action="{{ route('api-tokens.refresh', $token->id) }}" class="d-inline"
+                                      onsubmit="return confirm('Refresh this token? The current token will stop working immediately.');">
+                                    @csrf
+                                    <button type="submit" class="btn btn-sm btn-outline-secondary">Refresh</button>
+                                </form>
+                                <form method="POST" action="{{ route('api-tokens.destroy', $token->id) }}" class="d-inline"
+                                      onsubmit="return confirm('Delete this token?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    @endif
+
 </div>
 @endsection

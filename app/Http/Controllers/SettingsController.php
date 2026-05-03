@@ -13,9 +13,15 @@ class SettingsController extends Controller
 
     public function index()
     {
-        $settings = auth()->user()->settings;
+        $user = auth()->user();
+        $settings = $user->settings;
+        $tokens = $user->tokens()->orderByDesc('created_at')->get();
 
-        return view('settings.index', ['settings' => $settings]);
+        return view('settings.index', [
+            'settings' => $settings,
+            'tokens' => $tokens,
+            'plainTextToken' => session('plainTextToken'),
+        ]);
     }
 
     public function update(Request $request, $id)
