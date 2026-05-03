@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Laravel\Passport\Token;
 
 class SettingsController extends Controller
 {
@@ -17,9 +18,26 @@ class SettingsController extends Controller
         $settings = $user->settings;
         $tokens = $user->tokens()->orderByDesc('created_at')->get();
 
+        $connections = Token::query()
+            ->where('user_id', $user->id)
+            ->where('revoked', false)
+            ->where(fn ($q) => $q->whereNull('expires_at')->orWhere('expires_at', '>', now()))
+            ->with('client')
+            ->get()
+            ->filter(fn ($token) => $token->client && ! $token->client->revoked)
+            ->groupBy('client_id')
+            ->map(fn ($tokens) => (object) [
+                'client' => $tokens->first()->client,
+                'authorized_at' => $tokens->min('created_at'),
+                'expires_at' => $tokens->max('expires_at'),
+            ])
+            ->sortByDesc('authorized_at')
+            ->values();
+
         return view('settings.index', [
             'settings' => $settings,
             'tokens' => $tokens,
+            'connections' => $connections,
             'plainTextToken' => session('plainTextToken'),
         ]);
     }

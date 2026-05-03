@@ -200,5 +200,47 @@
         </div>
     @endif
 
+    <hr class="my-5">
+
+    <h2>Authorized Connections</h2>
+    <p class="text-muted">
+        OAuth applications (such as Claude Web) that have been granted access to your account.
+        Revoking a connection invalidates its tokens immediately.
+    </p>
+
+    @if($connections->isEmpty())
+        <p class="text-muted">No authorized connections.</p>
+    @else
+        <div class="table-responsive">
+            <table class="table table-sm align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col">Application</th>
+                        <th scope="col">Authorized</th>
+                        <th scope="col">Expires</th>
+                        <th scope="col" class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($connections as $connection)
+                        <tr>
+                            <td>{{ $connection->client->name }}</td>
+                            <td>{{ $connection->authorized_at?->diffForHumans() }}</td>
+                            <td>{{ $connection->expires_at?->diffForHumans() ?? 'Never' }}</td>
+                            <td class="text-end">
+                                <form method="POST" action="{{ route('oauth-connections.destroy', $connection->client->id) }}" class="d-inline"
+                                      onsubmit="return confirm('Revoke access for this application?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">Revoke</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    @endif
+
 </div>
 @endsection

@@ -4,6 +4,7 @@ use App\Http\Controllers\ApiTokenController;
 use App\Http\Controllers\ConsumptionController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OAuthConnectionController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\WeightController;
 use Illuminate\Support\Facades\Route;
@@ -41,4 +42,6 @@ Route::middleware('auth')->group(function () {
     Route::post('api-tokens', [ApiTokenController::class, 'store'])->name('api-tokens.store');
     Route::post('api-tokens/{id}/refresh', [ApiTokenController::class, 'refresh'])->name('api-tokens.refresh');
     Route::delete('api-tokens/{id}', [ApiTokenController::class, 'destroy'])->name('api-tokens.destroy');
+
+    Route::delete('oauth-connections/{client}', [OAuthConnectionController::class, 'destroy'])->name('oauth-connections.destroy');
 });
