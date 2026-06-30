@@ -19,17 +19,17 @@
             $p = (float) ($food->protein ?? 0);
             $f = (float) ($food->fat ?? 0);
             $c = (float) ($food->carbohydrates ?? 0);
-            $total = $p + $f + $c;
-            $pct = fn ($v) => $total > 0 ? round($v / $total * 100) : 0;
+            $macroKcal = $p * 4 + $f * 9 + $c * 4;
+            $pct = fn ($kcal) => $macroKcal > 0 ? round($kcal / $macroKcal * 100) : 0;
         @endphp
 
         @include('partials.nutrition_breakdown', [
             'calories' => $food->calories ?? 'NA',
             'caloriesCaption' => 'per 100 g/ml',
             'macros' => [
-                ['label' => 'Protein', 'colorKey' => 'pro',  'value' => $food->protein_string,       'pct' => $pct($p)],
-                ['label' => 'Fat',     'colorKey' => 'fat',  'value' => $food->fat_string,           'pct' => $pct($f)],
-                ['label' => 'Carbs',   'colorKey' => 'carb', 'value' => $food->carbohydrates_string, 'pct' => $pct($c)],
+                ['label' => 'Protein', 'colorKey' => 'pro',  'value' => $food->protein_string,       'pct' => $pct($p * 4)],
+                ['label' => 'Fat',     'colorKey' => 'fat',  'value' => $food->fat_string,           'pct' => $pct($f * 9)],
+                ['label' => 'Carbs',   'colorKey' => 'carb', 'value' => $food->carbohydrates_string, 'pct' => $pct($c * 4)],
             ],
             'micros' => [
                 ['label' => 'Sugar',         'value' => $food->sugar_string],

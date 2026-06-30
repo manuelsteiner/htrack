@@ -37,7 +37,7 @@
                     <div class="progress mt-3 ht-{{ $m['colorKey'] }}" role="progressbar" aria-label="{{ $m['label'] }}" aria-valuenow="{{ $m['pct'] }}" aria-valuemin="0" aria-valuemax="100" style="height:6px;">
                         <div class="progress-bar" style="width: {{ $m['pct'] }}%;"></div>
                     </div>
-                    <div class="text-body-tertiary mt-2" style="font-size:.6875rem;">{{ $m['pct'] }}% of macros</div>
+                    <div class="text-body-tertiary mt-2" style="font-size:.6875rem;">{{ $m['pct'] }}% of calories</div>
                 </div>
             </div>
         </div>

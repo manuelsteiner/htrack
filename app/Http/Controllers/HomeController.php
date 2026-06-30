@@ -31,15 +31,15 @@ class HomeController extends Controller
         $calories_left = $calories_target - $calories;
         $calorie_percent = $calories_target > 0 ? min(100, round($calories / $calories_target * 100)) : 0;
 
-        // Macros as numbers, plus each one's share of the macro mass (for the bars)
+        // Macros as numbers, plus each one's share of macro calories (4/9/4 kcal/g) for the bars
         $protein_g = round($consumptions->sum('protein'), 1);
         $fat_g = round($consumptions->sum('fat'), 1);
         $carbs_g = round($consumptions->sum('carbohydrates'), 1);
-        $macro_total = $protein_g + $fat_g + $carbs_g;
-        $share = fn ($value) => $macro_total > 0 ? round($value / $macro_total * 100) : 0;
-        $protein_pct = $share($protein_g);
-        $fat_pct = $share($fat_g);
-        $carbs_pct = $share($carbs_g);
+        $macro_kcal = $protein_g * 4 + $fat_g * 9 + $carbs_g * 4;
+        $share = fn ($kcal) => $macro_kcal > 0 ? round($kcal / $macro_kcal * 100) : 0;
+        $protein_pct = $share($protein_g * 4);
+        $fat_pct = $share($fat_g * 9);
+        $carbs_pct = $share($carbs_g * 4);
 
         $sugar = round($consumptions->sum('sugar'), 1).'g';
         $fibre = round($consumptions->sum('fibre'), 1).'g';

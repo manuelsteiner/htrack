@@ -55,7 +55,7 @@
                         <div class="progress mt-3 {{ $macro['bar'] }}" role="progressbar" aria-label="{{ $macro['label'] }}" aria-valuenow="{{ $macro['pct'] }}" aria-valuemin="0" aria-valuemax="100" style="height:6px;">
                             <div class="progress-bar" style="width: {{ $macro['pct'] }}%;"></div>
                         </div>
-                        <div class="text-body-tertiary mt-2" style="font-size:.6875rem;">{{ $macro['pct'] }}% of macros</div>
+                        <div class="text-body-tertiary mt-2" style="font-size:.6875rem;">{{ $macro['pct'] }}% of calories</div>
                     </div>
                 </div>
             </div>
