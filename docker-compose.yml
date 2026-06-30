@@ -17,7 +17,7 @@ services:
       - htrack
 
   nodejs:
-    image: node:16
+    image: node:20
     container_name: htrack-nodejs
     hostname: nodejs
     restart: unless-stopped
