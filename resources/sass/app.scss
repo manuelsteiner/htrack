@@ -1,12 +1,3 @@
-/* nunito-regular - latin */
-@font-face {
-    font-family: 'Nunito';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Nunito Regular'), local('Nunito-Regular'),
-        url('../fonts/nunito-v12-latin-regular.woff2') format('woff2');
-}
-
 // Variables
 @import 'variables';
 
@@ -18,9 +9,399 @@
 
 [v-cloak] {display: none}
 
-body {
-  background-color: #f8fafc;
+// =====================================================================
+//  HTrack "Studio" design system  (handoff: HTrack UI Modernization)
+//  Tokens are mapped onto Bootstrap 5.3 CSS variables wherever possible
+//  so stock components (.card / .table / .progress / .btn / .navbar /
+//  .dropdown / .form-control) pick up the palette automatically.
+// =====================================================================
+
+:root,
+[data-bs-theme="light"] {
+  --bs-body-bg: #f5f6f8;
+  --bs-body-color: #1c2530;
+  --bs-emphasis-color: #1c2530;
+  --bs-secondary-color: #6b7785;   // muted-2 (labels)
+  --bs-tertiary-color: #8a93a0;    // muted
+  --bs-border-color: #ebeef2;
+  --bs-primary: #4b56d2;
+  --bs-primary-rgb: 75, 86, 210;
+
+  --ht-card: #ffffff;
+  --ht-primary: #4b56d2;
+  --ht-primary-d: #3d47b8;
+  --ht-psoft: #eef0f7;
+  --ht-field: #ffffff;
+  --ht-fieldb: #d8dde4;
+  --ht-hover: #fafbfc;
+  --ht-line: #f0f2f5;
+  --ht-leftpill: #edf7f1;
+  --ht-okgreen: #149a6b;
+  --ht-shadow: 0 1px 3px rgba(16, 24, 40, .06);
+  --ht-cal:  #475569; --ht-cal-bg:  rgba(71, 85, 105, .11);
+  --ht-pro:  #149a6b; --ht-pro-bg:  rgba(20, 154, 107, .13);
+  --ht-fat:  #2b8fd6; --ht-fat-bg:  rgba(43, 143, 214, .13);
+  --ht-carb: #e15668; --ht-carb-bg: rgba(225, 86, 104, .13);
 }
+
+[data-bs-theme="dark"] {
+  --bs-body-bg: #0f141b;
+  --bs-body-color: #f1f5f9;
+  --bs-emphasis-color: #f1f5f9;
+  --bs-secondary-color: #9aa7b5;
+  --bs-tertiary-color: #7d8a99;
+  --bs-border-color: #232e3b;
+  --bs-primary: #6d77e6;
+  --bs-primary-rgb: 109, 119, 230;
+
+  --ht-card: #141b24;
+  --ht-primary: #6d77e6;
+  --ht-primary-d: #5a64d8;
+  --ht-psoft: #1d2733;
+  --ht-field: #0f141b;
+  --ht-fieldb: #2a3543;
+  --ht-hover: #18212c;
+  --ht-line: #1c2530;
+  --ht-leftpill: #15291f;
+  --ht-okgreen: #3ddc97;
+  --ht-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+  --ht-cal:  #94a3b8; --ht-cal-bg:  rgba(148, 163, 184, .15);
+  --ht-pro:  #34d399; --ht-pro-bg:  rgba(52, 211, 153, .15);
+  --ht-fat:  #56b6f0; --ht-fat-bg:  rgba(86, 182, 240, .15);
+  --ht-carb: #f6788a; --ht-carb-bg: rgba(246, 120, 138, .15);
+}
+
+// Radii — 10px inputs/buttons, 16px large cards
+:root {
+  --bs-border-radius: .625rem;
+  --bs-border-radius-sm: .5rem;
+  --bs-border-radius-lg: 1rem;
+  --bs-border-radius-xl: 1rem;
+}
+
+
+// ---- Surfaces -------------------------------------------------------
+.card {
+  --bs-card-bg: var(--ht-card);
+  --bs-card-border-color: var(--bs-border-color);
+  --bs-card-border-radius: 1rem;
+  --bs-card-inner-border-radius: calc(1rem - 1px);
+  box-shadow: var(--ht-shadow);
+}
+
+.ht-card-stat {
+  --bs-card-border-radius: .8rem;
+  --bs-card-inner-border-radius: calc(.8rem - 1px);
+}
+
+// ---- Navbar ---------------------------------------------------------
+.navbar {
+  background-color: var(--ht-card);
+  border-bottom: 1px solid var(--bs-border-color);
+  box-shadow: var(--ht-shadow);
+}
+
+.navbar .navbar-nav .nav-link {
+  border-radius: .5rem;
+  padding: .45rem .75rem;
+  color: var(--bs-secondary-color);
+  font-weight: 500;
+
+  &:hover { color: var(--bs-body-color); }
+
+  &.active {
+    background-color: var(--ht-psoft);
+    color: var(--ht-primary);
+    font-weight: 700;
+  }
+}
+
+.ht-logo {
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  background: var(--ht-primary);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.ht-icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  border: 1px solid var(--bs-border-color);
+  background: transparent;
+  color: var(--bs-secondary-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover { background: var(--ht-hover); }
+}
+
+.ht-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--ht-psoft);
+  color: var(--ht-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+// ---- Buttons --------------------------------------------------------
+.btn-primary {
+  --bs-btn-bg: var(--ht-primary);
+  --bs-btn-border-color: var(--ht-primary);
+  --bs-btn-hover-bg: var(--ht-primary-d);
+  --bs-btn-hover-border-color: var(--ht-primary-d);
+  --bs-btn-active-bg: var(--ht-primary-d);
+  --bs-btn-active-border-color: var(--ht-primary-d);
+  --bs-btn-disabled-bg: var(--ht-primary);
+  --bs-btn-disabled-border-color: var(--ht-primary);
+}
+
+// ---- Progress bars --------------------------------------------------
+.progress {
+  --bs-progress-bg: var(--ht-line);
+  --bs-progress-border-radius: 999px;
+  // Bootstrap bakes --bs-progress-bar-bg to the Sass $primary (#0d6efd) at
+  // compile time, so re-point it at our runtime indigo for the calorie bar.
+  --bs-progress-bar-bg: var(--ht-primary);
+
+  &.ht-pro  { --bs-progress-bar-bg: var(--ht-pro); }
+  &.ht-fat  { --bs-progress-bar-bg: var(--ht-fat); }
+  &.ht-carb { --bs-progress-bar-bg: var(--ht-carb); }
+}
+
+// ---- Tables ---------------------------------------------------------
+.table {
+  --bs-table-bg: var(--ht-card);
+  --bs-table-border-color: var(--ht-line);
+  --bs-table-color: var(--bs-body-color);
+
+  > thead tr { background-color: var(--ht-hover); }
+  > thead th {
+    color: var(--bs-tertiary-color);
+    font-weight: 600;
+    border-bottom-color: var(--ht-line);
+  }
+}
+
+// ---- Typography helpers --------------------------------------------
+.ht-page-title    { font-size: 25px; font-weight: 800; letter-spacing: -.5px; }
+.ht-section-title { font-size: 18px; font-weight: 700; letter-spacing: -.3px; }
+.ht-eyebrow {
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: var(--bs-tertiary-color);
+}
+.ht-hero-num  { font-size: 44px; font-weight: 800; letter-spacing: -1px; line-height: 1; }
+.ht-macro-num { font-size: 29px; font-weight: 800; letter-spacing: -.5px; }
+.ht-stat-num  { font-size: 21px; font-weight: 700; color: var(--bs-secondary-color); }
+
+// ---- Macro dots / chips / pills ------------------------------------
+.ht-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.ht-dot-pro  { background: var(--ht-pro); }
+.ht-dot-fat  { background: var(--ht-fat); }
+.ht-dot-carb { background: var(--ht-carb); }
+
+.ht-left-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: var(--ht-leftpill);
+  color: var(--ht-okgreen);
+}
+
+.ht-cal-pill {
+  background: var(--ht-leftpill);
+  color: var(--ht-okgreen);
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 7px;
+}
+
+// "over target" variant for the calorie pill / cell
+.ht-over-pill {
+  background: var(--ht-carb-bg) !important;
+  color: var(--ht-carb) !important;
+}
+
+.ht-chip {
+  min-width: 54px;
+  text-align: center;
+  padding: 7px 8px;
+  border-radius: 9px;
+  font-weight: 700;
+  font-size: 13px;
+}
+.ht-chip-cal  { background: var(--ht-cal-bg);  color: var(--ht-cal); }
+.ht-chip-pro  { background: var(--ht-pro-bg);  color: var(--ht-pro); }
+.ht-chip-fat  { background: var(--ht-fat-bg);  color: var(--ht-fat); }
+.ht-chip-carb { background: var(--ht-carb-bg); color: var(--ht-carb); }
+
+// ---- Forms ----------------------------------------------------------
+.form-control,
+.form-select {
+  background-color: var(--ht-field);
+  border-color: var(--ht-fieldb);
+
+  &:focus {
+    background-color: var(--ht-field); // BS resets this to body-bg (page grey) on focus
+    border-color: var(--ht-primary);
+    box-shadow: 0 0 0 .25rem rgba(var(--bs-primary-rgb), .2);
+  }
+}
+
+// Native control accents (checkbox/radio/range tick, date-picker chrome)
+body { accent-color: var(--ht-primary); }
+
+// Checkboxes & switches — BS bakes the checked colour to the Sass $primary
+.form-check-input {
+  &:checked {
+    background-color: var(--ht-primary);
+    border-color: var(--ht-primary);
+  }
+  &:focus {
+    border-color: var(--ht-primary);
+    box-shadow: 0 0 0 .25rem rgba(var(--bs-primary-rgb), .25);
+  }
+}
+
+// Pagination — give the controls a real surface so they don't bleed into the page
+.pagination {
+  --bs-pagination-bg: var(--ht-card);
+  --bs-pagination-color: var(--bs-body-color);
+  --bs-pagination-border-color: var(--bs-border-color);
+  --bs-pagination-hover-bg: var(--ht-hover);
+  --bs-pagination-hover-color: var(--bs-body-color);
+  --bs-pagination-hover-border-color: var(--bs-border-color);
+  --bs-pagination-focus-bg: var(--ht-hover);
+  --bs-pagination-focus-color: var(--bs-body-color);
+  --bs-pagination-focus-box-shadow: 0 0 0 .25rem rgba(var(--bs-primary-rgb), .18);
+  --bs-pagination-active-bg: var(--ht-primary);
+  --bs-pagination-active-border-color: var(--ht-primary);
+  --bs-pagination-disabled-bg: var(--ht-card);
+  --bs-pagination-disabled-border-color: var(--bs-border-color);
+}
+
+.form-label,
+.col-form-label,
+form label:not(.form-check-label):not(.btn) {
+  font-weight: 600;
+  color: var(--bs-secondary-color);
+  font-size: .8125rem;
+}
+
+.form-text { color: var(--bs-tertiary-color); }
+
+// Search field with a leading icon sitting inside the rounded input
+.ht-search { position: relative; flex: 1; }
+.ht-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--bs-tertiary-color);
+  pointer-events: none;
+}
+
+// ---- Outline / secondary buttons -----------------------------------
+.btn-outline-secondary {
+  --bs-btn-color: var(--bs-secondary-color);
+  --bs-btn-border-color: var(--ht-fieldb);
+  --bs-btn-bg: var(--ht-card);
+  --bs-btn-hover-bg: var(--ht-hover);
+  --bs-btn-hover-color: var(--bs-body-color);
+  --bs-btn-hover-border-color: var(--ht-fieldb);
+  --bs-btn-active-bg: var(--ht-hover);
+  --bs-btn-active-color: var(--bs-body-color);
+  --bs-btn-active-border-color: var(--ht-fieldb);
+}
+
+// ---- Dropdowns ------------------------------------------------------
+.dropdown-menu {
+  --bs-dropdown-bg: var(--ht-card);
+  --bs-dropdown-border-color: var(--bs-border-color);
+  --bs-dropdown-border-radius: 12px;
+  --bs-dropdown-link-color: var(--bs-body-color);
+  --bs-dropdown-link-hover-bg: var(--ht-hover);
+  --bs-dropdown-link-hover-color: var(--bs-body-color);
+  --bs-dropdown-link-active-bg: var(--ht-hover);
+  --bs-dropdown-link-active-color: var(--bs-body-color);
+  padding: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .16);
+
+  form { margin: 0; }
+}
+
+.dropdown-item {
+  border-radius: 8px;
+  padding: 9px 12px;
+}
+
+// ---- Kebab (row context-menu) button -------------------------------
+.ht-kebab {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--bs-tertiary-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+
+  &::after { display: none; } // no default caret
+
+  // sit above the row's stretched-link so the kebab stays clickable
+  position: relative;
+  z-index: 2;
+
+  &:hover,
+  &.show {
+    background: var(--ht-hover);
+    border-color: var(--bs-border-color);
+  }
+}
+
+// No z-index here: a stacking context would trap the open menu beneath later rows
+.ht-kebab-wrap {
+  position: relative;
+}
+
+// ---- List rows ------------------------------------------------------
+.ht-list-row {
+  --bs-card-border-radius: .875rem;
+  --bs-card-inner-border-radius: calc(.875rem - 1px);
+  margin-bottom: 12px;
+  transition: border-color .15s ease;
+
+  .card-body { position: relative; }
+  &:hover { border-color: var(--ht-fieldb); }
+}
+
+// =====================================================================
+//  Existing component tweaks
+// =====================================================================
 
 .badge-card-list {
   min-height: 4em;
@@ -31,16 +412,23 @@ body {
 }
 
 .v-select {
-  --vs-border-color: var(--bs-border-color);
+  --vs-border-color: var(--ht-fieldb);
   --vs-border-radius: var(--bs-border-radius);
   --vs-font-size: #{$font-size-base};
   --vs-line-height: #{$line-height-base};
   --vs-search-input-placeholder-color: var(--bs-secondary-color);
+  --vs-search-input-color: var(--bs-body-color);
+  --vs-dropdown-bg: var(--ht-card);
+  --vs-dropdown-color: var(--bs-body-color);
+  --vs-dropdown-option-color: var(--bs-body-color);
+  --vs-dropdown-option--active-bg: var(--ht-primary);
+  --vs-dropdown-option--active-color: #fff;
+  --vs-selected-color: var(--bs-body-color);
 
   .vs__dropdown-toggle {
     padding: 0;
     min-height: calc(#{$line-height-base * $font-size-base} + 0.75rem + calc(var(--bs-border-width) * 2));
-    background-color: var(--bs-body-bg);
+    background-color: var(--ht-field);
   }
 
   .vs__selected {
@@ -61,38 +449,23 @@ body {
   }
 
   &.vs--open .vs__dropdown-toggle {
-    border-color: #86b7fe;
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, .25);
+    border-color: var(--ht-primary);
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), .2);
   }
 }
 
-.dropdown-toggle-vertical-points {
-  text-decoration: none;
-  position: relative;
-  z-index: 2;
-}
+.dropdown-item-delete {
+  color: var(--ht-carb);
 
+  &:hover,
+  &:focus {
+    color: var(--ht-carb);
+    background-color: var(--ht-carb-bg);
+  }
 
-.dropdown-toggle-vertical-points:after {
-  border: none;
-  content: '\2807';
-}
-
-.dropdown-toggle-vertical-points:hover, .dropdown-toggle-vertical-points:focus {
-  text-decoration: none;
-}
-
-button.dropdown-item-delete {
-  color: $danger !important;
-}
-
-button.dropdown-item-delete:hover {
-  color: $danger !important;
-}
-
-button.dropdown-item-delete:active {
-  color: #ffffff !important;
-  background-color: $danger !important;
+  &.disabled {
+    color: var(--bs-tertiary-color);
+  }
 }
 
 .outline-none {

@@ -1,54 +1,35 @@
-<div class="card mb-1">
-    <div class="card-body">
-        <a class="stretched-link outline-none d-md-none" href="{{ route('foods.show', $food) }}"></a>
+<div class="card ht-list-row">
+    <div class="card-body py-3 px-4 position-relative">
+        <a class="stretched-link outline-none" href="{{ route('foods.show', $food) }}" aria-label="{{ $food->name }}"></a>
 
-        <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap">
+            <div class="fw-semibold" style="font-size:15px;">{{ $food->name }}</div>
 
-            <div class="row align-items-center">
-
-                <div class="col flex-grow-1">
-                    <a class="stretched-link outline-none d-none d-md-inline" href="{{ route('foods.show', $food) }}"></a>
-
-                    <p class="m-0">
-                        {{ $food->name }}
-                    </p>
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+                <div class="d-flex gap-2">
+                    <span class="ht-chip ht-chip-cal">{{ $food->calories }}</span>
+                    <span class="ht-chip ht-chip-pro">{{ $food->protein_string }}</span>
+                    <span class="ht-chip ht-chip-fat">{{ $food->fat_string }}</span>
+                    <span class="ht-chip ht-chip-carb">{{ $food->carbohydrates_string }}</span>
                 </div>
 
-                <div class="col-md-auto text-start text-md-end">
-                    <div class="badge badge-card-list text-bg-secondary align-middle d-inline-flex align-items-center justify-content-center">
-                        {{  $food->calories }}
-                    </div>
-                    <div class="badge badge-card-list text-bg-success align-middle d-inline-flex align-items-center justify-content-center">
-                        {{  $food->protein_string }}
-                    </div>
-                    <div class="badge badge-card-list text-bg-info align-middle d-inline-flex align-items-center justify-content-center">
-                        {{  $food->fat_string }}
-                    </div>
-                    <div class="badge badge-card-list text-bg-danger align-middle d-inline-flex align-items-center justify-content-center">
-                        {{  $food->carbohydrates_string }}
-                    </div>
-                </div>
+                <div class="dropdown ht-kebab-wrap d-none d-md-block">
+                    <button class="ht-kebab" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Food actions">
+                        <i class="feather-20" data-feather="more-vertical"></i>
+                    </button>
 
-                <div class="col-md-auto d-none d-md-block">
-                    <div class="dropdown d-inline">
-                        <button class="btn btn-lg btn-link dropdown-toggle-vertical-points text-muted" type="button" id="foodOverviewDropdown" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="{{ route('foods.edit', $food) }}"><i class="feather-16 align-text-bottom me-2" data-feather="edit"></i>Edit food item</a>
 
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="foodOverviewDropdown">
-                            <a class="dropdown-item" href="{{ route('foods.edit', $food) }}"><i class="feather-20 align-text-bottom me-1" data-feather="edit"></i>Edit Food Item</a>
+                        <form action="{{ route('foods.destroy', $food) }}" method="post">
+                            @csrf
+                            @method('DELETE')
 
-                            <form action="{{ route('foods.destroy', $food) }}" method="post">
-                                @csrf
-                                @method('DELETE')
-
-                                <button type="submit" class="dropdown-item dropdown-item-delete @if($food->consumptions_count) disabled @endif"><i class="feather-20 align-text-bottom me-1" data-feather="trash-2"></i>Delete Food Item</button>
-                            </form>
-                        </div>
+                            <button type="submit" class="dropdown-item dropdown-item-delete @if($food->consumptions_count) disabled @endif"><i class="feather-16 align-text-bottom me-2" data-feather="trash-2"></i>Delete food item</button>
+                        </form>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 </div>

@@ -29,12 +29,21 @@ class HomeController extends Controller
         $calories = round($consumptions->sum('calories'));
         $calories_target = auth()->user()->settings->calorie_target;
         $calories_left = $calories_target - $calories;
-        $carbohydrates = $consumptions->sum('carbohydrates').'g';
-        $fat = $consumptions->sum('fat').'g';
-        $protein = $consumptions->sum('protein').'g';
-        $sugar = $consumptions->sum('sugar').'g';
-        $fibre = $consumptions->sum('fibre').'g';
-        $saturated_fat = $consumptions->sum('saturated_fat').'g';
+        $calorie_percent = $calories_target > 0 ? min(100, round($calories / $calories_target * 100)) : 0;
+
+        // Macros as numbers, plus each one's share of the macro mass (for the bars)
+        $protein_g = round($consumptions->sum('protein'), 1);
+        $fat_g = round($consumptions->sum('fat'), 1);
+        $carbs_g = round($consumptions->sum('carbohydrates'), 1);
+        $macro_total = $protein_g + $fat_g + $carbs_g;
+        $share = fn ($value) => $macro_total > 0 ? round($value / $macro_total * 100) : 0;
+        $protein_pct = $share($protein_g);
+        $fat_pct = $share($fat_g);
+        $carbs_pct = $share($carbs_g);
+
+        $sugar = round($consumptions->sum('sugar'), 1).'g';
+        $fibre = round($consumptions->sum('fibre'), 1).'g';
+        $saturated_fat = round($consumptions->sum('saturated_fat'), 1).'g';
         $sodium = round($consumptions->sum('sodium')).'mg';
 
         $today = auth()->user()->settings->localised_date;
@@ -71,9 +80,13 @@ class HomeController extends Controller
             'calories' => $calories,
             'calories_left' => $calories_left,
             'calories_target' => $calories_target,
-            'carbohydrates' => $carbohydrates,
-            'fat' => $fat,
-            'protein' => $protein,
+            'calorie_percent' => $calorie_percent,
+            'protein_g' => $protein_g,
+            'fat_g' => $fat_g,
+            'carbs_g' => $carbs_g,
+            'protein_pct' => $protein_pct,
+            'fat_pct' => $fat_pct,
+            'carbs_pct' => $carbs_pct,
             'sugar' => $sugar,
             'fibre' => $fibre,
             'saturated_fat' => $saturated_fat,

@@ -106,6 +106,29 @@ const app = createApp({
         dropdownTriggerList.map(function (el) {
             return new window.bootstrap.Dropdown(el);
         });
+
+        // Light/dark theme toggle. The theme is restored before paint in the
+        // layout <head>; here we keep the navbar icon in sync and persist
+        // changes to localStorage.
+        const root = document.documentElement;
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+            const syncIcon = () => {
+                const dark = root.getAttribute('data-bs-theme') === 'dark';
+                const icon = themeToggle.querySelector('[data-feather], svg');
+                if (icon) {
+                    icon.setAttribute('data-feather', dark ? 'sun' : 'moon');
+                }
+                feather.replace();
+            };
+            syncIcon();
+            themeToggle.addEventListener('click', () => {
+                const next = root.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-bs-theme', next);
+                localStorage.setItem('theme', next);
+                syncIcon();
+            });
+        }
     },
 
     methods: {
