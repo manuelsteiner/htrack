@@ -27,12 +27,6 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
-                <li class="nav-item">
-                    <button id="theme-toggle" type="button" class="ht-icon-btn" aria-label="{{ __('Toggle theme') }}">
-                        <i class="feather-16" data-feather="moon"></i>
-                    </button>
-                </li>
-
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
@@ -53,6 +47,22 @@
                         <div class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('home') }}"><i class="feather-20 align-text-bottom me-1" data-feather="activity"></i>{{ __('Dashboard') }}</a>
                             <a class="dropdown-item" href="{{ route('settings.index') }}"><i class="feather-20 align-text-bottom me-1" data-feather="settings"></i>{{ __('Settings') }}</a>
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item d-flex align-items-center" href="#" role="menuitemradio" aria-checked="false" data-theme-pref="system">
+                                <i class="feather-20 align-text-bottom me-1" data-feather="monitor"></i>{{ __('System') }}
+                                <i class="feather-16 ms-auto theme-check" data-feather="check"></i>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#" role="menuitemradio" aria-checked="false" data-theme-pref="light">
+                                <i class="feather-20 align-text-bottom me-1" data-feather="sun"></i>{{ __('Light') }}
+                                <i class="feather-16 ms-auto theme-check" data-feather="check"></i>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#" role="menuitemradio" aria-checked="false" data-theme-pref="dark">
+                                <i class="feather-20 align-text-bottom me-1" data-feather="moon"></i>{{ __('Dark') }}
+                                <i class="feather-16 ms-auto theme-check" data-feather="check"></i>
+                            </a>
+                            <div class="dropdown-divider"></div>
+
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

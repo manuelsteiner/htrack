@@ -107,16 +107,14 @@ const app = createApp({
             return new window.bootstrap.Dropdown(el);
         });
 
-        // Tri-state theme toggle (system → light → dark). The resolved theme is
-        // applied before paint in the layout <head>; here we cycle the stored
-        // preference, keep the navbar icon in sync, and follow the OS setting
-        // live whenever the preference is "system".
+        // Tri-state theme picker (system / light / dark) in the user menu. The
+        // resolved theme is applied before paint in the layout <head>; here we
+        // persist the chosen preference, mark the active option, and follow the
+        // OS setting live whenever the preference is "system".
         const root = document.documentElement;
-        const themeToggle = document.getElementById('theme-toggle');
-        if (themeToggle) {
+        const themeItems = document.querySelectorAll('[data-theme-pref]');
+        if (themeItems.length) {
             const media = window.matchMedia('(prefers-color-scheme: dark)');
-            const order = ['system', 'light', 'dark'];
-            const icons = { system: 'monitor', light: 'sun', dark: 'moon' };
 
             const getPref = () => localStorage.getItem('theme') || 'system';
             const resolve = (pref) =>
@@ -125,22 +123,20 @@ const app = createApp({
             const apply = () => {
                 const pref = getPref();
                 root.setAttribute('data-bs-theme', resolve(pref));
-                const icon = themeToggle.querySelector('[data-feather], svg');
-                if (icon) {
-                    icon.setAttribute('data-feather', icons[pref]);
-                }
-                const label = 'Theme: ' + pref;
-                themeToggle.setAttribute('title', label);
-                themeToggle.setAttribute('aria-label', label);
-                feather.replace();
+                themeItems.forEach((item) => {
+                    item.setAttribute('aria-checked',
+                        item.getAttribute('data-theme-pref') === pref ? 'true' : 'false');
+                });
             };
 
             apply();
 
-            themeToggle.addEventListener('click', () => {
-                const next = order[(order.indexOf(getPref()) + 1) % order.length];
-                localStorage.setItem('theme', next);
-                apply();
+            themeItems.forEach((item) => {
+                item.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    localStorage.setItem('theme', item.getAttribute('data-theme-pref'));
+                    apply();
+                });
             });
 
             // Follow the OS setting live while the preference is "system".

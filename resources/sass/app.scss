@@ -131,20 +131,6 @@
   font-size: 14px;
 }
 
-.ht-icon-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 9px;
-  border: 1px solid var(--bs-border-color);
-  background: transparent;
-  color: var(--bs-secondary-color);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  &:hover { background: var(--ht-hover); }
-}
-
 .ht-avatar {
   width: 30px;
   height: 30px;
@@ -210,6 +196,10 @@
 .ht-hero-num  { font-size: 44px; font-weight: 800; letter-spacing: -1px; line-height: 1; }
 .ht-macro-num { font-size: 29px; font-weight: 800; letter-spacing: -.5px; }
 .ht-stat-num  { font-size: 21px; font-weight: 700; color: var(--bs-secondary-color); }
+
+// ---- Theme picker (user menu) --------------------------------------
+.theme-check { visibility: hidden; color: var(--bs-primary); }
+.dropdown-item[aria-checked="true"] .theme-check { visibility: visible; }
 
 // ---- Macro dots / chips / pills ------------------------------------
 .ht-dot {
