@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Settings extends Model
 {
     protected $fillable = [
-        'timezone', 'gender', 'birthday', 'height', 'activity_factor', 'calorie_targets', 'goal_weight', 'user_id',
+        'timezone', 'gender', 'birthday', 'height', 'activity_factor', 'calorie_targets', 'protein_target', 'goal_weight', 'user_id',
     ];
 
     protected $casts = [

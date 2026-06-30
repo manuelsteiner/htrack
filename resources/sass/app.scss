@@ -217,7 +217,7 @@
   align-items: center;
   gap: 8px;
   padding: 9px 16px;
-  border-radius: 999px;
+  border-radius: 9px;
   background: var(--ht-leftpill);
   color: var(--ht-okgreen);
 }
@@ -234,6 +234,21 @@
 .ht-over-pill {
   background: var(--ht-carb-bg) !important;
   color: var(--ht-carb) !important;
+}
+
+// Protein floor status chip on the macro card. Green when the floor is met,
+// muted while still short — no red mid-day, since "your day so far" is partial.
+.ht-macro-status {
+  font-size: .75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 7px;
+  background: var(--ht-line);
+  color: var(--bs-tertiary-color);
+}
+.ht-macro-status.ht-status-met {
+  background: var(--ht-leftpill);
+  color: var(--ht-okgreen);
 }
 
 .ht-chip {

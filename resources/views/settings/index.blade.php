@@ -119,6 +119,27 @@
             </div>
         </div>
 
+        <h2 class="ht-section-title mb-3">Protein target</h2>
+        <div class="card mb-4">
+            <div class="card-body p-4">
+                <div class="row g-3">
+                    <div class="col-6 col-md-3">
+                        <label for="protein_target" class="form-label">Daily floor (g)</label>
+                        <input type="number"
+                               class="form-control @error('protein_target') is-invalid @enderror"
+                               id="protein_target"
+                               name="protein_target"
+                               value="{{ old('protein_target', $settings->protein_target) }}"
+                               min="0" />
+                        <div class="form-text">Minimum protein to hit each day. Leave blank to disable.</div>
+                        @error('protein_target')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <button type="submit" class="btn btn-primary"><i class="feather-20 align-text-bottom me-1" data-feather="save"></i>Save settings</button>
     </form>
 

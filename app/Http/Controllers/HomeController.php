@@ -41,6 +41,8 @@ class HomeController extends Controller
         $fat_pct = $share($fat_g * 9);
         $carbs_pct = $share($carbs_g * 4);
 
+        $protein_target = auth()->user()->settings->protein_target;
+
         $sugar = round($consumptions->sum('sugar'), 1).'g';
         $fibre = round($consumptions->sum('fibre'), 1).'g';
         $saturated_fat = round($consumptions->sum('saturated_fat'), 1).'g';
@@ -87,6 +89,7 @@ class HomeController extends Controller
             'protein_pct' => $protein_pct,
             'fat_pct' => $fat_pct,
             'carbs_pct' => $carbs_pct,
+            'protein_target' => $protein_target,
             'sugar' => $sugar,
             'fibre' => $fibre,
             'saturated_fat' => $saturated_fat,

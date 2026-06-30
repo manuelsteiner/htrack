@@ -42,6 +42,7 @@ class ConsumptionsSummaryTool extends Tool
         $user = $request->user();
 
         $today = $user->settings?->localised_date_string ?? now()->toDateString();
+        $proteinTarget = $user->settings?->protein_target;
 
         $from = null;
         $to = null;
@@ -74,6 +75,7 @@ class ConsumptionsSummaryTool extends Tool
             'mode' => $modeDescription,
             'from' => $from,
             'to' => $to,
+            'protein_target' => $proteinTarget,
             'totals' => $this->totals($consumptions),
             'count' => $consumptions->count(),
         ];
@@ -105,6 +107,19 @@ class ConsumptionsSummaryTool extends Tool
             $this->fmt($totals['fat']),
             $this->fmt($totals['protein']),
         );
+
+        if ($proteinTarget) {
+            if ($from === $to) {
+                $diff = round($totals['protein'] - $proteinTarget, 1);
+                $text .= sprintf(
+                    ' Protein floor %sg/day: %s.',
+                    $this->fmt($proteinTarget),
+                    $diff >= 0 ? $this->fmt($diff).'g over' : $this->fmt(abs($diff)).'g short',
+                );
+            } else {
+                $text .= sprintf(' Protein floor %sg/day.', $this->fmt($proteinTarget));
+            }
+        }
 
         return Response::make(Response::text($text))->withStructuredContent($payload);
     }

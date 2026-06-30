@@ -58,11 +58,12 @@ class SettingsController extends Controller
             'calorie_targets.friday' => 'required|integer|min:0',
             'calorie_targets.saturday' => 'required|integer|min:0',
             'calorie_targets.sunday' => 'required|integer|min:0',
+            'protein_target' => 'nullable|integer|min:0',
         ]);
 
         $settings = auth()->user()->settings;
         $settings->fill($request->only([
-            'gender', 'birthday', 'height', 'goal_weight', 'activity_factor', 'timezone', 'calorie_targets',
+            'gender', 'birthday', 'height', 'goal_weight', 'activity_factor', 'timezone', 'calorie_targets', 'protein_target',
         ]));
         $settings->save();
 

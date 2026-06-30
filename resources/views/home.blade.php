@@ -40,9 +40,9 @@
     {{-- Macros --}}
     <div class="row g-3 mb-3">
         @foreach ([
-            ['label' => 'Protein', 'dot' => 'ht-dot-pro', 'bar' => 'ht-pro', 'value' => $protein_g, 'pct' => $protein_pct],
-            ['label' => 'Fat', 'dot' => 'ht-dot-fat', 'bar' => 'ht-fat', 'value' => $fat_g, 'pct' => $fat_pct],
-            ['label' => 'Carbs', 'dot' => 'ht-dot-carb', 'bar' => 'ht-carb', 'value' => $carbs_g, 'pct' => $carbs_pct],
+            ['label' => 'Protein', 'dot' => 'ht-dot-pro', 'bar' => 'ht-pro', 'value' => $protein_g, 'pct' => $protein_pct, 'target' => $protein_target],
+            ['label' => 'Fat', 'dot' => 'ht-dot-fat', 'bar' => 'ht-fat', 'value' => $fat_g, 'pct' => $fat_pct, 'target' => null],
+            ['label' => 'Carbs', 'dot' => 'ht-dot-carb', 'bar' => 'ht-carb', 'value' => $carbs_g, 'pct' => $carbs_pct, 'target' => null],
         ] as $macro)
             <div class="col-12 col-sm-6 col-lg-4">
                 <div class="card h-100">
@@ -51,7 +51,17 @@
                             <span class="ht-dot {{ $macro['dot'] }}"></span>
                             <span class="fw-semibold text-body-secondary" style="font-size:.8125rem;">{{ $macro['label'] }}</span>
                         </div>
-                        <div class="ht-macro-num text-body-emphasis">{{ $macro['value'] }}<span class="fs-5 fw-semibold text-body-tertiary">g</span></div>
+                        <div class="d-flex align-items-end justify-content-between gap-2 flex-wrap">
+                            <div class="ht-macro-num text-body-emphasis">{{ $macro['value'] }}<span class="fs-5 fw-semibold text-body-tertiary">g</span>@if ($macro['target'])<span class="fs-5 fw-semibold text-body-tertiary"> / {{ $macro['target'] }}g</span>@endif</div>
+                            @if ($macro['target'])
+                                @php $delta = round($macro['value'] - $macro['target'], 1); @endphp
+                                @if ($delta >= 0)
+                                    <span class="ht-macro-status ht-status-met">{{ $delta }}g over</span>
+                                @else
+                                    <span class="ht-macro-status">{{ abs($delta) }}g to go</span>
+                                @endif
+                            @endif
+                        </div>
                         <div class="progress mt-3 {{ $macro['bar'] }}" role="progressbar" aria-label="{{ $macro['label'] }}" aria-valuenow="{{ $macro['pct'] }}" aria-valuemin="0" aria-valuemax="100" style="height:6px;">
                             <div class="progress-bar" style="width: {{ $macro['pct'] }}%;"></div>
                         </div>
@@ -103,7 +113,13 @@
                         <tr>
                             <td class="ps-4 fw-medium text-body-emphasis">{{ $day['date'] }}</td>
                             <td class="text-end"><span class="ht-cal-pill {{ $day['calories'] > $day['calories_target'] ? 'ht-over-pill' : '' }}">{{ number_format($day['calories']) }}</span></td>
-                            <td class="text-end text-body-secondary">{{ $day['protein'] }}g</td>
+                            <td class="text-end">
+                                @if ($protein_target)
+                                    <span class="ht-cal-pill {{ $day['protein'] < $protein_target ? 'ht-over-pill' : '' }}">{{ $day['protein'] }}g</span>
+                                @else
+                                    <span class="text-body-secondary">{{ $day['protein'] }}g</span>
+                                @endif
+                            </td>
                             <td class="text-end text-body-secondary">{{ $day['fat'] }}g</td>
                             <td class="text-end text-body-secondary">{{ $day['carbs'] }}g</td>
                             <td class="text-end text-body-secondary">{{ $day['sugar'] }}g</td>
