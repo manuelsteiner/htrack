@@ -107,26 +107,47 @@ const app = createApp({
             return new window.bootstrap.Dropdown(el);
         });
 
-        // Light/dark theme toggle. The theme is restored before paint in the
-        // layout <head>; here we keep the navbar icon in sync and persist
-        // changes to localStorage.
+        // Tri-state theme toggle (system → light → dark). The resolved theme is
+        // applied before paint in the layout <head>; here we cycle the stored
+        // preference, keep the navbar icon in sync, and follow the OS setting
+        // live whenever the preference is "system".
         const root = document.documentElement;
         const themeToggle = document.getElementById('theme-toggle');
         if (themeToggle) {
-            const syncIcon = () => {
-                const dark = root.getAttribute('data-bs-theme') === 'dark';
+            const media = window.matchMedia('(prefers-color-scheme: dark)');
+            const order = ['system', 'light', 'dark'];
+            const icons = { system: 'monitor', light: 'sun', dark: 'moon' };
+
+            const getPref = () => localStorage.getItem('theme') || 'system';
+            const resolve = (pref) =>
+                pref === 'dark' || (pref === 'system' && media.matches) ? 'dark' : 'light';
+
+            const apply = () => {
+                const pref = getPref();
+                root.setAttribute('data-bs-theme', resolve(pref));
                 const icon = themeToggle.querySelector('[data-feather], svg');
                 if (icon) {
-                    icon.setAttribute('data-feather', dark ? 'sun' : 'moon');
+                    icon.setAttribute('data-feather', icons[pref]);
                 }
+                const label = 'Theme: ' + pref;
+                themeToggle.setAttribute('title', label);
+                themeToggle.setAttribute('aria-label', label);
                 feather.replace();
             };
-            syncIcon();
+
+            apply();
+
             themeToggle.addEventListener('click', () => {
-                const next = root.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
-                root.setAttribute('data-bs-theme', next);
+                const next = order[(order.indexOf(getPref()) + 1) % order.length];
                 localStorage.setItem('theme', next);
-                syncIcon();
+                apply();
+            });
+
+            // Follow the OS setting live while the preference is "system".
+            media.addEventListener('change', () => {
+                if (getPref() === 'system') {
+                    apply();
+                }
             });
         }
     },

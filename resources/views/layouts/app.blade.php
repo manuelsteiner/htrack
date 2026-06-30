@@ -6,9 +6,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Restore the persisted theme before paint to avoid a flash -->
+    <!-- Declare native support for both schemes so the browser (and extensions
+         like DarkReader) know the page adapts and shouldn't force its own dark. -->
+    <meta name="color-scheme" content="light dark">
+
+    <!-- Resolve the persisted theme preference before paint to avoid a flash.
+         Preference is one of system|light|dark; "system" follows the OS. -->
     <script>
-        document.documentElement.setAttribute('data-bs-theme', localStorage.getItem('theme') || 'light');
+        (function () {
+            var pref = localStorage.getItem('theme') || 'system';
+            var dark = pref === 'dark' || (pref === 'system' &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches);
+            document.documentElement.setAttribute('data-bs-theme', dark ? 'dark' : 'light');
+        })();
     </script>
 
     <!-- CSRF Token -->
