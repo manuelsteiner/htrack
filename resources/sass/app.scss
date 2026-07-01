@@ -43,6 +43,7 @@
   --ht-pro:  #149a6b; --ht-pro-bg:  rgba(20, 154, 107, .13);
   --ht-fat:  #2b8fd6; --ht-fat-bg:  rgba(43, 143, 214, .13);
   --ht-carb: #e15668; --ht-carb-bg: rgba(225, 86, 104, .13);
+  --ht-warn: #b45309; --ht-warn-bg: rgba(217, 119, 6, .13);
 }
 
 [data-bs-theme="dark"] {
@@ -71,6 +72,7 @@
   --ht-pro:  #34d399; --ht-pro-bg:  rgba(52, 211, 153, .15);
   --ht-fat:  #56b6f0; --ht-fat-bg:  rgba(86, 182, 240, .15);
   --ht-carb: #f6788a; --ht-carb-bg: rgba(246, 120, 138, .15);
+  --ht-warn: #fbbf24; --ht-warn-bg: rgba(251, 191, 36, .15);
 }
 
 // Radii — 10px inputs/buttons, 16px large cards
@@ -142,6 +144,55 @@
   justify-content: center;
   font-weight: 700;
   font-size: 13px;
+}
+
+// ---- Notifications (flash toast) -----------------------------------
+// Full-width bar pinned above the sticky navbar. Uses the Studio tinted-
+// surface language: an opaque soft-tinted background (tint composited over
+// the card colour so it fully covers the navbar) with a matching foreground.
+.ht-toast {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1090; // above the sticky-top navbar (1020)
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 3.75rem; // roughly the navbar's height, so it covers it cleanly
+  padding: 13px 16px;
+
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+
+  color: var(--ht-toast-fg);
+  background:
+    linear-gradient(var(--ht-toast-tint), var(--ht-toast-tint)),
+    var(--ht-card);
+  border-bottom: 1px solid var(--bs-border-color);
+  box-shadow: var(--ht-shadow);
+}
+
+.ht-toast-success { --ht-toast-fg: var(--ht-pro);  --ht-toast-tint: var(--ht-pro-bg); }
+.ht-toast-info    { --ht-toast-fg: var(--ht-fat);  --ht-toast-tint: var(--ht-fat-bg); }
+.ht-toast-warning { --ht-toast-fg: var(--ht-warn); --ht-toast-tint: var(--ht-warn-bg); }
+.ht-toast-danger  { --ht-toast-fg: var(--ht-carb); --ht-toast-tint: var(--ht-carb-bg); }
+
+.ht-toast.show {
+  animation: ht-toast-in .35s ease, ht-toast-out .35s ease 4.65s;
+}
+
+@keyframes ht-toast-in {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+@keyframes ht-toast-out {
+  from { transform: translateY(0);     opacity: 1; }
+  to   { transform: translateY(-100%); opacity: 0; }
 }
 
 // ---- Buttons --------------------------------------------------------
