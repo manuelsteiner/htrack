@@ -3,7 +3,10 @@
 @section('content')
     <div class="container px-3 px-md-4" style="max-width: 1180px;">
 
-        <h1 class="ht-page-title mb-4">Food</h1>
+        <div class="d-flex justify-content-between align-items-center gap-3 mb-4">
+            <h1 class="ht-page-title mb-0">Food</h1>
+            <a class="btn btn-primary d-md-none text-nowrap" href="{{ route('foods.create') }}" role="button"><i class="feather-20 align-text-bottom me-1" data-feather="plus"></i>Add</a>
+        </div>
 
         {{-- Add a food item: inline card on desktop, dedicated page on mobile --}}
         <div class="d-none d-md-block mb-5">
@@ -15,13 +18,9 @@
             </div>
         </div>
 
-        <div class="d-md-none mb-4">
-            <a class="btn btn-primary w-100" href="{{ route('foods.create') }}" role="button"><i class="feather-20 align-text-bottom me-1" data-feather="plus"></i>Add a food item</a>
-        </div>
-
         {{-- Search + sort --}}
         <h2 class="ht-section-title mb-3">Your food</h2>
-        <div class="d-flex flex-column flex-md-row gap-2 mb-4">
+        <div class="d-flex gap-2 mb-4">
             <form action="{{ route('foods.index') }}" method="get" class="ht-search">
                 @if(request()->sort)
                     <input type="hidden" name="sort" value="{{ request()->sort }}">
@@ -31,7 +30,7 @@
             </form>
 
             <div class="dropdown">
-                <button class="btn btn-outline-secondary dropdown-toggle w-100 text-nowrap" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-outline-secondary dropdown-toggle text-nowrap" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="feather-16 align-text-bottom me-1" data-feather="arrow-up"></i>Sort by
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">

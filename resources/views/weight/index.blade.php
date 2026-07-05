@@ -3,7 +3,10 @@
 @section('content')
     <div class="container px-3 px-md-4" style="max-width: 1180px;">
 
-        <h1 class="ht-page-title mb-4">Weight</h1>
+        <div class="d-flex justify-content-between align-items-center gap-3 mb-4">
+            <h1 class="ht-page-title mb-0">Weight</h1>
+            <a class="btn btn-primary d-md-none text-nowrap" href="{{ route('weights.create') }}" role="button"><i class="feather-20 align-text-bottom me-1" data-feather="plus"></i>Add</a>
+        </div>
 
         {{-- Add a weight: inline card on desktop, dedicated page on mobile --}}
         <div class="d-none d-md-block mb-5">
@@ -13,10 +16,6 @@
                     @include('weight.create_form')
                 </div>
             </div>
-        </div>
-
-        <div class="d-md-none mb-4">
-            <a class="btn btn-primary w-100" href="{{ route('weights.create') }}" role="button"><i class="feather-20 align-text-bottom me-1" data-feather="plus"></i>Add a weight</a>
         </div>
 
         <h2 class="ht-section-title mb-3">Your weights</h2>
