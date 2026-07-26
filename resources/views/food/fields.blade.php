@@ -1,10 +1,10 @@
 @csrf
 
-<div class="row g-3">
+<div class="row g-3 mb-2">
 
-    <div class="col-md-9 mb-3">
-        <label for="name">Name</label>
-        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Name" value="{{ old('name') }}" required />
+    <div class="col-12 col-md-8">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="e.g. Greek yoghurt" value="{{ old('name') }}" required />
         <div class="invalid-feedback">
             @error('name')
                 {{ $message }}
@@ -14,27 +14,25 @@
         </div>
     </div>
 
-    <div class="col-md-3 mb-3">
-        <label for="serving_size">Serving size</label>
+    <div class="col-12 col-md-4">
+        <label for="serving_size" class="form-label">Serving size</label>
         <input type="number" min="1" step="0.1" class="form-control" id="serving_size" name="serving_size" placeholder="Serving size in g/ml" value="{{ old('serving_size') }}" />
         <div class="invalid-feedback">
-            @error('name')
-                {{ $message }}
-            @else
-                Please enter an optional serving size greater 0.
-            @enderror
+            Please enter an optional serving size greater 0.
         </div>
     </div>
 
 </div>
 
+<div class="ht-eyebrow mt-3 mb-2">Per 100 g / ml</div>
+
 <div class="row g-3">
 
-    <div class="col-md-3 mb-3">
-        <label for="calories">Calories</label>
-        <input type="number" min="1" step="0.1" class="form-control" id="calories" name="calories" placeholder="Calories per 100g/ml" value="{{ old('calories') }}" required />
+    <div class="col-6 col-md-3">
+        <label for="calories" class="form-label">Calories</label>
+        <input type="number" min="1" step="0.1" class="form-control @error('calories') is-invalid @enderror" id="calories" name="calories" placeholder="kcal" value="{{ old('calories') }}" required />
         <div class="invalid-feedback">
-            @error('name')
+            @error('calories')
                 {{ $message }}
             @else
                 Please enter the calories greater 0.
@@ -42,92 +40,39 @@
         </div>
     </div>
 
-    <div class="col-md-3 mb-3">
-        <label for="carbohydrates">Carbohydrates</label>
-        <input type="number" min="0" step="0.1" class="form-control" id="carbohydrates" name="carbohydrates" placeholder="Carbohydrates per 100g/ml" value="{{ old('carbohydrates') }}" />
-        <div class="invalid-feedback">
-            @error('name')
-                {{ $message }}
-            @else
-                Please enter the optional carbohydrates, at least 0.
-            @enderror
-        </div>
+    <div class="col-6 col-md-3">
+        <label for="carbohydrates" class="form-label">Carbohydrates</label>
+        <input type="number" min="0" step="0.1" class="form-control" id="carbohydrates" name="carbohydrates" placeholder="g" value="{{ old('carbohydrates') }}" />
     </div>
 
-    <div class="col-md-3 mb-3">
-        <label for="sugar">Sugar</label>
-        <input type="number" min="0" step="0.1" class="form-control" id="sugar" name="sugar" placeholder="Sugar per 100g/ml" value="{{ old('sugar') }}" />
-        <div class="invalid-feedback">
-            @error('name')
-                {{ $message }}
-            @else
-                Please enter the optional sugar, at least 0.
-            @enderror
-        </div>
+    <div class="col-6 col-md-3">
+        <label for="sugar" class="form-label">Sugar</label>
+        <input type="number" min="0" step="0.1" class="form-control" id="sugar" name="sugar" placeholder="g" value="{{ old('sugar') }}" />
     </div>
 
-    <div class="col-md-3 mb-3">
-        <label for="fibre">Fibre</label>
-        <input type="number" min="0" step="0.1" class="form-control" id="fibre" name="fibre" placeholder="Fibre per 100g/ml" value="{{ old('fibre') }}" />
-        <div class="invalid-feedback">
-            @error('name')
-                {{ $message }}
-            @else
-                Please enter the optional fibre, at least 0.
-            @enderror
-        </div>
+    <div class="col-6 col-md-3">
+        <label for="fibre" class="form-label">Fibre</label>
+        <input type="number" min="0" step="0.1" class="form-control" id="fibre" name="fibre" placeholder="g" value="{{ old('fibre') }}" />
     </div>
 
-</div>
-
-<div class="row g-3">
-
-    <div class="col-md-3 mb-3">
-        <label for="fat">Fat</label>
-        <input type="number" min="0" step="0.1" class="form-control" id="fat" name="fat" placeholder="Fat per 100g/ml" value="{{ old('fat') }}" />
-        <div class="invalid-feedback">
-            @error('name')
-                {{ $message }}
-            @else
-                Please enter the optional fat, at least 0.
-            @enderror
-        </div>
+    <div class="col-6 col-md-3">
+        <label for="fat" class="form-label">Fat</label>
+        <input type="number" min="0" step="0.1" class="form-control" id="fat" name="fat" placeholder="g" value="{{ old('fat') }}" />
     </div>
 
-    <div class="col-md-3 mb-3">
-        <label for="saturated_fat">Saturated fat</label>
-        <input type="number" min="0" step="0.1" class="form-control" id="saturated_fat" name="saturated_fat" placeholder="Saturated fat per 100g/ml" value="{{ old('saturated_fat') }}" />
-        <div class="invalid-feedback">
-            @error('name')
-                {{ $message }}
-            @else
-                Please enter the optional saturated fat, at least 0.
-            @enderror
-        </div>
+    <div class="col-6 col-md-3">
+        <label for="saturated_fat" class="form-label">Saturated fat</label>
+        <input type="number" min="0" step="0.1" class="form-control" id="saturated_fat" name="saturated_fat" placeholder="g" value="{{ old('saturated_fat') }}" />
     </div>
 
-    <div class="col-md-3 mb-3">
-        <label for="protein">Protein</label>
-        <input type="number" min="0" step="0.1" class="form-control" id="protein" name="protein" placeholder="Protein per 100g/ml" value="{{ old('protein') }}" />
-        <div class="invalid-feedback">
-            @error('name')
-                {{ $message }}
-            @else
-                Please enter the optional protein, at least 0.
-            @enderror
-        </div>
+    <div class="col-6 col-md-3">
+        <label for="protein" class="form-label">Protein</label>
+        <input type="number" min="0" step="0.1" class="form-control" id="protein" name="protein" placeholder="g" value="{{ old('protein') }}" />
     </div>
 
-    <div class="col-md-3 mb-3">
-        <label for="sodium">Sodium</label>
-        <input type="number" min="0" step="0.1" class="form-control" id="sodium" name="sodium" placeholder="Sodium in mg per 100g/ml" value="{{ old('sodium') }}" />
-        <div class="invalid-feedback">
-            @error('name')
-                {{ $message }}
-            @else
-                Please enter the optional sodium, at least 0.
-            @enderror
-        </div>
+    <div class="col-6 col-md-3">
+        <label for="sodium" class="form-label">Sodium</label>
+        <input type="number" min="0" step="0.1" class="form-control" id="sodium" name="sodium" placeholder="mg" value="{{ old('sodium') }}" />
     </div>
 
 </div>

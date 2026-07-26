@@ -1,33 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="d-none d-md-block">
-            @include('weight.create_form')
+    <div class="container px-3 px-md-4" style="max-width: 1180px;">
+
+        <div class="d-flex justify-content-between align-items-center gap-3 mb-4">
+            <h1 class="ht-page-title mb-0">Weight</h1>
+            <a class="btn btn-primary d-md-none text-nowrap" href="{{ route('weights.create') }}" role="button"><i class="feather-20 align-text-bottom me-1" data-feather="plus"></i>Add</a>
         </div>
 
-        <div class="d-md-none">
-            <a class="btn btn-primary" href="{{ route('weights.create') }}" role="button"><i class="feather-20 align-text-bottom me-1" data-feather="plus"></i>Add a Weight</a>
+        {{-- Add a weight: inline card on desktop, dedicated page on mobile --}}
+        <div class="d-none d-md-block mb-5">
+            <h2 class="ht-section-title mb-3">Add a weight</h2>
+            <div class="card">
+                <div class="card-body p-4">
+                    @include('weight.create_form')
+                </div>
+            </div>
         </div>
 
-        <h1 class="mt-4">Weights</h1>
+        <h2 class="ht-section-title mb-3">Your weights</h2>
 
         @forelse ($weights as $weight)
             @component('weight.overview_card', [ 'weight' => $weight ])
             @endcomponent
         @empty
-            <p>There is currently no weight in the database.</p>
+            <div class="card">
+                <div class="card-body p-4 text-body-secondary text-center">
+                    There is currently no weight in the database.
+                </div>
+            </div>
         @endforelse
 
-        <div class="mt-2">
+        <div class="mt-4">
             {{ $weights->links() }}
         </div>
 
-        <p class="mt-3">
-            The
-            <span class="badge text-bg-secondary">Difference</span>
-            denotes the weight change to the previously recorded weight.
+        <p class="mt-3 text-body-tertiary" style="font-size:.8125rem;">
+            The chip shows the weight change relative to the previously recorded weight.
         </p>
-
     </div>
 @endsection

@@ -2,8 +2,8 @@
 
 <div class="row g-3">
 
-    <div class="col-md-3 mb-3">
-        <label for="consumed_at">Date</label>
+    <div class="col-6 col-md-3">
+        <label for="date" class="form-label">Date</label>
         <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="date" placeholder="Date" value="{{ old('date', Auth::user()->settings->localised_date_string) }}" required />
         <div class="invalid-feedback">
             @error('date')
@@ -14,8 +14,8 @@
         </div>
     </div>
 
-    <div class="col-md-3 mb-3">
-        <label for="weight">Amount</label>
+    <div class="col-6 col-md-3">
+        <label for="weight" class="form-label">Amount</label>
         <input type="number" min="1" step="0.1" class="form-control @error('weight') is-invalid @enderror" id="weight" name="weight" placeholder="Weight in kg" value="{{ old('weight') }}" required />
         <div class="invalid-feedback">
             @error('weight')

@@ -106,6 +106,46 @@ const app = createApp({
         dropdownTriggerList.map(function (el) {
             return new window.bootstrap.Dropdown(el);
         });
+
+        // Tri-state theme picker (system / light / dark) in the user menu. The
+        // resolved theme is applied before paint in the layout <head>; here we
+        // persist the chosen preference, mark the active option, and follow the
+        // OS setting live whenever the preference is "system".
+        const root = document.documentElement;
+        const themeItems = document.querySelectorAll('[data-theme-pref]');
+        if (themeItems.length) {
+            const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+            const getPref = () => localStorage.getItem('theme') || 'system';
+            const resolve = (pref) =>
+                pref === 'dark' || (pref === 'system' && media.matches) ? 'dark' : 'light';
+
+            const apply = () => {
+                const pref = getPref();
+                root.setAttribute('data-bs-theme', resolve(pref));
+                themeItems.forEach((item) => {
+                    item.setAttribute('aria-checked',
+                        item.getAttribute('data-theme-pref') === pref ? 'true' : 'false');
+                });
+            };
+
+            apply();
+
+            themeItems.forEach((item) => {
+                item.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    localStorage.setItem('theme', item.getAttribute('data-theme-pref'));
+                    apply();
+                });
+            });
+
+            // Follow the OS setting live while the preference is "system".
+            media.addEventListener('change', () => {
+                if (getPref() === 'system') {
+                    apply();
+                }
+            });
+        }
     },
 
     methods: {

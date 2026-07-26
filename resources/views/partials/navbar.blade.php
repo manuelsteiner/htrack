@@ -1,31 +1,32 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-    <div class="container">
-        <a class="navbar-brand" href="{{ route('home') }}">
-            {{ config('app.name', 'Laravel') }}
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container" style="max-width: 1180px;">
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="{{ route('home') }}" style="letter-spacing:-.3px;">
+            <span class="ht-logo">H</span>
+            <span>{{ config('app.name', 'HTrack') }}</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+
+        <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav me-auto ms-lg-4 gap-1">
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('consumptions.index') }}"><i class="feather-20 align-text-bottom me-1" data-feather="droplet"></i>{{ __('Consumption') }}</a>
+                        <a class="nav-link {{ request()->routeIs('consumptions.*') ? 'active' : '' }}" href="{{ route('consumptions.index') }}">{{ __('Consumption') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('foods.index') }}"><i class="feather-20 align-text-bottom me-1" data-feather="coffee"></i>{{ __('Food') }}</a>
+                        <a class="nav-link {{ request()->routeIs('foods.*') ? 'active' : '' }}" href="{{ route('foods.index') }}">{{ __('Food') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('weights.index') }}"><i class="feather-20 align-text-bottom me-1" data-feather="sliders"></i>{{ __('Weight') }}</a>
+                        <a class="nav-link {{ request()->routeIs('weights.*') ? 'active' : '' }}" href="{{ route('weights.index') }}">{{ __('Weight') }}</a>
                     </li>
                 @endauth
-
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
@@ -38,13 +39,30 @@
                     @endif
                 @else
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" v-pre>
-                            <i class="feather-20 align-text-bottom me-1" data-feather="user"></i>{{ Auth::user()->name }} <span class="caret"></span>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" v-pre>
+                            <span class="ht-avatar">{{ strtoupper(substr(Auth::user()->name, 0, 1)) }}</span>
+                            <span class="fw-semibold">{{ Auth::user()->name }}</span>
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('home') }}"><i class="feather-20 align-text-bottom me-1" data-feather="activity"></i>{{ __('Dashboard') }}</a>
                             <a class="dropdown-item" href="{{ route('settings.index') }}"><i class="feather-20 align-text-bottom me-1" data-feather="settings"></i>{{ __('Settings') }}</a>
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item d-flex align-items-center" href="#" role="menuitemradio" aria-checked="false" data-theme-pref="system">
+                                <i class="feather-20 align-text-bottom me-1" data-feather="monitor"></i>{{ __('System') }}
+                                <i class="feather-16 ms-auto theme-check" data-feather="check"></i>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#" role="menuitemradio" aria-checked="false" data-theme-pref="light">
+                                <i class="feather-20 align-text-bottom me-1" data-feather="sun"></i>{{ __('Light') }}
+                                <i class="feather-16 ms-auto theme-check" data-feather="check"></i>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#" role="menuitemradio" aria-checked="false" data-theme-pref="dark">
+                                <i class="feather-20 align-text-bottom me-1" data-feather="moon"></i>{{ __('Dark') }}
+                                <i class="feather-16 ms-auto theme-check" data-feather="check"></i>
+                            </a>
+                            <div class="dropdown-divider"></div>
+
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

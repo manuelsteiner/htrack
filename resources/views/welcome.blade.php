@@ -1,83 +1,27 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+@section('content')
+<div class="container-fluid px-3">
+    <div class="d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 72vh;">
+        <span class="ht-logo mb-4" style="width:56px; height:56px; border-radius:16px; font-size:30px;">H</span>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <h1 class="mb-2" style="font-size:40px; font-weight:800; letter-spacing:-1px;">{{ config('app.name', 'HTrack') }}</h1>
+        <p class="text-body-secondary mb-4" style="max-width:460px;">
+            Track your food, calories and macros — one clean daily view of your day so far.
+        </p>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div class="title m-b-md">
-                    {{ config('app.name', 'Laravel') }}
-                </div>
-
+        <div class="d-flex gap-2">
+            @auth
+                <a href="{{ route('home') }}" class="btn btn-primary"><i class="feather-20 align-text-bottom me-1" data-feather="activity"></i>Go to dashboard</a>
+            @else
                 @if (Route::has('login'))
-                    <div class="links">
-                        @auth
-                            <a href="{{ route('home') }}">Dashboard</a>
-                        @else
-                            <a href="{{ route('login') }}">Login</a>
-
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}">Register</a>
-                            @endif
-                        @endauth
-                    </div>
+                    <a href="{{ route('login') }}" class="btn btn-primary">Sign in</a>
                 @endif
-            </div>
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="btn btn-outline-secondary">Register</a>
+                @endif
+            @endauth
         </div>
-    </body>
-</html>
+    </div>
+</div>
+@endsection
