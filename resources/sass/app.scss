@@ -512,6 +512,40 @@ form label:not(.form-check-label):not(.btn) {
   }
 }
 
+// $font-size-base is 0.9rem (14.4px) everywhere, including .form-control/
+// .form-select and the v-select's --vs-font-size — below iOS Safari's 16px
+// auto-zoom-on-focus threshold, so focusing any field on a phone zooms the
+// whole page in. Bump to 1rem (16px) and re-floor min-height on top of that
+// only below `md`; buttons that can sit inline with a field (e.g. the
+// "Details" button beside the food v-select in consumption/fields.blade.php)
+// get the same min-height so they stay aligned instead of looking shorter.
+@include media-breakpoint-down(md) {
+  .form-control,
+  .form-select {
+    font-size: 1rem;
+    min-height: 44px;
+  }
+
+  .v-select {
+    --vs-font-size: 1rem;
+
+    .vs__dropdown-toggle {
+      min-height: 44px;
+    }
+  }
+
+  // min-height alone would grow the box without recentering its content —
+  // several buttons here are <a class="btn">, which (unlike <button>) has no
+  // built-in vertical centering, so the extra height just landed below the
+  // text/icon. Flex centering keeps it centered at any height.
+  .btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .dropdown-item-delete {
   color: var(--ht-carb);
 
