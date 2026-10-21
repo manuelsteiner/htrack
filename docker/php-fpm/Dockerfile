@@ -1,4 +1,4 @@
-FROM php:8.4-fpm
+FROM php:8.5-fpm-trixie
 
 # Arguments defined in docker-compose.yml
 ARG user
