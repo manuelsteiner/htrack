@@ -5,6 +5,8 @@ namespace App\Mcp\Servers;
 use App\Mcp\Tools\AddConsumptionTool;
 use App\Mcp\Tools\AddFoodTool;
 use App\Mcp\Tools\ConsumptionsSummaryTool;
+use App\Mcp\Tools\DeleteConsumptionTool;
+use App\Mcp\Tools\DeleteFoodTool;
 use App\Mcp\Tools\ListConsumptionsTool;
 use App\Mcp\Tools\ListFoodsTool;
 use App\Mcp\Tools\UpdateConsumptionTool;
@@ -15,7 +17,7 @@ use Laravel\Mcp\Server\Attributes\Name;
 use Laravel\Mcp\Server\Attributes\Version;
 
 #[Name('htrack')]
-#[Version('1.1.0')]
+#[Version('1.2.0')]
 #[Instructions(
     'htrack is a personal food tracking app. Use these tools to manage the authenticated user\'s '
     .'food database and daily consumption log.
@@ -31,6 +33,9 @@ use Laravel\Mcp\Server\Attributes\Version;
 '
     .'4. Fix mistakes with update-food (nutritional values; affects every consumption of that food) '
     .'or update-consumption (amount, date or food of one logged entry).
+'
+    .'5. Remove entries with delete-consumption, or delete-food for foods no consumption uses. '
+    .'Deleting is permanent: prefer the update tools for corrections and confirm with the user first.
 
 '
     .'Nutrient field names are fixed and the same in every tool: calories (kcal), carbohydrates, sugar, '
@@ -46,9 +51,11 @@ class HtrackServer extends Server
     protected array $tools = [
         AddFoodTool::class,
         UpdateFoodTool::class,
+        DeleteFoodTool::class,
         ListFoodsTool::class,
         AddConsumptionTool::class,
         UpdateConsumptionTool::class,
+        DeleteConsumptionTool::class,
         ListConsumptionsTool::class,
         ConsumptionsSummaryTool::class,
     ];
