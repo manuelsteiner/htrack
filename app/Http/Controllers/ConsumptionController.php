@@ -77,7 +77,7 @@ class ConsumptionController extends Controller
                 'amount' => 'required|numeric|min:1',
                 'name' => 'required',
                 'serving_size' => 'nullable|integer|min:1',
-                'calories' => 'nullable|numeric|min:0',
+                'calories' => 'required|numeric|min:0',
                 'carbohydrates' => 'nullable|numeric|min:0',
                 'sugar' => 'nullable|numeric|min:0',
                 'fibre' => 'nullable|numeric|min:0',
@@ -133,7 +133,12 @@ class ConsumptionController extends Controller
      */
     public function edit(Consumption $consumption)
     {
-        //
+        $this->authorizeOwnership($consumption);
+
+        $consumption->load('food');
+        $foods = Food::orderByRaw('name COLLATE NOCASE')->get();
+
+        return view('consumption.edit', ['consumption' => $consumption, 'foods' => $foods->toJson()]);
     }
 
     /**
@@ -145,7 +150,17 @@ class ConsumptionController extends Controller
      */
     public function update(Request $request, Consumption $consumption)
     {
-        //
+        $this->authorizeOwnership($consumption);
+
+        $validatedData = $request->validate([
+            'consumed_at' => 'required|date',
+            'amount' => 'required|numeric|min:1',
+            'food_id' => 'required|integer|exists:foods,id',
+        ]);
+
+        $consumption->update($validatedData);
+
+        return redirect()->route('consumptions.show', $consumption)->with('success', 'The consumption was successfully updated.');
     }
 
     /**
@@ -207,5 +222,10 @@ class ConsumptionController extends Controller
         $consumption->delete();
 
         return redirect()->route('consumptions.index')->with('success', 'The consumption was successfully deleted.');
+    }
+
+    private function authorizeOwnership(Consumption $consumption): void
+    {
+        abort_if((int) $consumption->user_id !== (int) auth()->id(), 403);
     }
 }

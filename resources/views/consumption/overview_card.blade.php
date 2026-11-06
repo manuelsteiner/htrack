@@ -22,6 +22,7 @@
                     </button>
 
                     <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="{{ route('consumptions.edit', $consumption) }}"><i class="feather-16 align-text-bottom me-2" data-feather="edit"></i>Edit consumption</a>
                         <form action="{{ route('consumptions.copyToToday', $consumption) }}" method="post">
                             @csrf
                             <button type="submit" class="dropdown-item"><i class="feather-16 align-text-bottom me-2" data-feather="copy"></i>Copy to today</button>

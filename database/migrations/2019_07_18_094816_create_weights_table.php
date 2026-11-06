@@ -20,7 +20,7 @@ class CreateWeightsTable extends Migration
 
             $table->unsignedBigInteger('user_id')->nullable();
 
-            $table->unique(['date, user_id']);
+            $table->unique(['date', 'user_id']);
 
             $table->timestamps();
 

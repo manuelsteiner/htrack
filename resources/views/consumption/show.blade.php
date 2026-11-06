@@ -39,6 +39,7 @@
                 @csrf
                 <button type="submit" class="btn btn-primary"><i class="feather-20 align-text-bottom me-1" data-feather="copy"></i>Copy to today</button>
             </form>
+            <a class="btn btn-outline-secondary" href="{{ route('consumptions.edit', $consumption) }}" role="button"><i class="feather-20 align-text-bottom me-1" data-feather="edit"></i>Edit consumption</a>
             <form action="{{ route('consumptions.destroy', $consumption) }}" method="post">
                 @csrf
                 @method('DELETE')
