@@ -49,18 +49,7 @@ class FoodController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'serving_size' => 'nullable|integer|min:1',
-            'calories' => 'nullable|numeric|min:0',
-            'carbohydrates' => 'nullable|numeric|min:0',
-            'sugar' => 'nullable|numeric|min:0',
-            'fibre' => 'nullable|numeric|min:0',
-            'fat' => 'nullable|numeric|min:0',
-            'saturated_fat' => 'nullable|numeric|min:0',
-            'protein' => 'nullable|numeric|min:0',
-            'sodium' => 'nullable|numeric|min:0',
-        ]);
+        $validatedData = $request->validate($this->rules());
 
         if (Food::where($validatedData)->exists()) {
             return redirect()->route('foods.index')->with('info', 'A food item with this name and nutritional values exists already.');
@@ -94,7 +83,11 @@ class FoodController extends Controller
      */
     public function edit(Food $food)
     {
-        //
+        $this->authorizeOwnership($food);
+
+        $food->loadCount('consumptions');
+
+        return view('food.edit', compact('food'));
     }
 
     /**
@@ -106,7 +99,17 @@ class FoodController extends Controller
      */
     public function update(Request $request, Food $food)
     {
-        //
+        $this->authorizeOwnership($food);
+
+        $validatedData = $request->validate($this->rules());
+
+        if (Food::where('id', '!=', $food->id)->where($validatedData)->exists()) {
+            return back()->withInput()->with('danger', 'Another food item with this name and nutritional values exists already.');
+        }
+
+        $food->update($validatedData);
+
+        return redirect()->route('foods.show', $food)->with('success', 'The food item was successfully updated.');
     }
 
     /**
@@ -120,5 +123,29 @@ class FoodController extends Controller
         $food->delete();
 
         return redirect()->route('foods.index')->with('success', 'The food item was successfully deleted.');
+    }
+
+    /**
+     * Validation rules shared by store and update.
+     */
+    private function rules(): array
+    {
+        return [
+            'name' => 'required',
+            'serving_size' => 'nullable|integer|min:1',
+            'calories' => 'required|numeric|min:0',
+            'carbohydrates' => 'nullable|numeric|min:0',
+            'sugar' => 'nullable|numeric|min:0',
+            'fibre' => 'nullable|numeric|min:0',
+            'fat' => 'nullable|numeric|min:0',
+            'saturated_fat' => 'nullable|numeric|min:0',
+            'protein' => 'nullable|numeric|min:0',
+            'sodium' => 'nullable|numeric|min:0',
+        ];
+    }
+
+    private function authorizeOwnership(Food $food): void
+    {
+        abort_if($food->user_id !== null && (int) $food->user_id !== (int) auth()->id(), 403);
     }
 }

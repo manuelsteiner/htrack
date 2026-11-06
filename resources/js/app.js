@@ -18,10 +18,15 @@ import vSelect from 'vue-select';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+// Edit pages embed the currently linked food as JSON so the v-select starts
+// out with it selected. Read it before mounting: Vue clears #app's DOM first.
+const initialFoodEl = document.getElementById('ht-initial-food');
+const initialFood = initialFoodEl ? JSON.parse(initialFoodEl.textContent) : null;
+
 const app = createApp({
     data() {
         return {
-            selected: {},
+            selected: initialFood || {},
             show_details: false
         };
     },

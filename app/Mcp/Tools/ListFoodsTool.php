@@ -83,14 +83,18 @@ class ListFoodsTool extends Tool
         $serving = $food['serving_size'] !== null ? sprintf(' (serving %s)', $food['serving_size']) : '';
 
         return sprintf(
-            '#%d %s%s — %s kcal, %sg carbs, %sg fat, %sg protein.',
+            '#%d %s%s — %s kcal, %sg carbs, %sg sugar, %sg fibre, %sg fat, %sg saturated fat, %sg protein, %smg sodium.',
             $food['id'],
             $food['name'],
             $serving,
             $this->fmt($food['calories']),
             $this->fmt($food['carbohydrates']),
+            $this->fmt($food['sugar']),
+            $this->fmt($food['fibre']),
             $this->fmt($food['fat']),
+            $this->fmt($food['saturated_fat']),
             $this->fmt($food['protein']),
+            $this->fmt($food['sodium']),
         );
     }
 
